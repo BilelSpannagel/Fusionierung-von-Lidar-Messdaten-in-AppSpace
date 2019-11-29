@@ -1,4 +1,4 @@
-local Viewer = {}
+local ViewerModule = {}
 
 function ViewerModule.PointCloudViewer(cloud)
 
