@@ -1,7 +1,7 @@
 local receiverModule = {}
 
 Script.disableGarbageCollectionByEngine()
-function receiverModule.Receiver()
+
 scanViewer = View.create("scanViewer")
 
 local scanViewDecorations = {}
@@ -54,7 +54,7 @@ local function drawScans()
 end
 
 
-local function main()
+function receiverModule.Receiver()
 
   
   socket = UDPSocket.create()
