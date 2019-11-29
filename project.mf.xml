@@ -15,6 +15,7 @@
         <entry path="scripts" default="LIDAR_AppSpace.lua">
             <file type="text/x-lua">LIDAR_AppSpace.lua</file>
             <file type="text/x-lua">Receiver.lua</file>
+            <file type="text/x-lua">removePointsBeyond.lua</file>
             <file type="text/x-lua">Sender.lua</file>
             <file type="text/x-lua">Viewer.lua</file>
         </entry>
