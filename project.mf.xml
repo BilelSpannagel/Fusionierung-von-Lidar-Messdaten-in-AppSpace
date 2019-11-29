@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<manifest>
+    <application name="LIDAR_AppSpace">
+        <crown name="LIDAR_AppSpace">
+            <desc>user script</desc>
+            <serves/>
+        </crown>
+        <meta key="author">Bilel Spannagel</meta>
+        <meta key="version">3.0.0</meta>
+        <meta key="priority">low</meta>
+        <meta key="tags">Scan,PointCloud</meta>
+        <meta key="read-protected">false</meta>
+        <meta key="copy-protected">false</meta>
+        <entry path="scripts" default="LIDAR_AppSpace.lua"/>
+    </application>
+</manifest>
