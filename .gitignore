@@ -2,6 +2,8 @@
 # Created by https://www.gitignore.io/api/lua
 # Edit at https://www.gitignore.io/?templates=lua
 
+### Project File ###
+project.mf.xml
 ### Lua ###
 # Compiled Lua sources
 luac.out
