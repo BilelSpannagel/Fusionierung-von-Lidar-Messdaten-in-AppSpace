@@ -1,5 +1,7 @@
+local RemovePointsBeyond = {}
+
 --@removePointsBeyond(inputCloud: PointCloud, maxDistance: double):PointCloud
-local function removePointsBeyond(inputCloud, maxDistance)
+function RemovePointsBeyond.removePointsBeyond(inputCloud, maxDistance)
   local resultCloud = PointCloud.create()
   local size, width, height = inputCloud:getSize()
   for i = 1, (size - 1) do
@@ -11,3 +13,5 @@ local function removePointsBeyond(inputCloud, maxDistance)
   end
   return resultCloud
 end
+
+return RemovePointsBeyond
