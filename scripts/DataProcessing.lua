@@ -16,7 +16,7 @@ end
 
 --@getMinDistanceAndEdgeLengths(inputCloud:PointCloud):Float, Float, Float
 function DataProcessing.getMinDistanceAndEdgeLengths(inputCloud)
-  local closestPoint, minDistance, firstPoint, lastPoint, firstEdgeLength
+  local closestPoint, minDistance, firstPoint, lastPoint, firstEdgeLength, pointCloudSize
   local secondEdgeLength, closestPointIndex, leftClosestPoint, rightClosestPoint, _
 
   closestPoint, closestPointIndex, firstPoint, lastPoint = DataProcessing.getCorners(inputCloud)
@@ -24,8 +24,9 @@ function DataProcessing.getMinDistanceAndEdgeLengths(inputCloud)
   
   firstEdgeLength = Point.getDistance(firstPoint, closestPoint)
   secondEdgeLength = Point.getDistance(closestPoint, lastPoint)
+  pointCloudSize = inputCloud:getSize()
 
-  if ((closestPoint == firstPoint) or (closestPoint == lastPoint)) then
+  if ((closestPointIndex == 0) or (closestPointIndex == pointCloudSize - 1)) then
     return minDistance, Point.getDistance(firstPoint, lastPoint)
   else
    leftClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex - 1)
@@ -35,7 +36,7 @@ function DataProcessing.getMinDistanceAndEdgeLengths(inputCloud)
      (Point.getDistance(leftClosestPoint, closestPoint) + Point.getDistance(closestPoint, rightClosestPoint))) then
       return minDistance, (firstEdgeLength + secondEdgeLength)
     else
-     return minDistance, firstEdgeLength , secondEdgeLength
+     return minDistance, firstEdgeLength, secondEdgeLength
     end
   end
 end

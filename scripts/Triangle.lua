@@ -37,5 +37,11 @@ function Triangle.createOneLine()
   end
   return cloud
 end
-
+function Triangle.createOneLineWithFirstPointAsClosestPoint()
+  local cloud = PointCloud.create()
+  for i = 0, 100 do
+    cloud:appendPoint(i, 500, 0, 1)
+  end
+  return cloud
+end
 return Triangle
