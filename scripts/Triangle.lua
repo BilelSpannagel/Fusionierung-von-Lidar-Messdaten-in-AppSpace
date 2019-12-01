@@ -17,4 +17,25 @@ function Triangle.createTriangle()
   return triangleCloud
 end
 
+function Triangle.createTwoLines()
+  local cloud = PointCloud.create()
+  for i = 600, 500, -1 do
+    cloud:appendPoint(i, i, 0, 1)
+  end
+  local counter = 499
+  for i = 501, 600 do
+    cloud:appendPoint(i, counter, 0, 1)
+    counter = counter -1
+  end
+  return cloud
+end
+
+function Triangle.createOneLine()
+  local cloud = PointCloud.create()
+  for i = -50, 50 do
+    cloud:appendPoint(i, 500, 0, 1)
+  end
+  return cloud
+end
+
 return Triangle

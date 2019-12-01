@@ -1,4 +1,4 @@
-local senderModule = {]}
+local senderModule = {}
 
 Script.disableGarbageCollectionByEngine()
 
@@ -19,5 +19,4 @@ function senderModule.Sender()
   
   
 end
-Script.register("Engine.OnStarted", main)
--- serve API in global scope
+return senderModule

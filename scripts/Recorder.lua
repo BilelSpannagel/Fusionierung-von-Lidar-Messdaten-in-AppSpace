@@ -1,3 +1,4 @@
+local recorderModule = {}
 
 local dataSource = "local"       -- can be local or remote
 local ipAddress = "192.168.1.10"  -- if remote
@@ -70,7 +71,5 @@ local function main()
   gRecorder:setDataFormat(string.upper(filetype))
 
 end
-Script.register("Engine.OnStarted", main)
 
-
-
+return recorderModule
