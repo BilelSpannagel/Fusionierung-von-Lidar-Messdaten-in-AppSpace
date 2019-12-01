@@ -16,18 +16,29 @@ end
 
 --@getMinDistanceAndEdgeLengths(inputCloud:PointCloud):Float, Float, Float
 function DataProcessing.getMinDistanceAndEdgeLengths(inputCloud)
-  local zeroPoint, closestPoint, minDistance, pointCloudSize, firstPoint, lastPoint, firstEdgeLength, secondEdgeLength,_
+  local zeroPoint, closestPoint, minDistance, pointCloudSize, firstPoint, lastPoint, firstEdgeLength
+  local  secondEdgeLength, closestPointIndex, leftClosestPoint, rightClosestPoint, _
   zeroPoint = Point.create(0, 0, 0)
-  closestPoint, _ = inputCloud:findClosestPoint(zeroPoint)
+  closestPoint, closestPointIndex = inputCloud:findClosestPoint(zeroPoint)
   minDistance = Point.getDistance(closestPoint, zeroPoint)
-
+  
   pointCloudSize, _ = inputCloud:getSize()
   firstPoint, _ = inputCloud:getPoint3D(0)
   lastPoint, _ = inputCloud:getPoint3D(pointCloudSize - 1)
-
+  
   firstEdgeLength = Point.getDistance(firstPoint, closestPoint)
   secondEdgeLength = Point.getDistance(closestPoint, lastPoint)
-  return minDistance, firstEdgeLength , secondEdgeLength
+
+  leftClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex - 1)
+  rightClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex + 1)
+
+  if (Point.getDistance(leftClosestPoint, rightClosestPoint) * 1.1 >
+    (Point.getDistance(leftClosestPoint, closestPoint) + Point.getDistance(closestPoint, rightClosestPoint))) then
+    print("One Line")
+    return minDistance, (firstEdgeLength + secondEdgeLength)
+  else
+    return minDistance, firstEdgeLength , secondEdgeLength
+  end
 end
 
 return DataProcessing
