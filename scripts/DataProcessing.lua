@@ -44,4 +44,27 @@ function DataProcessing.getMinDistanceAndEdgeLengths(inputCloud)
   end
 end
 
+--@getCorners(inputCloud:PointCloud):Point, Point, Point
+function DataProcessing.getCorners(inputCloud)
+  local zeroPoint, closestPoint, secondPoint, thirdPoint, _
+  zeroPoint = Point.create(0, 0, 0)
+  closestPoint, _ = inputCloud:findClosestPoint(zeroPoint)
+  secondPoint, _ = inputCloud:getPoint3D(0)
+  thirdPoint, _ = inputCloud:getPoint3D(inputCloud:getSize()-1)
+  return closestPoint, secondPoint, thirdPoint
+end
+
+--@getSensorPoisition(firstPoint:Point, secondPoint:Point, thirdPoint:Point):Point, Point, Point
+function DataProcessing.getVectors(firstPoint, secondPoint, thirdPoint)
+  local zeroPoint, zfVector, zsVector, ztVector
+  zeroPoint = Point.create(0, 0, 0)
+  zfVector = Point.create(firstPoint.getX()-zeroPoint.getX(),firstPoint.getY()-zeroPoint.getY()
+  ,firstPoint.getZ()-zeroPoint.getZ())
+  zsVector = Point.create(secondPoint.getX()-zeroPoint.getX(),secondPoint.getY()-zeroPoint.getY()
+  ,secondPoint.getZ()-zeroPoint.getZ())
+  ztVector = Point.create(thirdPoint.getX()-zeroPoint.getX(),thirdPoint.getY()-zeroPoint.getY()
+  ,thirdPoint.getZ()-zeroPoint.getZ())
+  return zfVector, zsVector, ztVector
+end
+
 return DataProcessing
