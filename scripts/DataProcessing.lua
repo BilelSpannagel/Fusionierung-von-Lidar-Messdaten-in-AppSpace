@@ -16,20 +16,16 @@ end
 
 --@getMinDistanceAndEdgeLengths(inputCloud:PointCloud):Float, Float, Float
 function DataProcessing.getMinDistanceAndEdgeLengths(inputCloud)
-  local zeroPoint, closestPoint, minDistance, pointCloudSize, firstPoint, lastPoint, firstEdgeLength
-  local  secondEdgeLength, closestPointIndex, leftClosestPoint, rightClosestPoint, _
-  zeroPoint = Point.create(0, 0, 0)
-  closestPoint, closestPointIndex = inputCloud:findClosestPoint(zeroPoint)
-  minDistance = Point.getDistance(closestPoint, zeroPoint)
-  
-  pointCloudSize, _ = inputCloud:getSize()
-  firstPoint, _ = inputCloud:getPoint3D(0)
-  lastPoint, _ = inputCloud:getPoint3D(pointCloudSize - 1)
+  local closestPoint, minDistance, firstPoint, lastPoint, firstEdgeLength
+  local secondEdgeLength, closestPointIndex, leftClosestPoint, rightClosestPoint, _
+
+  closestPoint, closestPointIndex, firstPoint, lastPoint = DataProcessing.getCorners(inputCloud)
+  minDistance = Point.getDistance(closestPoint, Point.create(0, 0, 0))
   
   firstEdgeLength = Point.getDistance(firstPoint, closestPoint)
   secondEdgeLength = Point.getDistance(closestPoint, lastPoint)
 
-  if ((closestPointIndex == 0) or (closestPointIndex == pointCloudSize -1)) then
+  if ((closestPoint == firstPoint) or (closestPoint == lastPoint)) then
     return minDistance, Point.getDistance(firstPoint, lastPoint)
   else
    leftClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex - 1)
@@ -44,14 +40,14 @@ function DataProcessing.getMinDistanceAndEdgeLengths(inputCloud)
   end
 end
 
---@getCorners(inputCloud:PointCloud):Point, Point, Point
+--@getCorners(inputCloud:PointCloud):Point, Integer, Point, Point
 function DataProcessing.getCorners(inputCloud)
-  local zeroPoint, closestPoint, secondPoint, thirdPoint, _
+  local zeroPoint, closestPoint, secondPoint, thirdPoint, closestPointIndex, _
   zeroPoint = Point.create(0, 0, 0)
-  closestPoint, _ = inputCloud:findClosestPoint(zeroPoint)
+  closestPoint, closestPointIndex = inputCloud:findClosestPoint(zeroPoint)
   secondPoint, _ = inputCloud:getPoint3D(0)
   thirdPoint, _ = inputCloud:getPoint3D(inputCloud:getSize()-1)
-  return closestPoint, secondPoint, thirdPoint
+  return closestPoint, closestPointIndex, secondPoint, thirdPoint
 end
 
 --@getSensorPoisition(firstPoint:Point, secondPoint:Point, thirdPoint:Point):Point, Point, Point
