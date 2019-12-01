@@ -1,7 +1,21 @@
-local GetMinDistanceAndEdgeLengths = {}
+local DataProcessing = {}
+
+--@removePointsBeyond(inputCloud: PointCloud, maxDistance: double):PointCloud
+function DataProcessing.removePointsBeyond(inputCloud, maxDistance)
+  local resultCloud = PointCloud.create()
+  local size, _, _ = inputCloud:getSize()
+  for i = 1, (size - 1) do
+    local point, intensity = inputCloud:getPoint3D(i)
+    local distance, _ = Point.getDistance(point, Point.create(0, 0, 0))
+    if ( distance < maxDistance) then
+      resultCloud:appendPoint(point:getX(), point:getY(), point:getZ(), intensity)
+    end
+  end
+  return resultCloud
+end
 
 --@getMinDistanceAndEdgeLengths(inputCloud:PointCloud):Float, Float, Float
-function GetMinDistanceAndEdgeLengths.getMinDistanceAndEdgeLengths(inputCloud)
+function DataProcessing.getMinDistanceAndEdgeLengths(inputCloud)
   local zeroPoint, closestPoint, minDistance, pointCloudSize, firstPoint, lastPoint, firstEdgeLength, secondEdgeLength,_
   zeroPoint = Point.create(0, 0, 0)
   closestPoint, _ = inputCloud:findClosestPoint(zeroPoint)
@@ -16,4 +30,4 @@ function GetMinDistanceAndEdgeLengths.getMinDistanceAndEdgeLengths(inputCloud)
   return minDistance, firstEdgeLength , secondEdgeLength
 end
 
-return GetMinDistanceAndEdgeLengths
+return DataProcessing
