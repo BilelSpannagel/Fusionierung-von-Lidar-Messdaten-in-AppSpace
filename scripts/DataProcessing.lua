@@ -29,15 +29,18 @@ function DataProcessing.getMinDistanceAndEdgeLengths(inputCloud)
   firstEdgeLength = Point.getDistance(firstPoint, closestPoint)
   secondEdgeLength = Point.getDistance(closestPoint, lastPoint)
 
-  leftClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex - 1)
-  rightClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex + 1)
-
-  if (Point.getDistance(leftClosestPoint, rightClosestPoint) * 1.1 >
-    (Point.getDistance(leftClosestPoint, closestPoint) + Point.getDistance(closestPoint, rightClosestPoint))) then
-    print("One Line")
-    return minDistance, (firstEdgeLength + secondEdgeLength)
+  if ((closestPointIndex == 0) or (closestPointIndex == pointCloudSize -1)) then
+    return minDistance, Point.getDistance(firstPoint, lastPoint)
   else
-    return minDistance, firstEdgeLength , secondEdgeLength
+   leftClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex - 1)
+   rightClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex + 1)
+
+   if (Point.getDistance(leftClosestPoint, rightClosestPoint) * 1.1 >
+     (Point.getDistance(leftClosestPoint, closestPoint) + Point.getDistance(closestPoint, rightClosestPoint))) then
+      return minDistance, (firstEdgeLength + secondEdgeLength)
+    else
+     return minDistance, firstEdgeLength , secondEdgeLength
+    end
   end
 end
 
