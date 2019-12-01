@@ -87,8 +87,6 @@ function receiverModule.Receiver()
       scans = {}
     end
   end
-
-
 end
-Script.register("Engine.OnStarted", main)
--- serve API in global scope
+
+return receiverModule
