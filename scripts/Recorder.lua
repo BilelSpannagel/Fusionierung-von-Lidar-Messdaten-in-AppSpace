@@ -43,7 +43,7 @@ local function abspielen()
     print("playback started")
   end
 end
-Script.serveFunction("Recorder.play",abspielen)
+Script.serveFunction("Recorder.abspielen",abspielen)
 
 local function aufnahmeStoppen()
     gRecorder:removeAllTargets()
@@ -56,7 +56,7 @@ local function aufnahmeStoppen()
     gPlaybackStopped = true
     print("all stopped")
 end
-Script.serveFunction("ScanRecorder.stop",stop)
+Script.serveFunction("Recorder.aufnahmeStoppen",aufnahmeStoppen)
 
 local function timerAblauf()
   print("Timerfunktion")
