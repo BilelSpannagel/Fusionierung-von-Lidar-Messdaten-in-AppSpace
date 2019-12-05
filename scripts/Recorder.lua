@@ -30,6 +30,34 @@ local function aufnahmeStarten()
 end
 Script.serveFunction("Recorder.aufnahmeStarten", aufnahmeStarten())
 
+local function abspielen()
+  gPlayer:setFileSource(path..gFilename..".sdr."..filetype,path..gFilename..".sdri"..filetype)
+  if gRecordingStopped then
+    if gPlaybackPaused then
+      gPlayer:pause()
+    else
+      gPlayer:start()
+    end
+    gPlaybackStopped = false
+    gPlaybackPaused = false
+    print("playback started")
+  end
+end
+Script.serveFunction("Recorder.play",abspielen)
+
+local function aufnahmeStoppen()
+    gRecorder:removeAllTargets()
+    gRecorder:stop()
+    if dataSource == "remote" then
+      gScanProvider:stop()
+    end
+    gRecordingStopped = true
+    gPlayer:stop()
+    gPlaybackStopped = true
+    print("all stopped")
+end
+Script.serveFunction("ScanRecorder.stop",stop)
+
 local function timerAblauf()
   print("Timerfunktion")
   while(1) do
@@ -38,7 +66,7 @@ local function timerAblauf()
 end
 
 
-local function main() 
+local function main()
 
   local  crownName = ""
   if dataSource == "remote" then
@@ -74,7 +102,10 @@ local function main()
 
 
   aufnahmeStarten()
+  Script.sleep(5000)
+  aufnahmeStoppen()
   print("main ende erreicht")
+
 end
 Script.register("Engine.OnStarted", main)
 
