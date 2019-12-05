@@ -4,7 +4,7 @@ local dataSource = "local"       -- can be local or remote
 local ipAddress = "192.168.1.10"  -- if remote
 
 local path = "public/"            -- path to save the recorded data in
-local gFilename = "Aufnahme01"      -- filenames used for recoded data
+local gFilename = "Aufnahme02"      -- filenames used for recoded data
 local filetype = "json"        -- msgpack or json
 
 local gRecordingStopped = true --true while recording scans
@@ -19,31 +19,26 @@ local gScanProvider
 
 
 
---Aufnahme
-
-gRecorder:addFileTarget(path..gFilename..".sdr."..filetype,path..gFilename..".sdri."..filetype)
+local function aufnahmeStarten()
+  print("Aufnahme wird eingerichtet")
+  if dataSource == "remote" then
+    gScanProvider:stop()
+  end
+  gRecorder:addFileTarget(path..gFilename..".sdr."..filetype,path..gFilename..".sdri."..filetype)
+  gRecorder:start()
+  print("Aufnahme gestartet")
+end
+Script.serveFunction("Recorder.aufnahmeStarten", aufnahmeStarten())
 
 local function timerAblauf()
-
-
-if dataSource == "remote" then
-  gScanProvider:stop()
-end
-gRecorder:start()
-print("Aufnahme gestartet")
-
+  print("Timerfunktion")
+  while(1) do
+  end
+--  Aufnahme()
 end
 
-local handle = Timer.create()
-Timer.setExpirationTime(handle, 5000)
-Timer.setPeriodic(handle, false)
-Timer.register(handle, "OnExpired", timerAblauf)
-handle:start()
 
-local function main()
-
-  
-
+local function main() 
 
   local  crownName = ""
   if dataSource == "remote" then
@@ -70,6 +65,17 @@ local function main()
   gRecorder:setProviders(Providers)
   gRecorder:setDataFormat(string.upper(filetype))
 
+  local handle = Timer.create()
+  Timer.setExpirationTime(handle, 10)
+  Timer.setPeriodic(handle, true)
+  Timer.start(handle)
+  Timer.register(handle, "OnExpired", timerAblauf)
+  print("Timer gestartet")
+
+
+  aufnahmeStarten()
+  print("main ende erreicht")
 end
+Script.register("Engine.OnStarted", main)
 
 return recorderModule
