@@ -7,7 +7,7 @@ local function main()
   --local cloud = Triangle.createOneLine()
   --local cloud = Triangle.createOneLineWithFirstPointAsClosestPoint()
   local changedCloud = DataProcessing.removePointsBeyond(cloud, 1000)
-  print(DataProcessing.getMinDistanceAndEdgeLengths(changedCloud))
+  print(DataProcessing.getTwoCornersAndEdgeLength(changedCloud))
   PointCloudViewer.PointCloudViewer(changedCloud)
 
   scanProvider = Scan.Provider.Scanner.create()

@@ -1,6 +1,6 @@
 local utils = {}
 
-triangleSideLengths = {10,12,15}
-
+predifinedSideLengths = {100,120,150}
+originPoint = Point.create(0, 0, 0)
 
 return utils
