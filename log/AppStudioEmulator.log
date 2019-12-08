@@ -1,0 +1,10 @@
+INIT:AppStudioEmulator options:
+ - DeviceModel: FullFeatured
+
+AppStudioEmulator interaction keys:
+ - KEY-1: Toggle IN-1
+ - KEY-2: Toggle IN-2
+ - KEY-L: Toggle license valid
+
+AppStudioEmulator is running.
+

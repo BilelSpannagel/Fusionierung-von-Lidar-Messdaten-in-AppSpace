@@ -1,0 +1,19 @@
+{
+  "version": "1.0", 
+  "pages": [
+    {
+      "category": "Received Scan",
+      "pages{
+        "path":"pages01/main.html"
+        "name": "Received Scan"
+      }
+    },
+    {
+      "category": "Settings",
+      "pages{
+        "path":"pages01/Settings.html"
+        "name": "Settings"
+      }
+    }
+  ]
+}

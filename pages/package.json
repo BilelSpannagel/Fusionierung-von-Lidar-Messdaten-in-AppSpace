@@ -1,0 +1,11 @@
+{
+  "name": "Receiver",
+  "version": "1.0.0",
+  "description": "Generated",
+  "components": [
+    "@sick-davinci/basic-elements"
+  ],
+  "dependencies": {
+    "@sick-davinci/basic-elements": "^4.0.2"
+  }
+}

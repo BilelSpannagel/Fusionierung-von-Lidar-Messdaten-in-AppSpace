@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE log4edp:configuration SYSTEM "log4edp.dtd">
+<log4edp:configuration xmlns:log4edp="www.sick.de/edp/logging">
+  <root>
+    <level value="warning" />
+  </root>
+</log4edp:configuration>

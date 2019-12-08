@@ -1,0 +1,28 @@
+!SESSION 2019-12-08 11:26:21.720 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_201
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+
+!ENTRY org.eclipse.osgi 4 0 2019-12-08 11:26:22.446
+!MESSAGE The -clean (osgi.clean) option was not successful. Unable to clean the storage area: C:\Users\Michael\AppData\Local\SICK\AppStudio\3.0.0\configuration\org.eclipse.osgi
+
+!ENTRY org.eclipse.emf.ecore 2 0 2019-12-08 11:26:27.303
+!MESSAGE Both 'de.sick.sopas.one.editors.parameter.editor.model' and 'de.sick.sopas.one.editors.parameter.editor.srtconfigsupport.model.legacy' register a package for 'platform:/resource/de.sick.sopas.udd.xsd/model/udd/ContractCID.xsd'
+
+!ENTRY org.eclipse.emf.ecore 2 0 2019-12-08 11:26:27.317
+!MESSAGE Both 'de.sick.sopas.one.editors.parameter.editor.model' and 'de.sick.sopas.one.editors.parameter.editor.srtconfigsupport.model.legacy' register an extension parser for 'contractcid'
+!SESSION 2019-12-08 11:29:15.284 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_201
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+
+!ENTRY org.eclipse.osgi 4 0 2019-12-08 11:29:15.992
+!MESSAGE The -clean (osgi.clean) option was not successful. Unable to clean the storage area: C:\Users\Michael\AppData\Local\SICK\AppStudio\3.0.0\configuration\org.eclipse.osgi
+
+!ENTRY org.eclipse.emf.ecore 2 0 2019-12-08 11:29:20.319
+!MESSAGE Both 'de.sick.sopas.one.editors.parameter.editor.model' and 'de.sick.sopas.one.editors.parameter.editor.srtconfigsupport.model.legacy' register a package for 'platform:/resource/de.sick.sopas.udd.xsd/model/udd/ContractCID.xsd'
+
+!ENTRY org.eclipse.emf.ecore 2 0 2019-12-08 11:29:20.334
+!MESSAGE Both 'de.sick.sopas.one.editors.parameter.editor.model' and 'de.sick.sopas.one.editors.parameter.editor.srtconfigsupport.model.legacy' register an extension parser for 'contractcid'

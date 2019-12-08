@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="ASCII"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_b9eYwRmlEeqO7pusHtFedw" elementId="org.efxclipse.e4.application" contributorURI="platform:/plugin/de.sick.appstudio" selectedElement="_b9eYwhmlEeqO7pusHtFedw" bindingContexts="_b9hcSxmlEeqO7pusHtFedw">
+  <persistedState key="version" value="3.0.0"/>
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_b9eYwhmlEeqO7pusHtFedw" elementId="org.efxclipse.e4.mainWindow" contributorURI="platform:/plugin/de.sick.appstudio" selectedElement="_b9eYwxmlEeqO7pusHtFedw" label="SICK AppStudio" iconURI="platform:/plugin/de.sick.appstudio/icons/logo64x64.png" x="0" y="0" width="1920" height="1040">
+    <persistedState key="efx.window.root.fxml" value="platform:/plugin/de.sick.appstudio/de/sick/appstudio/decoration/FrameDecorator.fxml"/>
+    <persistedState key="efx.window.stagestyle" value="UNDECORATED"/>
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_b9eYwxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.perspectivestack.0" contributorURI="platform:/plugin/de.sick.appstudio" selectedElement="_b9eYxBmlEeqO7pusHtFedw">
+      <children xsi:type="advanced:Perspective" xmi:id="_b9eYxBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.perspective.developer" contributorURI="platform:/plugin/de.sick.appstudio" selectedElement="_b9eYxRmlEeqO7pusHtFedw" label="Programming">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_b9eYxRmlEeqO7pusHtFedw" elementId="appstudio.partsashcontainer.main" contributorURI="platform:/plugin/de.sick.appstudio" containerData="" selectedElement="_b9eYxhmlEeqO7pusHtFedw" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_b9eYxhmlEeqO7pusHtFedw" elementId="appstudio.partsashcontainer.browse_panels" contributorURI="platform:/plugin/de.sick.appstudio" containerData="1.3324607329842932" selectedElement="_b9eYxxmlEeqO7pusHtFedw">
+            <tags>fx_no_auto_resize</tags>
+            <children xsi:type="basic:PartStack" xmi:id="_b9eYxxmlEeqO7pusHtFedw" elementId="appstudio.partstack.explore_pane" contributorURI="platform:/plugin/de.sick.appstudio" containerData="4.973460721868365" selectedElement="_b9eYyBmlEeqO7pusHtFedw">
+              <tags>efx_styleclass:tab-panel</tags>
+              <tags>NoAutoCollapse</tags>
+              <children xsi:type="basic:Part" xmi:id="_b9eYyBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.part.appexplorer" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.appexplorer.AppExplorerPart" label="Working directory" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/elements_tree.png" bindingContexts="_b9hcTRmlEeqO7pusHtFedw">
+                <toolbar xmi:id="_b9eYyRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.toolbar.4" contributorURI="platform:/plugin/de.sick.appstudio">
+                  <tags>efx_styleclass:panel-tool-bar</tags>
+                  <children xsi:type="menu:DirectToolItem" xmi:id="_b9eYyhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.directtoolitem.showInactiveApps" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/app_inactive.png" tooltip="Show inactive Apps" selected="true" type="Check" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ToggleShowInactiveAppsHandler"/>
+                  <children xsi:type="menu:ToolControl" xmi:id="_b9eYyxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.toolcontrol.1" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.appexplorer.AppExplorerLinkControl"/>
+                  <children xsi:type="menu:HandledToolItem" xmi:id="_b9eYzBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledtoolitem.refreshappexplorer" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/refresh.png" tooltip="Reload working directory" command="_b9iDWxmlEeqO7pusHtFedw"/>
+                </toolbar>
+              </children>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_b9eYzRmlEeqO7pusHtFedw" elementId="appstudio.partstack.device_pane" contributorURI="platform:/plugin/de.sick.appstudio" containerData="2.515923566878981" selectedElement="_b9eYzhmlEeqO7pusHtFedw">
+              <tags>efx_styleclass:tab-panel</tags>
+              <children xsi:type="basic:Part" xmi:id="_b9eYzhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.part.installedapps" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appspace.installedapps.e4/de.sick.appspace.installedapps.e4.InstalledAppsPart" label="Device" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/plug_lan_black.png" tooltip="Apps installed on device">
+                <toolbar xmi:id="_b9eYzxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.toolbar.3" contributorURI="platform:/plugin/de.sick.appstudio">
+                  <children xsi:type="menu:DirectToolItem" xmi:id="_b9eY0BmlEeqO7pusHtFedw" elementId="de.sick.appstudio.UploadSelectedApps" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/upload_apps.png" tooltip="Transfer selected Apps to the working dir" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.UploadAppsHandler"/>
+                  <children xsi:type="menu:DirectToolItem" xmi:id="_b9e_0BmlEeqO7pusHtFedw" elementId="de.sick.appstudio.installedApps.refresh" contributorURI="platform:/plugin/de.sick.appstudio" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/refresh.png" contributionURI="bundleclass://de.sick.appspace.installedapps.e4/de.sick.appspace.installedapps.e4.InstalledAppsRefreshHandler"/>
+                </toolbar>
+              </children>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_b9e_0RmlEeqO7pusHtFedw" elementId="appstudio.partstack.browse_pane" contributorURI="platform:/plugin/de.sick.appstudio" containerData="2.5106157112526537" selectedElement="_b9e_0hmlEeqO7pusHtFedw">
+              <tags>efx_styleclass:tab-panel</tags>
+              <tags>EditorBrowserContext</tags>
+              <children xsi:type="basic:Part" xmi:id="_b9e_0hmlEeqO7pusHtFedw" elementId="appstudio.part.constants" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.constantsbrowser.ConstantsBrowser" label="Constants" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/pawn.png"/>
+            </children>
+          </children>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_b9e_0xmlEeqO7pusHtFedw" elementId="appstudio.partsashcontainer.center" contributorURI="platform:/plugin/de.sick.appstudio" containerData="8.667539267015707" selectedElement="_b9e_1BmlEeqO7pusHtFedw">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_b9e_1BmlEeqO7pusHtFedw" elementId="appstudio.partsashcontainer.user_input" contributorURI="platform:/plugin/de.sick.appstudio" containerData="7.542462845010616" horizontal="true">
+              <children xsi:type="basic:PartStack" xmi:id="_b9e_1RmlEeqO7pusHtFedw" elementId="appstudio.partstack.editors" contributorURI="platform:/plugin/de.sick.appstudio" containerData="8.159008464328899">
+                <tags>efx_styleclass:tab-panel</tags>
+                <tags>EditorContext</tags>
+                <tags>NoAutoCollapse</tags>
+              </children>
+              <children xsi:type="basic:PartStack" xmi:id="_b9e_1hmlEeqO7pusHtFedw" elementId="appstudio.partstack.interactive1" contributorURI="platform:/plugin/de.sick.appstudio" containerData="1.8409915356711004" selectedElement="_b9e_1xmlEeqO7pusHtFedw">
+                <tags>efx_styleclass:tab-panel</tags>
+                <tags>fx_no_auto_resize</tags>
+                <children xsi:type="basic:Part" xmi:id="_b9e_1xmlEeqO7pusHtFedw" elementId="de.sick.appstudio.part.emulator_control" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.emulatorcontrol.EmulatorControlPart" label="Emulator" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/gearwheels.png">
+                  <toolbar xmi:id="_b9e_2BmlEeqO7pusHtFedw" elementId="de.sick.appstudio.toolbar.1" contributorURI="platform:/plugin/de.sick.appstudio">
+                    <tags>efx_styleclass:panel-tool-bar</tags>
+                    <children xsi:type="menu:HandledToolItem" xmi:id="_b9e_2RmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledtoolitem.devicepage_start_emu" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/gearwheels_play.png" tooltip="Start Emulator" command="_b9iDQRmlEeqO7pusHtFedw"/>
+                    <children xsi:type="menu:HandledToolItem" xmi:id="_b9e_2hmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledtoolitem.devicepage_stop_emu" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/gearwheels_stop.png" tooltip="Stop Emulator" command="_b9iDQhmlEeqO7pusHtFedw"/>
+                    <children xsi:type="menu:DirectToolItem" xmi:id="_b9e_2xmlEeqO7pusHtFedw" elementId="de.sick.appstudio.directtoolitem.toggleAutoConnectEmulator" contributorURI="platform:/plugin/de.sick.appstudio" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/autoConnectEmu.png" tooltip="Auto connect to Emulator AppEngine" selected="true" type="Check" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ToggleAutoConnectEmulatorHandler"/>
+                  </toolbar>
+                </children>
+                <children xsi:type="basic:Part" xmi:id="_b9e_3BmlEeqO7pusHtFedw" elementId="de.sick.appstudio.part.device_page" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.webview.WebViewPart" label="DevicePage" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/user_monitor.png">
+                  <toolbar xmi:id="_b9e_3RmlEeqO7pusHtFedw" elementId="de.sick.appstudio.toolbar.5" contributorURI="platform:/plugin/de.sick.appstudio">
+                    <tags>efx_styleclass:panel-tool-bar</tags>
+                    <children xsi:type="menu:ToolControl" xmi:id="_b9e_3hmlEeqO7pusHtFedw" elementId="de.sick.appstudio.toolcontrol.0" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.webview.AppSelectionToolControl"/>
+                    <children xsi:type="menu:DirectToolItem" xmi:id="_b9e_3xmlEeqO7pusHtFedw" elementId="de.sick.appstudio.directtoolitem.2" contributorURI="platform:/plugin/de.sick.appstudio" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/openInBrowser.png" tooltip="Open in browser" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.webview.OpenInBrowserHandler"/>
+                    <children xsi:type="menu:DirectToolItem" xmi:id="_b9e_4BmlEeqO7pusHtFedw" elementId="de.sick.appstudio.directtoolitem.0" contributorURI="platform:/plugin/de.sick.appstudio" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/refresh.png" tooltip="Reload page" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.webview.ReloadHandler"/>
+                  </toolbar>
+                </children>
+                <children xsi:type="basic:Part" xmi:id="_b9e_4RmlEeqO7pusHtFedw" elementId="appstudio.part.app_monitor" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.appmonitor.Controller" label="Monitor" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/registry.png">
+                  <toolbar xmi:id="_b9e_4hmlEeqO7pusHtFedw" elementId="de.sick.appstudio.toolbar.0" contributorURI="platform:/plugin/de.sick.appstudio">
+                    <tags>efx_styleclass:panel-tool-bar</tags>
+                    <children xsi:type="menu:DirectToolItem" xmi:id="_b9e_4xmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledtoolitem.appmonitor.start_stop_monitoring" contributorURI="platform:/plugin/de.sick.appstudio" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/monitor_play.png" tooltip="Starts or stops the monitoring process" selected="true" type="Check" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.appmonitor.MonitoringUpdateHandler"/>
+                  </toolbar>
+                </children>
+                <children xsi:type="basic:Part" xmi:id="_b9e_5BmlEeqO7pusHtFedw" elementId="appstudio.part.VariableWatch" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.variablewatch.VariableWatchPart" label="Watch" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/eyeglasses.png" bindingContexts="_b9hcUBmlEeqO7pusHtFedw">
+                  <toolbar xmi:id="_b9e_5RmlEeqO7pusHtFedw" elementId="de.sick.appstudio.toolbar.7" contributorURI="platform:/plugin/de.sick.appstudio"/>
+                </children>
+                <children xsi:type="basic:Part" xmi:id="_b9e_5hmlEeqO7pusHtFedw" elementId="de.sick.appstudio.part.recorder" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.recorder.RecorderPart" label="Recorder" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/record.png">
+                  <toolbar xmi:id="_b9e_5xmlEeqO7pusHtFedw" elementId="de.sick.appstudio.toolbar.8" contributorURI="platform:/plugin/de.sick.appstudio">
+                    <tags>efx_styleclass:panel-tool-bar</tags>
+                    <children xsi:type="menu:DirectToolItem" xmi:id="_b9e_6BmlEeqO7pusHtFedw" elementId="de.sick.appstudio.directtoolitem.1" contributorURI="platform:/plugin/de.sick.appstudio" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/refresh.png" tooltip="Load data providers" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.recorder.RefreshDataProviersHandler"/>
+                  </toolbar>
+                </children>
+              </children>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_b9e_6RmlEeqO7pusHtFedw" elementId="appstudio.partstack.feedback" contributorURI="platform:/plugin/de.sick.appstudio" containerData="2.4575371549893843" selectedElement="_b9e_6hmlEeqO7pusHtFedw">
+              <tags>efx_styleclass:tab-panel</tags>
+              <tags>fx_no_auto_resize</tags>
+              <children xsi:type="basic:Part" xmi:id="_b9e_6hmlEeqO7pusHtFedw" elementId="de.sick.appstudio.sharedConsole" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.console.ConsolePart" label="Console" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/console.png"/>
+              <children xsi:type="basic:Part" xmi:id="_b9e_6xmlEeqO7pusHtFedw" elementId="appstudio.part.find_results" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.SearchResultsPart" label="Search" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/binocular.png"/>
+              <children xsi:type="basic:Part" xmi:id="_b9e_7BmlEeqO7pusHtFedw" elementId="appstudio.part.debug" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.debugger.DebuggerPart" label="Variables" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/debug.png">
+                <tags>efx_styleclass:table-view</tags>
+              </children>
+              <children xsi:type="basic:Part" xmi:id="_b9e_7RmlEeqO7pusHtFedw" elementId="de.sick.appstudio.part.breakpoints" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.breakpointexplorer.BreakpointExplorer" label="Breakpoints" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/brkpts_obj.png"/>
+              <children xsi:type="basic:Part" xmi:id="_b9e_7hmlEeqO7pusHtFedw" elementId="de.sick.appstudio.part.fileexplorer" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.appdataexplorer.AppDataExplorerPart" label="AppData" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/folders.png">
+                <toolbar xmi:id="_b9e_7xmlEeqO7pusHtFedw" elementId="de.sick.appstudio.toolbar.6" contributorURI="platform:/plugin/de.sick.appstudio">
+                  <tags>efx_styleclass:panel-tool-bar</tags>
+                  <children xsi:type="menu:DirectToolItem" xmi:id="_b9e_8BmlEeqO7pusHtFedw" elementId="de.sick.appstudio.directtoolitem.reload_app_files" contributorURI="platform:/plugin/de.sick.appstudio" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/refresh.png" tooltip="Refresh AppData" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.appdataexplorer.ReloadAppFilesHandler"/>
+                </toolbar>
+              </children>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="advanced:Perspective" xmi:id="_b9e_8RmlEeqO7pusHtFedw" elementId="de.sick.appstudio.perspective.configuration" contributorURI="platform:/plugin/de.sick.appstudio" label="Configuring">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_b9e_8hmlEeqO7pusHtFedw" elementId="de.sick.appstudio.partsashcontainer.configcontrol" contributorURI="platform:/plugin/de.sick.appstudio">
+          <children xsi:type="basic:Part" xmi:id="_b9e_8xmlEeqO7pusHtFedw" elementId="de.sick.appstudio.part.configpage" contributorURI="platform:/plugin/de.sick.appstudio" containerData="" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.configuring.ui.parts.ConfiguringViewPart" label="Config Page" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/user_monitor.png"/>
+        </children>
+      </children>
+    </children>
+    <variables>activeInput</variables>
+    <mainMenu xmi:id="_b9e_9BmlEeqO7pusHtFedw" elementId="appstudio.menu.main" contributorURI="platform:/plugin/de.sick.appstudio">
+      <children xsi:type="menu:Menu" xmi:id="_b9e_9RmlEeqO7pusHtFedw" elementId="appstudio.menu.app" contributorURI="platform:/plugin/de.sick.appstudio" label="App" mnemonics="">
+        <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9e_9hmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9e_9xmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.import" contributorURI="platform:/plugin/de.sick.appstudio" label="Import" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/folder_zip_out.png" tooltip="Import existing App from a ZIP file" mnemonics="" command="_b9iDLBmlEeqO7pusHtFedw">
+          <parameters xmi:id="_b9e_-BmlEeqO7pusHtFedw" elementId="" contributorURI="platform:/plugin/de.sick.appstudio" name="de.sick.appstudio.commandparameter.persistdirectory" value="true"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9e_-RmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.export" contributorURI="platform:/plugin/de.sick.appstudio" label="Export" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/folder_zip_into.png" tooltip="Export App to a ZIP file" mnemonics="" command="_b9iDSRmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm4BmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.createDocu" contributorURI="platform:/plugin/de.sick.appstudio" label="Create API Documentation" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/document_information.png" tooltip="Create documentation for the selected App" command="_b9iDeRmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_b9fm4RmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menuseparator.0" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm4hmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.new" contributorURI="platform:/plugin/de.sick.appstudio" label="New" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/app_new.png" tooltip="Create new App" mnemonics="" command="_b9iDKxmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm4xmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.rename" contributorURI="platform:/plugin/de.sick.appstudio" label="Rename" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/app_edit.png" tooltip="Rename the App" mnemonics="" command="_b9iDRxmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm5BmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.refactor" contributorURI="platform:/plugin/de.sick.appstudio" label="Refactor" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/app_refactor.png" tooltip="Refactor" command="_b9iDdhmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fm5RmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm5hmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.delete" contributorURI="platform:/plugin/de.sick.appstudio" label="Delete" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/app_delete.png" tooltip="Delete the App" command="_b9iDRRmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_b9fm5xmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menuseparator.6" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm6BmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.prop" contributorURI="platform:/plugin/de.sick.appstudio" label="Properties" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/app_options.png" tooltip="Editor Properties of App" mnemonics="" command="_b9iDShmlEeqO7pusHtFedw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_b9fm6RmlEeqO7pusHtFedw" elementId="appstudio.menu.file" contributorURI="platform:/plugin/de.sick.appstudio" label="File" mnemonics="">
+        <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fm6hmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm6xmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.new" contributorURI="platform:/plugin/de.sick.appstudio" label="New" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/document_text_new.png" tooltip="Create a new document" mnemonics="" command="_b9iDQxmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm7BmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.add" contributorURI="platform:/plugin/de.sick.appstudio" label="Add" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/document_text_add.png" tooltip="Add a document" mnemonics="" command="_b9iDSBmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm7RmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem._save" contributorURI="platform:/plugin/de.sick.appstudio" label="Save" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/document_text_save.png" tooltip="Save the document" mnemonics="" command="_b9iDUBmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm7hmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.delete" contributorURI="platform:/plugin/de.sick.appstudio" label="Delete" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/document_text_delete.png" tooltip="Delete the document or folder" mnemonics="" command="_b9iDRBmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm7xmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.rename" contributorURI="platform:/plugin/de.sick.appstudio" label="Rename" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/document_text_edit.png" tooltip="Rename the document" mnemonics="" command="_b9iDRhmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_b9fm8BmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menuseparator.7" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm8RmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.open" contributorURI="platform:/plugin/de.sick.appstudio" label="Open with default program" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/folder_document.png" tooltip="" mnemonics="" command="_b9iDSxmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm8hmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.explorePath" contributorURI="platform:/plugin/de.sick.appstudio" label="Explore folder" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/window_explorer.png" tooltip="Open Windows Explorer with working directory of App" mnemonics="" command="_b9iDThmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_b9fm8xmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menuseparator.9" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm9BmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.switchworkspace" contributorURI="platform:/plugin/de.sick.appstudio" label="Switch workspace" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/folder_out.png" tooltip="" command="_b9iDXhmlEeqO7pusHtFedw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_b9fm9RmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menu.configuration" contributorURI="platform:/plugin/de.sick.appstudio" label="Application">
+        <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fm9hmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isConfiguratorPerspectiveSelected"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm9xmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.newapplication" contributorURI="platform:/plugin/de.sick.appstudio" label="New from AppTemplate" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/package_new.png" tooltip="Create a new application from an AppTemplate" command="_b9iDZhmlEeqO7pusHtFedw">
+          <parameters xmi:id="_b9fm-BmlEeqO7pusHtFedw" elementId="" contributorURI="platform:/plugin/de.sick.appstudio" name="de.sick.appstudio.commandparameter.persistdirectory" value="true"/>
+        </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_b9fm-RmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menuseparator.11" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm-hmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.loadconfiguration" contributorURI="platform:/plugin/de.sick.appstudio" label="Load configured application" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/package_open.png" tooltip="Load a configured application package" command="_b9iDbhmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm-xmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.saveconfiguration" contributorURI="platform:/plugin/de.sick.appstudio" label="Build configured application" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/package_down.png" tooltip="Create a configured application package" command="_b9iDbRmlEeqO7pusHtFedw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_b9fm_BmlEeqO7pusHtFedw" elementId="appstudio.menu.edit" contributorURI="platform:/plugin/de.sick.appstudio" label="Edit" mnemonics="">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm_RmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.undo" contributorURI="platform:/plugin/de.sick.appstudio" label="Undo" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/undo.png" tooltip="Undo" mnemonics="" command="_b9iDLhmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fm_hmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fm_xmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.redo" contributorURI="platform:/plugin/de.sick.appstudio" label="Redo" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/redo.png" tooltip="Redo" mnemonics="" command="_b9iDLxmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fnABmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_b9fnARmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menuseparator.3" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnAhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.find" contributorURI="platform:/plugin/de.sick.appstudio" label="Find" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/magnifying_glass.png" tooltip="" command="_b9iDPBmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fnAxmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnBBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.replace" contributorURI="platform:/plugin/de.sick.appstudio" label="Replace" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/replace.png" command="_b9iDeBmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fnBRmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnBhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.findinfiles" contributorURI="platform:/plugin/de.sick.appstudio" label="Find in files" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/magnifying_glass.png" tooltip="" command="_b9iDdxmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fnBxmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnCBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.goto" contributorURI="platform:/plugin/de.sick.appstudio" label="Go to line" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/goto.png" command="_b9iDURmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fnCRmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnChmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.togglecomment" contributorURI="platform:/plugin/de.sick.appstudio" label="Toggle comment" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/toggle_comment.png" command="_b9iDWBmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fnCxmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_b9fnDBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menuseparator.8" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnDRmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.cut" contributorURI="platform:/plugin/de.sick.appstudio" label="Cut" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/cut.png" tooltip="Cut" mnemonics="" command="_b9iDMBmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fnDhmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnDxmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.copy" contributorURI="platform:/plugin/de.sick.appstudio" label="Copy" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/copy.png" tooltip="Copy" mnemonics="" command="_b9iDMRmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fnEBmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnERmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.paste" contributorURI="platform:/plugin/de.sick.appstudio" label="Paste" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/clipboard_paste.png" tooltip="Paste" mnemonics="" command="_b9iDMhmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fnEhmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_b9fnExmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menuseparator.12" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnFBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.showUIPage" contributorURI="platform:/plugin/de.sick.appstudio" label="Preview UI" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/ui_preview.png" command="_b9iDehmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fnFRmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnFhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.showwhitespaces" contributorURI="platform:/plugin/de.sick.appstudio" visible="false" label="Toggle show whitespaces" command="_b9iDVhmlEeqO7pusHtFedw">
+          <parameters xmi:id="_b9fnFxmlEeqO7pusHtFedw" elementId="" contributorURI="platform:/plugin/de.sick.appstudio" name="feature" value="SHOW_HIDDEN_SYMBOLS"/>
+        </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_b9fnGBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menuseparator.4" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnGRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.preferences" contributorURI="platform:/plugin/de.sick.appstudio" label="Preferences" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/equalizer_tool.png" mnemonics="" command="_b9iDTBmlEeqO7pusHtFedw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_b9fnGhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menu.build" contributorURI="platform:/plugin/de.sick.appstudio" label="Build" mnemonics="">
+        <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fnGxmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_b9fnHBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menuseparator.5" contributorURI="platform:/plugin/de.sick.appstudio" visible="false"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnHRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.createZip" contributorURI="platform:/plugin/de.sick.appstudio" label="Export all" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/folders_zip_into.png" tooltip="Export all Apps to ZIP files" mnemonics="" command="_b9iDTxmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_b9fnHhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menuseparator.1" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnHxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.checkmanifest" contributorURI="platform:/plugin/de.sick.appstudio" label="Validate Apps" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/checks.png" tooltip="Validating used Functions and Events against Serves and Device-Manifest" command="_b9iDXRmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_b9fnIBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menuseparator.13" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnIRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.clean" contributorURI="platform:/plugin/de.sick.appstudio" label="Clean..." iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/clean.png" tooltip="Clean projects" command="_b9iqMBmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_b9fnIhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menuseparator.10" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnIxmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.build" contributorURI="platform:/plugin/de.sick.appstudio" label="Build/Deploy package" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/package_down.png" tooltip="Build SensorApp package" mnemonics="" command="_b9iDORmlEeqO7pusHtFedw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_b9fnJBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menu.configuration_run" contributorURI="platform:/plugin/de.sick.appstudio" label="Run">
+        <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fnJRmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isConfiguratorPerspectiveSelected"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnJhmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.commit" contributorURI="platform:/plugin/de.sick.appstudio" accessibilityPhrase="" label="Run" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/apps_play.png" tooltip="Run Configuration" command="_b9iDKhmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnJxmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.stopApps" contributorURI="platform:/plugin/de.sick.appstudio" label="Stop" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/apps_stop.png" tooltip="Stop Configuration" command="_b9iDPxmlEeqO7pusHtFedw">
+          <parameters xmi:id="_b9fnKBmlEeqO7pusHtFedw" elementId="" contributorURI="platform:/plugin/de.sick.appstudio" name="de.sick.appstudio.commandparameter.stopallapps" value="true"/>
+        </children>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_b9fnKRmlEeqO7pusHtFedw" elementId="appstudio.menu.run" contributorURI="platform:/plugin/de.sick.appstudio" label="Run" mnemonics="">
+        <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9fnKhmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnKxmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.commit" contributorURI="platform:/plugin/de.sick.appstudio" accessibilityPhrase="" label="Run all Apps" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/apps_play.png" tooltip="Run all Apps" command="_b9iDKhmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnLBmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.stopApps" contributorURI="platform:/plugin/de.sick.appstudio" label="Stop all Apps" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/apps_stop.png" tooltip="Stop all Apps" command="_b9iDPxmlEeqO7pusHtFedw">
+          <parameters xmi:id="_b9fnLRmlEeqO7pusHtFedw" elementId="" contributorURI="platform:/plugin/de.sick.appstudio" name="de.sick.appstudio.commandparameter.stopallapps" value="true"/>
+        </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_b9fnLhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menuseparator.2" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnLxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.startDebug" contributorURI="platform:/plugin/de.sick.appstudio" label="Start debugging" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/debug.png" command="_b9iDMxmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnMBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.resume" contributorURI="platform:/plugin/de.sick.appstudio" label="Resume" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/bug_play.png" command="_b9iDNBmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnMRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.suspend" contributorURI="platform:/plugin/de.sick.appstudio" label="Suspend" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/bug_pause.png" command="_b9iDNRmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnMhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.terminate" contributorURI="platform:/plugin/de.sick.appstudio" label="Terminate" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/bug_stop.png" command="_b9iDOBmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnMxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.stepInto" contributorURI="platform:/plugin/de.sick.appstudio" label="Step into" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/bug_down_right.png" command="_b9iDNxmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnNBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.stepOver" contributorURI="platform:/plugin/de.sick.appstudio" label="Step over" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/bug_step_forward.png" command="_b9iDNhmlEeqO7pusHtFedw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_b9fnNRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menu.connection" contributorURI="platform:/plugin/de.sick.appstudio" label="Connection">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnNhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.connecttodevice" contributorURI="platform:/plugin/de.sick.appstudio" label="Open" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/connection.png" tooltip="Open a Connection" command="_b9iDKBmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9fnNxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.disconnectfromdevice" contributorURI="platform:/plugin/de.sick.appstudio" label="Close" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/link_broken_1.png" command="_b9iDKRmlEeqO7pusHtFedw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_b9fnOBmlEeqO7pusHtFedw" elementId="appstudio.menu.view" contributorURI="platform:/plugin/de.sick.appstudio" label="View" mnemonics="">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gN8BmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.app_explorer" contributorURI="platform:/plugin/de.sick.appstudio" visible="false" label="AppExplorer" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/elements_tree.png" tooltip="View the AppExplorer tab" selected="true" type="Check" command="_b9iDPhmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gN8RmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.api" contributorURI="platform:/plugin/de.sick.appstudio" visible="false" label="API" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/dictionary.png" tooltip="View the API tab" selected="true" type="Check" command="_b9iDPhmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gN8hmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.device" contributorURI="platform:/plugin/de.sick.appstudio" visible="false" label="DevicePage" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/user_monitor.png" tooltip="View the DevicePage" selected="true" type="Check" command="_b9iDPhmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gN8xmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.app_manager" contributorURI="platform:/plugin/de.sick.appstudio" visible="false" label="AppMonitor" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/registry.png" tooltip="View the AppMonitor tab" selected="true" type="Check" command="_b9iDPhmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gN9BmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.console" contributorURI="platform:/plugin/de.sick.appstudio" visible="false" label="Console" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/console.png" tooltip="View the Console tab" selected="true" type="Check" command="_b9iDPhmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gN9RmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.debug" contributorURI="platform:/plugin/de.sick.appstudio" visible="false" label="Debug" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/debug.png" tooltip="View the Debug tab" selected="true" type="Check" command="_b9iDPhmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gN9hmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.find_results" contributorURI="platform:/plugin/de.sick.appstudio" visible="false" label="Search" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/binocular.png" tooltip="View the Search tab" selected="true" type="Check" command="_b9iDPhmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gN9xmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.resetToDefault" contributorURI="platform:/plugin/de.sick.appstudio" label="Reset" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/reset.png" command="_b9iDWRmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gN-BmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.showhideconsole" contributorURI="platform:/plugin/de.sick.appstudio" visible="false" label="Show/Hide Console" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/console.png" tooltip="Show / Hide Console" command="_b9iDahmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9gN-RmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isConfiguratorPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gN-hmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.configurationview" contributorURI="platform:/plugin/de.sick.appstudio" label="Configurator" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/configuration.png" command="_b9iDbBmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9gN-xmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gN_BmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.developerview" contributorURI="platform:/plugin/de.sick.appstudio" label="Developer" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/development.png" command="_b9iDaxmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9gN_RmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isConfiguratorPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gN_hmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.maximize" contributorURI="platform:/plugin/de.sick.appstudio" label="Maximize pane" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/maximize.png" tooltip="Maximize pane in focus" command="_b9iDexmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9gN_xmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isActivePartMinimized"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gOABmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.minimize" contributorURI="platform:/plugin/de.sick.appstudio" label="Restore pane" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/minimize.png" tooltip="Restore pane in focus to former size" command="_b9iDexmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9gOARmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isActivePartMaximized"/>
+        </children>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_b9gOAhmlEeqO7pusHtFedw" elementId="appstudio.menu.help" contributorURI="platform:/plugin/de.sick.appstudio" label="Help" mnemonics="">
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_b9gOAxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.directmenuitem.presentations" contributorURI="platform:/plugin/de.sick.appstudio" label="Tutorials" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/presentation_empty.png" tooltip="Open tutorials folder" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.OpenTutsHandler"/>
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_b9gOBBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.directmenuitem.samples" contributorURI="platform:/plugin/de.sick.appstudio" label="Samples" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/pipette.png" tooltip="Show SICK Appspace samples" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ShowSamples">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9gOBRmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_b9gOBhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.directmenuitem.createsupportticket" contributorURI="platform:/plugin/de.sick.appstudio" label="Create support ticket" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/support.png" tooltip="Go to SICK support portal" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.CreateSupportPortalTicket"/>
+        <children xsi:type="menu:Menu" xmi:id="_b9gOBxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menu.Logs" contributorURI="platform:/plugin/de.sick.appstudio" label="Logs" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/document_code.png">
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gOCBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.showlog" contributorURI="platform:/plugin/de.sick.appstudio" label="Show log file" command="_b9iDchmlEeqO7pusHtFedw">
+            <parameters xmi:id="_b9gOCRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.parameter.0" contributorURI="platform:/plugin/de.sick.appstudio" name="de.sick.appstudio.commandparameter.ShowLogType" value="activity"/>
+          </children>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gOChmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.openlogfolder" contributorURI="platform:/plugin/de.sick.appstudio" label="Open log folder" command="_b9iDchmlEeqO7pusHtFedw">
+            <parameters xmi:id="_b9gOCxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.parameter.2" contributorURI="platform:/plugin/de.sick.appstudio" name="de.sick.appstudio.commandparameter.ShowLogType" value="openFolder"/>
+          </children>
+        </children>
+        <children xsi:type="menu:Menu" xmi:id="_b9gODBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.menu.about" contributorURI="platform:/plugin/de.sick.appstudio" label="About" iconURI="platform:/plugin/de.sick.appstudio/icons/logo16x16.png">
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gODRmlEeqO7pusHtFedw" elementId="appstudio.handledmenuitem.about" contributorURI="platform:/plugin/de.sick.appstudio" label="Version details" iconURI="" tooltip="Show information about AppStudio" mnemonics="" command="_b9iDOhmlEeqO7pusHtFedw"/>
+          <children xsi:type="menu:DirectMenuItem" xmi:id="_b9gODhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.directmenuitem.useragreement" contributorURI="platform:/plugin/de.sick.appstudio" label="User agreement" tooltip="Show user agreement" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ShowUserAgreement"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gODxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.license" contributorURI="platform:/plugin/de.sick.appstudio" label="License information" iconURI="" tooltip="Show license information" mnemonics="" command="_b9iDOxmlEeqO7pusHtFedw"/>
+          <children xsi:type="menu:DirectMenuItem" xmi:id="_b9gOEBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.directmenuitem.3rdpartylicenses" contributorURI="platform:/plugin/de.sick.appstudio" label="3rd party licenses" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.Show3rdPartyLicenses"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b9gOERmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.keybindings" contributorURI="platform:/plugin/de.sick.appstudio" label="Shortcuts" iconURI="platform:/plugin/de.sick.appstudio/icons/16x16/eyeglasses.png" tooltip="Show keyboard shortcuts" command="_b9iDdRmlEeqO7pusHtFedw"/>
+      </children>
+    </mainMenu>
+    <trimBars xmi:id="_b9gOEhmlEeqO7pusHtFedw" elementId="org.efxclipse.e4.maintoolbar" contributorURI="platform:/plugin/de.sick.appstudio">
+      <tags>efx_styleclass:main-toolbar</tags>
+      <children xsi:type="menu:ToolBar" xmi:id="_b9gOExmlEeqO7pusHtFedw" elementId="org.efxclipse.e4.maintoolbar" contributorURI="platform:/plugin/de.sick.appstudio">
+        <tags>fillspace</tags>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9gOFBmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.connection" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/connection.png" tooltip="Open connection" command="_b9iDKBmlEeqO7pusHtFedw"/>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_b9gOFRmlEeqO7pusHtFedw" elementId="appstudio.toolbar1.separator.7" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9gOFhmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.new" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/app_new.png" tooltip="Create new App" command="_b9iDKxmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9gOFxmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9gOGBmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.import" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/folder_zip_out.png" tooltip="Import App from a ZIP file" command="_b9iDLBmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9gOGRmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+          <parameters xmi:id="_b9gOGhmlEeqO7pusHtFedw" elementId="" contributorURI="platform:/plugin/de.sick.appstudio" name="de.sick.appstudio.commandparameter.persistdirectory" value="true"/>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9gOGxmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.loadtemplate" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/package_new.png" tooltip="New Application from AppTemplate" command="_b9iDZhmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9gOHBmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isConfiguratorPerspectiveSelected"/>
+          <parameters xmi:id="_b9gOHRmlEeqO7pusHtFedw" elementId="" contributorURI="platform:/plugin/de.sick.appstudio" name="de.sick.appstudio.commandparameter.persistdirectory" value="true"/>
+        </children>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_b9gOHhmlEeqO7pusHtFedw" elementId="appstudio.toolbar1.separator.1" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9gOHxmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.undo" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/undo.png" tooltip="Undo" command="_b9iDLhmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9gOIBmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9gOIRmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.redo" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/redo.png" tooltip="Redo" command="_b9iDLxmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9gOIhmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_b9gOIxmlEeqO7pusHtFedw" elementId="appstudio.toolbar1.separator.2" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9gOJBmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.cut" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/cut.png" tooltip="Cut" command="_b9iDMBmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9gOJRmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1ABmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.copy" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/copy.png" tooltip="Copy" command="_b9iDMRmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1ARmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1AhmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.paste" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/paste.png" tooltip="Paste" command="_b9iDMhmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1AxmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_b9g1BBmlEeqO7pusHtFedw" elementId="appstudio.toolbar1.separator.3" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1BRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledtoolitem.showUiPage" contributorURI="platform:/plugin/de.sick.appstudio" iconURI="platform:/plugin/de.sick.appstudio/icons/visible.png" tooltip="Preview UI page (Ctrl+Shift+V)" command="_b9iDehmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1BhmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_b9g1BxmlEeqO7pusHtFedw" elementId="appstudio.toolbar1.separator.4" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1CBmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.build_package" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/package_down.png" tooltip="Build/Deploy package" command="_b9iDORmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1CRmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:DirectToolItem" xmi:id="_b9g1ChmlEeqO7pusHtFedw" elementId="de.sick.appstudio.directtoolitem.reloadpage" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/refresh.png" tooltip="Refresh UI" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ReloadConfigPage">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1CxmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isConfiguratorPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_b9g1DBmlEeqO7pusHtFedw" elementId="appstudio.toolbar1.separator.5" contributorURI="platform:/plugin/de.sick.appstudio">
+          <tags>stretch</tags>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1DRmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.runApps" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/apps_play.png" tooltip="Run all Apps" command="_b9iDKhmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1DhmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1DxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledtoolitem.stopApps" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/apps_stop.png" tooltip="Stop all Apps" command="_b9iDPxmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1EBmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+          <parameters xmi:id="_b9g1ERmlEeqO7pusHtFedw" elementId="" contributorURI="platform:/plugin/de.sick.appstudio" name="de.sick.appstudio.commandparameter.stopallapps" value="true"/>
+        </children>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_b9g1EhmlEeqO7pusHtFedw" elementId="appstudio.toolbar1.separator.6" contributorURI="platform:/plugin/de.sick.appstudio"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1ExmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.dbg_start" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/debug.png" tooltip="Start debugging selected App" command="_b9iDMxmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1FBmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1FRmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.dbg_resume" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/bug_yellow_run.png" tooltip="Resume" command="_b9iDNBmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1FhmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1FxmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.dbg_pause" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/bug_yellow_pause.png" tooltip="Suspend" command="_b9iDNRmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1GBmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1GRmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.dbg_stop" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/bug_yellow_stop.png" tooltip="Terminate" command="_b9iDOBmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1GhmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1GxmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.dbg_into" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/bug_yellow_into.png" tooltip="Step into" command="_b9iDNxmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1HBmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1HRmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.dbg_over" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/bug_yellow_next.png" tooltip="Step over" command="_b9iDNhmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1HhmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isDevelopersPerspectiveSelected"/>
+        </children>
+      </children>
+      <children xsi:type="menu:ToolBar" xmi:id="_b9g1HxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.toolbar.2" contributorURI="platform:/plugin/de.sick.appstudio">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1IBmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.logout" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/user_logout.png" tooltip="Logout from SICK ID" command="_b9iDcRmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1IRmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isLoggedIntoAppPool"/>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1IhmlEeqO7pusHtFedw" elementId="appstudio.handledtoolitem.login" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/user_login.png" tooltip="Login to SICK ID" command="_b9iDcBmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1IxmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isLoggedOutOffAppPool"/>
+        </children>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_b9g1JBmlEeqO7pusHtFedw" elementId="appstudio.toolbar2.separator.1" contributorURI="platform:/plugin/de.sick.appstudio">
+          <tags>stretch</tags>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1JRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledtoolitem.MaximizePart" contributorURI="platform:/plugin/de.sick.appstudio" label="" iconURI="platform:/plugin/de.sick.appstudio/icons/maximize.png" tooltip="Maximize pane in focus (F4)" command="_b9iDexmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1JhmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isActivePartMinimized"/>
+        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_b9g1JxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledtoolitem.MinimizePart" contributorURI="platform:/plugin/de.sick.appstudio" iconURI="platform:/plugin/de.sick.appstudio/icons/minimize.png" tooltip="Restore pane to former size (F4)" command="_b9iDexmlEeqO7pusHtFedw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_b9g1KBmlEeqO7pusHtFedw" contributorURI="platform:/plugin/de.sick.appstudio" coreExpressionId="de.sick.appstudio.isActivePartMaximized"/>
+        </children>
+      </children>
+    </trimBars>
+    <trimBars xmi:id="_b9g1KRmlEeqO7pusHtFedw" elementId="org.efxclipse.e4.mainstatusbar" contributorURI="platform:/plugin/de.sick.appstudio" side="Bottom">
+      <children xsi:type="menu:ToolControl" xmi:id="_b9g1KhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.toolcontrol.status" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.Statusbar">
+        <tags>Container:HBox</tags>
+        <tags>fillspace</tags>
+      </children>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_b9g1KxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.openConnect" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ConnectionHandler" command="_b9iDKBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1LBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.disconnect" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.DisconnectHandler" command="_b9iDKRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1LRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.commit" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.CommitHandler" command="_b9iDKhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1LhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.new_project" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.NewAppHandler" command="_b9iDKxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1LxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.7" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ExportAppHandler" command="_b9iDSRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1MBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.import_project" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ImportAppHandler" command="_b9iDLBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1MRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.undo" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.UndoHandler" command="_b9iDLhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1MhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.redo" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.RedoHandler" command="_b9iDLxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1MxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.cut" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.CutHandler" command="_b9iDMBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1NBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.copy" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.CopyHandler" command="_b9iDMRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1NRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.dbg_start" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.DebugHandlerStart" command="_b9iDMxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1NhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.paste" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.PasteHandler" command="_b9iDMhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1NxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.dbg_resume" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.DebugHandlerRun" command="_b9iDNBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1OBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.dbg_pause" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.DebugHandlerPause" command="_b9iDNRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1ORmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.dbg_step_into" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.DebugHandlerStepInto" command="_b9iDNxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1OhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.dbg_step_over" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.DebugHandlerStepOver" command="_b9iDNhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1OxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.dbg_stop" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.DebugHandlerStop" command="_b9iDOBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1PBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.create_package" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appspace.packagedeployment.e4/de.sick.appspace.packagedeployment.e4.handler.DeployHandler" command="_b9iDORmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1PRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.aboutCommand" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.AboutHandler" command="_b9iDOhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1PhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.licenseHandler" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.LicenseHandler" command="_b9iDOxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1PxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.find" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.FindHandler" command="_b9iDPBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1QBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.doNothing" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.NotImplementedHandler" command="_b9iDPhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1QRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.stopApps" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.StopAppsHandler" command="_b9iDPxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1QhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.stop_emu" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.StopEmuHandler" command="_b9iDQhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1QxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.start_emu" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.StartEmuHandler" command="_b9iDQRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1RBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.newFile" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.NewFileHandler" command="_b9iDQxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1RRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.3" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.DeleteFileHandler" command="_b9iDRBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1RhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.24" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.RenameAppHandler" command="_b9iDRxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1RxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.4" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.RenameFileHandler" command="_b9iDRhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1SBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.6" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.AddFileHandler" command="_b9iDSBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1SRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.8" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.AppPropertiesHandler" command="_b9iDShmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1ShmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.9" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.PreferencesHandler" command="_b9iDTBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1SxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.10" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.OpenFileHandler" command="_b9iDSxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1TBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.11" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ExploreFolderHandler" command="_b9iDThmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1TRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.12" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ExportAllAppsHandler" command="_b9iDTxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1ThmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.13" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.SaveFileHandler" command="_b9iDUBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1TxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.14" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.GotoHandler" command="_b9iDURmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1UBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.15" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.DeleteAppHandler" command="_b9iDRRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1URmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.17" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ToggleBreakHandler" command="_b9iDPRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1UhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.upload" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.UploadAppsHandler" command="_b9iDUhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1UxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.0" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.CloseAllTabsHandler" command="_b9iDUxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1VBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.2" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.CloseTabHandler" command="_b9iDVRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1VRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.16" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.CloseOtherTabsHandler" command="_b9iDVBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1VhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.18" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://org.eclipse.fx.code.editor.fx/org.eclipse.fx.code.editor.fx.handlers.ToggleEditorFeature" command="_b9iDVhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1VxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.19" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ToggleCommentHandler" command="_b9iDWBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1WBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.20" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ResetViewHandler" command="_b9iDWRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1WRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.5" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.RefreshStylesheetHandler" command="_b9iDWhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1WhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.21" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.RefreshAppExplorerHandler" command="_b9iDWxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1WxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.validatemanifest" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appspace.manifest.validationservice.e4/de.sick.appspace.manifest.validationservice.e4.ManifestValidationHandler" command="_b9iDXRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1XBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.switchworkspacehandler" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.SwitchWorkspaceHandler" command="_b9iDXhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1XRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.AppExplorerCopy" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.AppExplorerCopyHandler" command="_b9iDXxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9g1XhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.AppExplorerPaste" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.AppExplorerPasteHandler" command="_b9iDYBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcEBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.AppExplorerCut" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.AppExplorerCutHandler" command="_b9iDYRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcERmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.winKey" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.WinKeyHandler"/>
+  <handlers xmi:id="_b9hcEhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.closeWindowHandler" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.CloseWindowHandler" command="_b9iDYxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcExmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.repeatSearch" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.RepeatSearchHandler" command="_b9iDZBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcFBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.reload_page_handler" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.webview.ReloadHandler" command="_b9iDZRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcFRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.opentemplate" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.OpenTemplateHandler" command="_b9iDZhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcFhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.saveTemplate" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.SaveTemplateHandler" command="_b9iDaBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcFxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.showConsole" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ShowConsoleHandler" command="_b9iDahmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcGBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.configperspective" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ConfigPerspectiveHandler" command="_b9iDbBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcGRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.developperspective" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.DevPerspectiveHandler" command="_b9iDaxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcGhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.exportConfiguredAppTemplate" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ExportConfiguredAppTemplateHandler" command="_b9iDbRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcGxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.installConfiguredAppTemplate" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.InstallConfiguredAppTemplateHandler" command="_b9iDbhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcHBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.viewerAutoZoom" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.AutoZoomLevelHandler" command="_b9iDbxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcHRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.loginAppPool" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appspace.oidcclient.e4/de.sick.appspace.oidcclient.login.e4.LoginHandler" command="_b9iDcBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcHhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.apppoollogout" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appspace.oidcclient.e4/de.sick.appspace.oidcclient.login.e4.LogoutHandler" command="_b9iDcRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcHxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.22" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ShowLogHandler" command="_b9iDchmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcIBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.selectManifest" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.SelectManifest" command="_b9iDdBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcIRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.23" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.keybindings.e4.KeybindingsDialogHandler" command="_b9iDdRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcIhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.openRefactorDialog" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.RefactorHandler" command="_b9iDdhmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcIxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.findinfiles" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.FindInFilesHandler" command="_b9iDdxmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcJBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.replace" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ReplaceHandler" command="_b9iDeBmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcJRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.createDocu" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.CreateDocuHandler" command="_b9iDeRmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcJhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.showUiPage" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.ShowUiPageHandler" command="_b9iDehmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcJxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.minMaxPartHandler" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.MinMaxPartHandler" command="_b9iDexmlEeqO7pusHtFedw"/>
+  <handlers xmi:id="_b9hcKBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handler.clean" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.handlers.CleanHandler" command="_b9iqMBmlEeqO7pusHtFedw"/>
+  <bindingTables xmi:id="_b9hcKRmlEeqO7pusHtFedw" elementId="" contributorURI="platform:/plugin/de.sick.appstudio" bindingContext="_b9hcSxmlEeqO7pusHtFedw">
+    <bindings xmi:id="_b9hcKhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.toggle_handledmenuitem.app_exploreroint" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="F9" command="_b9iDPRmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcKxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.commit" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="F5" command="_b9iDKhmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcLBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.start" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="F7" command="_b9iDMxmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcLRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.debug_resume" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+F7" command="_b9iDNBmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcLhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.pause" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M2+F7" command="_b9iDNRmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcLxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.stop" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M3+F7" command="_b9iDOBmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcMBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.goto2" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+G" command="_b9iDURmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcMRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.step_into" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="F11" command="_b9iDNxmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcMhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.step_over" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="F10" command="_b9iDNhmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcMxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.save" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+S" command="_b9iDUBmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcNBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.0" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+M2+C" command="_b9iDWBmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcNRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.1" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+F11" command="_b9iDWhmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcNhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.close_window" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M3+F4" command="_b9iDYxmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcNxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.repeatSearch" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="F3" command="_b9iDZBmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcOBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.find" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+F" command="_b9iDPBmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcORmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.findinfiles" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+M2+F" command="_b9iDdxmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcOhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.3" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+H" command="_b9iDeBmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcOxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.minMaxPart" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="F4" command="_b9iDexmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcPBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.uiPreview" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+M2+V" command="_b9iDehmlEeqO7pusHtFedw"/>
+  </bindingTables>
+  <bindingTables xmi:id="_b9hcPRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.bindingtable.appexplorer" contributorURI="platform:/plugin/de.sick.appstudio" bindingContext="_b9hcTRmlEeqO7pusHtFedw">
+    <bindings xmi:id="_b9hcPhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.AppExplorerCopy" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+C" command="_b9iDXxmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcPxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.AppExplorerPaste" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+V" command="_b9iDYBmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcQBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.AppExplorerCut" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+X" command="_b9iDYRmlEeqO7pusHtFedw"/>
+  </bindingTables>
+  <bindingTables xmi:id="_b9hcQRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.bindingtable.editors" contributorURI="platform:/plugin/de.sick.appstudio" bindingContext="_b9hcTxmlEeqO7pusHtFedw">
+    <bindings xmi:id="_b9hcQhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.undo" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+Z" command="_b9iDLhmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcQxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.redo" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+Y" command="_b9iDLxmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcRBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.editorPaste" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+V" command="_b9iDMhmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcRRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.editorCut" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+X" command="_b9iDMBmlEeqO7pusHtFedw"/>
+    <bindings xmi:id="_b9hcRhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.editorCopy" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+C" command="_b9iDMRmlEeqO7pusHtFedw"/>
+  </bindingTables>
+  <bindingTables xmi:id="_b9hcRxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.bindingtable.0" contributorURI="platform:/plugin/de.sick.appstudio" bindingContext="_b9hcUBmlEeqO7pusHtFedw">
+    <bindings xmi:id="_b9hcSBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.2" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+H" command="_b9iDbxmlEeqO7pusHtFedw"/>
+  </bindingTables>
+  <bindingTables xmi:id="_b9hcSRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.bindingtable.deviceTab" contributorURI="platform:/plugin/de.sick.appstudio" bindingContext="_b9hcURmlEeqO7pusHtFedw">
+    <bindings xmi:id="_b9hcShmlEeqO7pusHtFedw" elementId="de.sick.appstudio.keybinding.upload" contributorURI="platform:/plugin/de.sick.appstudio" keySequence="M1+F12" command="_b9iDUhmlEeqO7pusHtFedw"/>
+  </bindingTables>
+  <rootContext xmi:id="_b9hcSxmlEeqO7pusHtFedw" elementId="org.eclipse.ui.contexts.dialogAndWindow" contributorURI="platform:/plugin/de.sick.appstudio" name="In Dialog and Windows">
+    <children xmi:id="_b9hcTBmlEeqO7pusHtFedw" elementId="org.eclipse.ui.contexts.window" contributorURI="platform:/plugin/de.sick.appstudio" name="In Windows">
+      <children xmi:id="_b9hcTRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.bindingcontext.appexplorer" contributorURI="platform:/plugin/de.sick.appstudio" name="AppExplorer"/>
+    </children>
+    <children xmi:id="_b9hcThmlEeqO7pusHtFedw" elementId="org.eclipse.ui.contexts.dialog" contributorURI="platform:/plugin/de.sick.appstudio" name="In Dialogs"/>
+    <children xmi:id="_b9hcTxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.bindingcontext.editor" contributorURI="platform:/plugin/de.sick.appstudio" name="In Editors"/>
+    <children xmi:id="_b9hcUBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.bindingcontext.invariablewatch" contributorURI="platform:/plugin/de.sick.appstudio" name="In Variable Watch"/>
+    <children xmi:id="_b9hcURmlEeqO7pusHtFedw" elementId="de.sick.appstudio.bindingcontext.indevicetab" contributorURI="platform:/plugin/de.sick.appstudio" name="In Devicetab"/>
+  </rootContext>
+  <descriptors xmi:id="_b9hcUhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.partdescriptor.image_viewer" contributorURI="platform:/plugin/de.sick.appstudio" label="Image Viewer" bindingContexts="_b9hcTxmlEeqO7pusHtFedw" allowMultiple="true" category="EditorContext" closeable="true" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.editors.ImageViewPane">
+    <tags>removeOnHide</tags>
+    <menus xsi:type="menu:PopupMenu" xmi:id="_b9hcUxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.popupmenu.3" contributorURI="platform:/plugin/de.sick.appstudio">
+      <tags>tabmenu</tags>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9hcVBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.close" contributorURI="platform:/plugin/de.sick.appstudio" label="Close" command="_b9iDVRmlEeqO7pusHtFedw"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9hcVRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.closeall" contributorURI="platform:/plugin/de.sick.appstudio" label="Close all" command="_b9iDUxmlEeqO7pusHtFedw"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9hcVhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.closeothers" contributorURI="platform:/plugin/de.sick.appstudio" label="Close others" command="_b9iDVBmlEeqO7pusHtFedw"/>
+    </menus>
+  </descriptors>
+  <descriptors xmi:id="_b9hcVxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.partdescriptor.ui_editor" contributorURI="platform:/plugin/de.sick.appstudio" label="Page Editor" allowMultiple="true" category="EditorContext" closeable="true" dirtyable="true" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.editors.newuibuilder.UIEditorPane">
+    <tags>removeOnHide</tags>
+    <menus xsi:type="menu:PopupMenu" xmi:id="_b9hcWBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.popupmenu.2" contributorURI="platform:/plugin/de.sick.appstudio">
+      <tags>tabmenu</tags>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9hcWRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.close" contributorURI="platform:/plugin/de.sick.appstudio" label="Close" command="_b9iDVRmlEeqO7pusHtFedw"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9hcWhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.closeall" contributorURI="platform:/plugin/de.sick.appstudio" label="Close all" command="_b9iDUxmlEeqO7pusHtFedw"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9hcWxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.closeothers" contributorURI="platform:/plugin/de.sick.appstudio" label="Close others" command="_b9iDVBmlEeqO7pusHtFedw"/>
+    </menus>
+  </descriptors>
+  <descriptors xmi:id="_b9hcXBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.partdescriptor.script_editor" contributorURI="platform:/plugin/de.sick.appstudio" label="Code Editor" allowMultiple="true" category="EditorContext" closeable="true" dirtyable="true" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.editors.codeeditor.CodeEditorPane">
+    <tags>removeOnHide</tags>
+    <menus xsi:type="menu:PopupMenu" xmi:id="_b9hcXRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.popupmenu.0" contributorURI="platform:/plugin/de.sick.appstudio">
+      <tags>tabmenu</tags>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9hcXhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.close" contributorURI="platform:/plugin/de.sick.appstudio" label="Close" command="_b9iDVRmlEeqO7pusHtFedw"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9hcXxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.closeall" contributorURI="platform:/plugin/de.sick.appstudio" label="Close all" command="_b9iDUxmlEeqO7pusHtFedw"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9hcYBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.closeothers" contributorURI="platform:/plugin/de.sick.appstudio" label="Close others" command="_b9iDVBmlEeqO7pusHtFedw"/>
+    </menus>
+  </descriptors>
+  <descriptors xmi:id="_b9hcYRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.partdescriptor.parameter_editor" contributorURI="platform:/plugin/de.sick.appstudio" label="Parameter Editor" bindingContexts="_b9hcTxmlEeqO7pusHtFedw" allowMultiple="true" category="EditorContext" closeable="true" dirtyable="true" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.editors.parametereditor.ParameterEditorPane">
+    <persistedState/>
+    <tags>removeOnHide</tags>
+    <menus xsi:type="menu:PopupMenu" xmi:id="_b9hcYhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.popupmenu.5" contributorURI="platform:/plugin/de.sick.appstudio">
+      <tags>tabmenu</tags>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9hcYxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.close" contributorURI="platform:/plugin/de.sick.appstudio" label="Close" command="_b9iDVRmlEeqO7pusHtFedw"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9hcZBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.closeall" contributorURI="platform:/plugin/de.sick.appstudio" label="Close all" command="_b9iDUxmlEeqO7pusHtFedw"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9hcZRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.closeothers" contributorURI="platform:/plugin/de.sick.appstudio" label="Close others" command="_b9iDVBmlEeqO7pusHtFedw"/>
+    </menus>
+  </descriptors>
+  <descriptors xmi:id="_b9hcZhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.partdescriptor.uipreview" contributorURI="platform:/plugin/de.sick.appstudio" label="UI preview" bindingContexts="_b9hcTxmlEeqO7pusHtFedw" allowMultiple="true" category="EditorContext" closeable="true" dirtyable="true" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.uipreview.UiPreviewPart">
+    <tags>removeOnHide</tags>
+    <menus xsi:type="menu:PopupMenu" xmi:id="_b9hcZxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.popupmenu.6" contributorURI="platform:/plugin/de.sick.appstudio">
+      <tags>tabmenu</tags>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9iDIBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.close" contributorURI="platform:/plugin/de.sick.appstudio" label="Close" command="_b9iDVRmlEeqO7pusHtFedw"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9iDIRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.closeall" contributorURI="platform:/plugin/de.sick.appstudio" label="Close all" command="_b9iDUxmlEeqO7pusHtFedw"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9iDIhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.closeothers" contributorURI="platform:/plugin/de.sick.appstudio" label="Close others" command="_b9iDVBmlEeqO7pusHtFedw"/>
+    </menus>
+  </descriptors>
+  <descriptors xmi:id="_b9iDIxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.partdescriptor.blocks_editor" contributorURI="platform:/plugin/de.sick.appstudio" label="Blocks Editor" allowMultiple="true" category="EditorContext" closeable="true" dirtyable="true" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.parts.editors.blockseditor.BlocksEditorPane">
+    <tags>removeOnHide</tags>
+    <menus xsi:type="menu:PopupMenu" xmi:id="_b9iDJBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.popupmenu.4" contributorURI="platform:/plugin/de.sick.appstudio">
+      <tags>tabmenu</tags>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9iDJRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.close" contributorURI="platform:/plugin/de.sick.appstudio" label="Close" command="_b9iDVRmlEeqO7pusHtFedw"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9iDJhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.closeall" contributorURI="platform:/plugin/de.sick.appstudio" label="Close all" command="_b9iDUxmlEeqO7pusHtFedw"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_b9iDJxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.handledmenuitem.closeothers" contributorURI="platform:/plugin/de.sick.appstudio" label="Close others" command="_b9iDVBmlEeqO7pusHtFedw"/>
+    </menus>
+  </descriptors>
+  <commands xmi:id="_b9iDKBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.open_connect" contributorURI="platform:/plugin/de.sick.appstudio" commandName="openConnect"/>
+  <commands xmi:id="_b9iDKRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.disconnect" contributorURI="platform:/plugin/de.sick.appstudio" commandName="disconnect"/>
+  <commands xmi:id="_b9iDKhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.commit" contributorURI="platform:/plugin/de.sick.appstudio" commandName="commitCommand"/>
+  <commands xmi:id="_b9iDKxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.new_app" contributorURI="platform:/plugin/de.sick.appstudio" commandName="newAppCommand"/>
+  <commands xmi:id="_b9iDLBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.import_app" contributorURI="platform:/plugin/de.sick.appstudio" commandName="importAppCommand">
+    <parameters xmi:id="_b9iDLRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.commandparameter.persistdirectory" contributorURI="platform:/plugin/de.sick.appstudio" name="persistdirectory"/>
+  </commands>
+  <commands xmi:id="_b9iDLhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.undo" contributorURI="platform:/plugin/de.sick.appstudio" commandName="undoCommand"/>
+  <commands xmi:id="_b9iDLxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.redo" contributorURI="platform:/plugin/de.sick.appstudio" commandName="redoCommand"/>
+  <commands xmi:id="_b9iDMBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.cut" contributorURI="platform:/plugin/de.sick.appstudio" commandName="cutCommand"/>
+  <commands xmi:id="_b9iDMRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.copy" contributorURI="platform:/plugin/de.sick.appstudio" commandName="copyCommand"/>
+  <commands xmi:id="_b9iDMhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.paste" contributorURI="platform:/plugin/de.sick.appstudio" commandName="pasteCommand"/>
+  <commands xmi:id="_b9iDMxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.dbg_start" contributorURI="platform:/plugin/de.sick.appstudio" commandName="debugStart"/>
+  <commands xmi:id="_b9iDNBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.dbg_run" contributorURI="platform:/plugin/de.sick.appstudio" commandName="debugResume"/>
+  <commands xmi:id="_b9iDNRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.dbg_pause" contributorURI="platform:/plugin/de.sick.appstudio" commandName="debugPause"/>
+  <commands xmi:id="_b9iDNhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.dbg_step_over" contributorURI="platform:/plugin/de.sick.appstudio" commandName="debugStepOver"/>
+  <commands xmi:id="_b9iDNxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.dbg_step_into" contributorURI="platform:/plugin/de.sick.appstudio" commandName="debugStepInto"/>
+  <commands xmi:id="_b9iDOBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.dbg_stop" contributorURI="platform:/plugin/de.sick.appstudio" commandName="debugStop"/>
+  <commands xmi:id="_b9iDORmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.create_package" contributorURI="platform:/plugin/de.sick.appstudio" commandName="createPackageCommand"/>
+  <commands xmi:id="_b9iDOhmlEeqO7pusHtFedw" elementId="org.eclipse.ui.help.aboutAction" contributorURI="platform:/plugin/de.sick.appstudio" commandName="aboutCommand"/>
+  <commands xmi:id="_b9iDOxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.license" contributorURI="platform:/plugin/de.sick.appstudio" commandName="licenseCommand"/>
+  <commands xmi:id="_b9iDPBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.find" contributorURI="platform:/plugin/de.sick.appstudio" commandName="findCommand"/>
+  <commands xmi:id="_b9iDPRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.toggle_break" contributorURI="platform:/plugin/de.sick.appstudio" commandName="toggleBreakCommand"/>
+  <commands xmi:id="_b9iDPhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.empty" contributorURI="platform:/plugin/de.sick.appstudio" commandName="doNothingCommand"/>
+  <commands xmi:id="_b9iDPxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.stop_apps" contributorURI="platform:/plugin/de.sick.appstudio" commandName="stopApps">
+    <parameters xmi:id="_b9iDQBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.commandparameter.stopallapps" contributorURI="platform:/plugin/de.sick.appstudio" name="stopallapps"/>
+  </commands>
+  <commands xmi:id="_b9iDQRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.start_emu" contributorURI="platform:/plugin/de.sick.appstudio" commandName="startEmu"/>
+  <commands xmi:id="_b9iDQhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.stop_emu" contributorURI="platform:/plugin/de.sick.appstudio" commandName="stopEmu"/>
+  <commands xmi:id="_b9iDQxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.new_file" contributorURI="platform:/plugin/de.sick.appstudio" commandName="newFile"/>
+  <commands xmi:id="_b9iDRBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.delete" contributorURI="platform:/plugin/de.sick.appstudio" commandName="delete"/>
+  <commands xmi:id="_b9iDRRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.deleteapp" contributorURI="platform:/plugin/de.sick.appstudio" commandName="deleteApp"/>
+  <commands xmi:id="_b9iDRhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.renamefile" contributorURI="platform:/plugin/de.sick.appstudio" commandName="renameFile"/>
+  <commands xmi:id="_b9iDRxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.renameapp" contributorURI="platform:/plugin/de.sick.appstudio" commandName="renameApp"/>
+  <commands xmi:id="_b9iDSBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.addfile" contributorURI="platform:/plugin/de.sick.appstudio" commandName="addFile"/>
+  <commands xmi:id="_b9iDSRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.exportapp" contributorURI="platform:/plugin/de.sick.appstudio" commandName="exportAppCommand"/>
+  <commands xmi:id="_b9iDShmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.openappproperties" contributorURI="platform:/plugin/de.sick.appstudio" commandName="openAppProperties"/>
+  <commands xmi:id="_b9iDSxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.openfile" contributorURI="platform:/plugin/de.sick.appstudio" commandName="openFile"/>
+  <commands xmi:id="_b9iDTBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.openpreferences" contributorURI="platform:/plugin/de.sick.appstudio" commandName="de.sick.appstudio.commandparameter.prefpane">
+    <parameters xmi:id="_b9iDTRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.commandparameter.prefpane" contributorURI="platform:/plugin/de.sick.appstudio" name="prefpane"/>
+  </commands>
+  <commands xmi:id="_b9iDThmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.explorefolder" contributorURI="platform:/plugin/de.sick.appstudio" commandName="exploreFolder"/>
+  <commands xmi:id="_b9iDTxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.exportallapps" contributorURI="platform:/plugin/de.sick.appstudio" commandName="exportAllApps"/>
+  <commands xmi:id="_b9iDUBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.savefile" contributorURI="platform:/plugin/de.sick.appstudio" commandName="saveFile"/>
+  <commands xmi:id="_b9iDURmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.gotoline" contributorURI="platform:/plugin/de.sick.appstudio" commandName="gotoLine"/>
+  <commands xmi:id="_b9iDUhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.upload" contributorURI="platform:/plugin/de.sick.appstudio" commandName="upload"/>
+  <commands xmi:id="_b9iDUxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.closealltabs" contributorURI="platform:/plugin/de.sick.appstudio" commandName="closeAllTabs"/>
+  <commands xmi:id="_b9iDVBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.closeothertabs" contributorURI="platform:/plugin/de.sick.appstudio" commandName="closeOtherTabs"/>
+  <commands xmi:id="_b9iDVRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.closetab" contributorURI="platform:/plugin/de.sick.appstudio" commandName="closeTab"/>
+  <commands xmi:id="_b9iDVhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.toggle_editorfeature" contributorURI="platform:/plugin/de.sick.appstudio" commandName="toggleEditorFeature">
+    <parameters xmi:id="_b9iDVxmlEeqO7pusHtFedw" elementId="feature" contributorURI="platform:/plugin/de.sick.appstudio" name="Feature"/>
+  </commands>
+  <commands xmi:id="_b9iDWBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.togglecomment" contributorURI="platform:/plugin/de.sick.appstudio" commandName="togglecommentCommand"/>
+  <commands xmi:id="_b9iDWRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.resetView" contributorURI="platform:/plugin/de.sick.appstudio" commandName="Reset View"/>
+  <commands xmi:id="_b9iDWhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.refreshStylesheet" contributorURI="platform:/plugin/de.sick.appstudio" commandName="Refresh stylesheet"/>
+  <commands xmi:id="_b9iDWxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.refreshAppExplorer" contributorURI="platform:/plugin/de.sick.appstudio" commandName="Refresh app explorer">
+    <parameters xmi:id="_b9iDXBmlEeqO7pusHtFedw" elementId="path" contributorURI="platform:/plugin/de.sick.appstudio" name="path"/>
+  </commands>
+  <commands xmi:id="_b9iDXRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.validatemanifest" contributorURI="platform:/plugin/de.sick.appstudio" commandName="validateManifest"/>
+  <commands xmi:id="_b9iDXhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.switchworkspace" contributorURI="platform:/plugin/de.sick.appstudio" commandName="Switch workspace"/>
+  <commands xmi:id="_b9iDXxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.AppExplorerCopy" contributorURI="platform:/plugin/de.sick.appstudio" commandName="AppExplorerCopy"/>
+  <commands xmi:id="_b9iDYBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.AppExplorerPaste" contributorURI="platform:/plugin/de.sick.appstudio" commandName="AppExplorerPaste"/>
+  <commands xmi:id="_b9iDYRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.AppExplorerCut" contributorURI="platform:/plugin/de.sick.appstudio" commandName="AppExplorerCut"/>
+  <commands xmi:id="_b9iDYhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.servefunction" contributorURI="platform:/plugin/de.sick.appstudio" commandName="serveFunction"/>
+  <commands xmi:id="_b9iDYxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.closewindow" contributorURI="platform:/plugin/de.sick.appstudio" commandName="closeWindow" description="closes the current window"/>
+  <commands xmi:id="_b9iDZBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.repeatsearch" contributorURI="platform:/plugin/de.sick.appstudio" commandName="RepeatSearch"/>
+  <commands xmi:id="_b9iDZRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.reloadpage" contributorURI="platform:/plugin/de.sick.appstudio" commandName="Reload Page"/>
+  <commands xmi:id="_b9iDZhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.opentemplate" contributorURI="platform:/plugin/de.sick.appstudio" commandName="Open Template">
+    <parameters xmi:id="_b9iDZxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.commandparameter.persistdirectory" contributorURI="platform:/plugin/de.sick.appstudio" name="persistdirectory"/>
+  </commands>
+  <commands xmi:id="_b9iDaBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.savetemplate" contributorURI="platform:/plugin/de.sick.appstudio" commandName="SaveTemplate"/>
+  <commands xmi:id="_b9iDaRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.togglenavigation" contributorURI="platform:/plugin/de.sick.appstudio" commandName="Toggle Navigation"/>
+  <commands xmi:id="_b9iDahmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.showconsole" contributorURI="platform:/plugin/de.sick.appstudio" commandName="showConsole"/>
+  <commands xmi:id="_b9iDaxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.developerperspective" contributorURI="platform:/plugin/de.sick.appstudio" commandName="developerPerspective"/>
+  <commands xmi:id="_b9iDbBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.configurationperspective" contributorURI="platform:/plugin/de.sick.appstudio" commandName="configurationPerspective"/>
+  <commands xmi:id="_b9iDbRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.exportConfiguredAppTemplate" contributorURI="platform:/plugin/de.sick.appstudio" commandName="exportConfiguredAppTemplate"/>
+  <commands xmi:id="_b9iDbhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.installConfiguredAppTemplate" contributorURI="platform:/plugin/de.sick.appstudio" commandName="installConfiguredAppTemplate"/>
+  <commands xmi:id="_b9iDbxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.viewerAutoZoom" contributorURI="platform:/plugin/de.sick.appstudio" commandName="ViewerAutoZoom"/>
+  <commands xmi:id="_b9iDcBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.openlogindialog" contributorURI="platform:/plugin/de.sick.appstudio" commandName="openlogin"/>
+  <commands xmi:id="_b9iDcRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.logout" contributorURI="platform:/plugin/de.sick.appstudio" commandName="apppoollogout"/>
+  <commands xmi:id="_b9iDchmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.showlog" contributorURI="platform:/plugin/de.sick.appstudio" commandName="showLog">
+    <parameters xmi:id="_b9iDcxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.commandparameter.ShowLogType" contributorURI="platform:/plugin/de.sick.appstudio" name="ShowLogType"/>
+  </commands>
+  <commands xmi:id="_b9iDdBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.select_manifest" contributorURI="platform:/plugin/de.sick.appstudio" commandName="selectManifest"/>
+  <commands xmi:id="_b9iDdRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.keybindingscommand" contributorURI="platform:/plugin/de.sick.appstudio" commandName="keybindingsCommand"/>
+  <commands xmi:id="_b9iDdhmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.refactor" contributorURI="platform:/plugin/de.sick.appstudio" commandName="refactorCommand"/>
+  <commands xmi:id="_b9iDdxmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.findinfiles" contributorURI="platform:/plugin/de.sick.appstudio" commandName="FindinFilesCommand"/>
+  <commands xmi:id="_b9iDeBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.replace" contributorURI="platform:/plugin/de.sick.appstudio" commandName="ReplaceCommand"/>
+  <commands xmi:id="_b9iDeRmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.createDocu" contributorURI="platform:/plugin/de.sick.appstudio" commandName="Create Documentation" description="Creates documentation for a selected project"/>
+  <commands xmi:id="_b9iDehmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.showUiPage" contributorURI="platform:/plugin/de.sick.appstudio" commandName="ShowUiPage"/>
+  <commands xmi:id="_b9iDexmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.minMaxPart" contributorURI="platform:/plugin/de.sick.appstudio" commandName="minMaxPart"/>
+  <commands xmi:id="_b9iqMBmlEeqO7pusHtFedw" elementId="de.sick.appstudio.command.clean" contributorURI="platform:/plugin/de.sick.appstudio" commandName="CleanProjects"/>
+  <addons xmi:id="_b9iqMRmlEeqO7pusHtFedw" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_b9iqMhmlEeqO7pusHtFedw" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_b9iqMxmlEeqO7pusHtFedw" elementId="org.eclipse.fx.ui.keybindings.e4.service" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://org.eclipse.fx.ui.keybindings.e4/org.eclipse.fx.ui.keybindings.e4.BindingServiceAddon"/>
+  <addons xmi:id="_b9iqNBmlEeqO7pusHtFedw" elementId="org.eclipse.e4.ui.workbench.commands.model" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_b9iqNRmlEeqO7pusHtFedw" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_b9iqNhmlEeqO7pusHtFedw" elementId="org.eclipse.fx.ui.keybindings.e4.model" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://org.eclipse.fx.ui.keybindings.e4/org.eclipse.fx.ui.keybindings.e4.BindingProcessingAddon"/>
+  <addons xmi:id="_b9iqNxmlEeqO7pusHtFedw" elementId="org.eclipse.fx.ui.workbench.renderers.base.addons.DnDAddon" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.e4.DnDAddon"/>
+  <addons xmi:id="_b9iqOBmlEeqO7pusHtFedw" elementId="org.eclipse.e4.ui.workbench.addons.HandlerProcessingAddon" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <addons xmi:id="_b9iqORmlEeqO7pusHtFedw" elementId="org.eclipse.fx.ui.workbench.renderers.base.addons.CleanUpAddon" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://org.eclipse.fx.ui.workbench.renderers.base/org.eclipse.fx.ui.workbench.renderers.base.addons.CleanUpAddon"/>
+  <addons xmi:id="_b9iqOhmlEeqO7pusHtFedw" elementId="org.eclipse.fx.code.editor.e4.addons.DirtyStateTrackingAddon" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://org.eclipse.fx.code.editor.e4/org.eclipse.fx.code.editor.e4.addons.DirtyStateTrackingAddon"/>
+  <addons xmi:id="_b9iqOxmlEeqO7pusHtFedw" elementId="org.eclipse.fx.ui.workbench.renderers.base.addons.MinMaxAddon" contributorURI="platform:/plugin/de.sick.appstudio" contributionURI="bundleclass://de.sick.appstudio/de.sick.appstudio.e4.MinMaxAddon"/>
+</application:Application>
