@@ -64,4 +64,5 @@ function DataProcessing.getVectors(firstPoint, secondPoint, thirdPoint)
   return zfVector, zsVector, ztVector
 end
 
+
 return DataProcessing
