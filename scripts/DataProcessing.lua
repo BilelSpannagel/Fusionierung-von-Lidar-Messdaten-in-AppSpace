@@ -1,5 +1,5 @@
 local DataProcessing = {}
-require("utils")
+local utils = require("utils")
 
 --@removePointsBeyond(inputCloud: PointCloud, maxDistance: double):PointCloud
 function DataProcessing.removePointsBeyond(inputCloud, maxDistance)
@@ -17,12 +17,10 @@ end
 
 --@getTwoCornersAndEdgeLength(inputCloud:PointCloud):Point, Point, Float
 function DataProcessing.getTwoCornersAndEdgeLength(inputCloud)
-  local closestPoint, minDistance, firstPoint, lastPoint, firstEdgeLength, pointCloudSize
+  local closestPoint, firstPoint, lastPoint, firstEdgeLength, pointCloudSize
   local secondEdgeLength, closestPointIndex, leftClosestPoint, rightClosestPoint, _
 
   closestPoint, closestPointIndex, firstPoint, lastPoint = DataProcessing.getCorners(inputCloud)
-  minDistance = Point.getDistance(closestPoint, originPoint)
-  
   firstEdgeLength = Point.getDistance(firstPoint, closestPoint)
   secondEdgeLength = Point.getDistance(closestPoint, lastPoint)
   pointCloudSize = inputCloud:getSize()
@@ -30,14 +28,14 @@ function DataProcessing.getTwoCornersAndEdgeLength(inputCloud)
   if ((closestPointIndex == 0) or (closestPointIndex == pointCloudSize - 1)) then
     return firstPoint, lastPoint, Point.getDistance(firstPoint, lastPoint)
   else
-   leftClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex - 1)
-   rightClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex + 1)
+    leftClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex - 1)
+    rightClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex + 1)
 
-   if (Point.getDistance(leftClosestPoint, rightClosestPoint) * 1.1 >
-     (Point.getDistance(leftClosestPoint, closestPoint) + Point.getDistance(closestPoint, rightClosestPoint))) then
-      return firstPoint, lastPoint (firstEdgeLength + secondEdgeLength)
+    if (Point.getDistance(leftClosestPoint, rightClosestPoint) * 1.1 >
+      (Point.getDistance(leftClosestPoint, closestPoint) + Point.getDistance(closestPoint, rightClosestPoint))) then
+      return firstPoint, lastPoint, (firstEdgeLength + secondEdgeLength)
     else
-     return firstPoint, closestPoint, firstEdgeLength
+      return firstPoint, closestPoint, firstEdgeLength
     end
   end
 end
@@ -45,7 +43,7 @@ end
 --@getCorners(inputCloud:PointCloud):Point, Integer, Point, Point
 function DataProcessing.getCorners(inputCloud)
   local closestPoint, secondPoint, thirdPoint, closestPointIndex, _
-  closestPoint, closestPointIndex = inputCloud:findClosestPoint(originPoint)
+  closestPoint, closestPointIndex = inputCloud:findClosestPoint(utils.originPoint)
   secondPoint, _ = inputCloud:getPoint3D(0)
   thirdPoint, _ = inputCloud:getPoint3D(inputCloud:getSize()-1)
   return closestPoint, closestPointIndex, secondPoint, thirdPoint
@@ -66,21 +64,9 @@ function DataProcessing.fusePointClouds(firstCloud, secondCloud)
   secondEdgeLength = DataProcessing.round(secondEdgeLength, -1)
   combinedEdgeLength = firstEdgeLength + secondEdgeLength
   if firstEdgeLength == secondEdgeLength then
+    
+  end
 
-  end  
-
-end
-
---@getVectors(firstPoint:Point, secondPoint:Point, thirdPoint:Point):Point, Point, Point
-function DataProcessing.getVectors(firstPoint, secondPoint, thirdPoint)
-  local zfVector, zsVector, ztVector
-  zfVector = Point.create(firstPoint.getX()-originPoint.getX(),firstPoint.getY()-originPoint.getY()
-  ,firstPoint.getZ()-originPoint.getZ())
-  zsVector = Point.create(secondPoint.getX()-originPoint.getX(),secondPoint.getY()-originPoint.getY()
-  ,secondPoint.getZ()-originPoint.getZ())
-  ztVector = Point.create(thirdPoint.getX()-originPoint.getX(),thirdPoint.getY()-originPoint.getY()
-  ,thirdPoint.getZ()-originPoint.getZ())
-  return zfVector, zsVector, ztVector
 end
 
 

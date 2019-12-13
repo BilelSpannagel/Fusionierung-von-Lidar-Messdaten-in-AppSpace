@@ -10,8 +10,8 @@ local function main()
   print(DataProcessing.getTwoCornersAndEdgeLength(changedCloud))
   PointCloudViewer.PointCloudViewer(changedCloud)
 
-  scanProvider = Scan.Provider.Scanner.create()
-  Communication.sendScans(scanProvider, "192.168.1.20")
+  --scanProvider = Scan.Provider.Scanner.create()
+  --Communication.sendScans(scanProvider, "192.168.1.20")
 
 end
 Script.register("Engine.OnStarted", main)
