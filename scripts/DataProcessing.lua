@@ -1,5 +1,5 @@
 local DataProcessing = {}
-require("utils")
+local utils = require("utils")
 
 --@removePointsBeyond(inputCloud: PointCloud, maxDistance: double):PointCloud
 function DataProcessing.removePointsBeyond(inputCloud, maxDistance)
@@ -43,7 +43,7 @@ end
 --@getCorners(inputCloud:PointCloud):Point, Integer, Point, Point
 function DataProcessing.getCorners(inputCloud)
   local closestPoint, secondPoint, thirdPoint, closestPointIndex, _
-  closestPoint, closestPointIndex = inputCloud:findClosestPoint(originPoint)
+  closestPoint, closestPointIndex = inputCloud:findClosestPoint(utils.originPoint)
   secondPoint, _ = inputCloud:getPoint3D(0)
   thirdPoint, _ = inputCloud:getPoint3D(inputCloud:getSize()-1)
   return closestPoint, closestPointIndex, secondPoint, thirdPoint
