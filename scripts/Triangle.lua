@@ -29,7 +29,6 @@ function Triangle.createTwoLines()
   end
   return cloud
 end
-
 function Triangle.createTwoLinesTransformed()
   local cloud = PointCloud.create()
   for i = 600, 500, -1 do
