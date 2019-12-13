@@ -58,25 +58,31 @@ local function isSideLengthInPredinedSideLengths(input)
   return false
 end
 
---getThirdCorner(firstPoint:Point, secondPoint: Point, edgeLength:number)
-function DataProcessing.getThirdCorner(firstPoint, secondPoint, edgeLength)
-  local alpha, A, G, x, y, transform
-  if isSideLengthInPredinedSideLengths(edgeLength) then
-    A = math.abs(firstPoint:getX() - secondPoint:getX())
-    G = math.abs(firstPoint:getY() - secondPoint:getY())
-    alpha = math.atan(A/G)
+--getThirdCorner(firstPoint:Point, secondPoint: Point) : point
+function DataProcessing.getThirdCorner(firstPoint, secondPoint)
+
+  local A = math.abs(firstPoint:getX() - secondPoint:getX())
+  local G = math.abs(firstPoint:getY() - secondPoint:getY())
+  local alpha = math.atan(A/G)
+  local edgeLength = math.sqrt(math.pow(A, 2)+math.pow(G, 2))
     
-    if edgeLength == utils.predifinedSideLengths[1] then
-      transform = Transform.createTranslation2D(0, 15)
-    elseif edgeLength == utils.predifinedSideLengths[2] then
-      transform = Transform.createTranslation2D(-15, 10)
-    elseif edgeLength == utils.predifinedSideLengths[3] then
-      transform = Transform.createTranslation2D(xTrans, yTrans)
-    end
-    return firstPoint:add(Point.create(x, y))
+  if edgeLength == utils.predifinedSideLengths[1] then
+    local retPoint = Point.create(A, G + utils.predifinedSideLengths[2])
+    DataProcessing:rotateAroundPoint(firstPoint, retPoint, alpha+utils.predifinedAngle[2])
+    return retPoint
+  elseif edgeLength == utils.predifinedSideLengths[2] then
+    local retPoint = Point.create(A, G + utils.predifinedSideLengths[3])
+    DataProcessing:rotateAroundPoint(firstPoint, retPoint, alpha+utils.predifinedAngle[3])
+    return retPoint
+  elseif edgeLength == utils.predifinedSideLengths[3] then
+    local retPoint = Point.create(A, G + utils.predifinedSideLengths[1])
+    DataProcessing:rotateAroundPoint(firstPoint, retPoint, alpha+utils.predifinedAngle[1])
+    return retPoint
   else
-    return error("Error: wrong side length")
+    print("Falsche Kantenlänge")
+    return nil
   end
+  
 end
 
 --rotateAroundPoint(originPoint:Point, pointToRotate: Point, angle:number) : point
