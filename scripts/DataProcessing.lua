@@ -31,7 +31,7 @@ function DataProcessing.getTwoCornersAndEdgeLength(inputCloud)
     leftClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex - 1)
     rightClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex + 1)
 
-    if (Point.getDistance(leftClosestPoint, rightClosestPoint) * 1.1 >
+    if (Point.getDistance(leftClosestPoint, rightClosestPoint) * 1.05 >
       (Point.getDistance(leftClosestPoint, closestPoint) + Point.getDistance(closestPoint, rightClosestPoint))) then
       return firstPoint, lastPoint, (firstEdgeLength + secondEdgeLength)
     else
