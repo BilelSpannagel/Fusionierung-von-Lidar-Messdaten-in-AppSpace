@@ -1,20 +1,21 @@
-Script.disableGarbageCollectionByEngine()
 local Communication = {}
 
-local socket = UDPSocket.create()
+socket = UDPSocket.create()
 
 --@receiveScans(_scanner: Scann.Provider.Scanner, masterIP: String):void
-function Communication.receiveScans(handleOnReceive)
-  print("Waiting for new Scans to arrive.")
+function Communication.receiveScans(_handleOnReceive)
+  -- luacheck: globals receiveHandle
+  receiveHandle = _handleOnReceive
+  --@hndOnReceive(data, ipaddess, port): void
+  function hndOnReceive(data,ipaddress,port)
+    local scan = Object.deserialize(data, "MSGPACK")
+    receiveHandle(scan)
+  end
+
   UDPSocket.bind(socket, 2111)
   UDPSocket.register(socket, "OnReceive", "hndOnReceive")
-
-  local scanViewer = View.create("scanViewer")
-
-  
-  scan = Object.deserialize(data, "MSGPACK")
-  handleOnNewScan(scan)
 end
+
 --@sendScans(_scanner: Scann.Provider.Scanner, masterIP: String):void
 function Communication.sendScans(_scanProvider, _masterIP)
   function handleOnNewScan(scan)
