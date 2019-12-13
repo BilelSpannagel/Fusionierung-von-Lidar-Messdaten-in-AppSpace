@@ -79,6 +79,17 @@ function DataProcessing.getThirdCorner(firstPoint, secondPoint, edgeLength)
   end
 end
 
+--rotateAroundPoint(originPoint:Point, pointToRotate: Point, angle:number) : point
+function DataProcessing.rotateAroundPoint(originPoint, pointToRotate, angle)
+  local retPoint = Point.create(pointToRotate:getX() - originPoint:getX(), pointToRotate:getY() - originPoint:getY())
+  retPoint:setX(math.cos(angle) * retPoint:getX() + (-math.sin(angle) * retPoint:getY()))
+  retPoint:setY(math.sin(angle) * retPoint:getX() + (math.cos(angle) * retPoint:getY()))
+  retPoint:setX(retPoint:getX() + originPoint:getX())
+  retPoint:setY(retPoint:getY() + originPoint:getY())
+
+  return retPoint
+end
+
 --@round(num:number, numDecimalPlaces:number): number
 local function round(num, numDecimalPlaces)
   local mult = 10^(numDecimalPlaces or 0)
