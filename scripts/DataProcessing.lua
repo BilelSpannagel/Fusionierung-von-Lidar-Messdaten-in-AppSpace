@@ -58,27 +58,21 @@ local function isSideLengthInPredinedSideLengths(input)
   return false
 end
 
---getThirdCorner(firstPoint:Point, secondPoint:Point, edgeLength:number)
+--getThirdCorner(firstPoint:Point, secondPoint: Point, edgeLength:number)
 function DataProcessing.getThirdCorner(firstPoint, secondPoint, edgeLength)
-  local a, b, c, x, y
+  local alpha, A, G, x, y, transform
   if isSideLengthInPredinedSideLengths(edgeLength) then
+    A = math.abs(firstPoint:getX() - secondPoint:getX())
+    G = math.abs(firstPoint:getY() - secondPoint:getY())
+    alpha = math.atan(A/G)
+    
     if edgeLength == utils.predifinedSideLengths[1] then
-      a = utils.predifinedSideLengths[1]
-      b = utils.predifinedSideLengths[3]
-      c = utils.predifinedSideLengths[2]
+      transform = Transform.createTranslation2D(0, 15)
     elseif edgeLength == utils.predifinedSideLengths[2] then
-      a = utils.predifinedSideLengths[2]
-      b = utils.predifinedSideLengths[1]
-      c = utils.predifinedSideLengths[3]
+      transform = Transform.createTranslation2D(-15, 10)
     elseif edgeLength == utils.predifinedSideLengths[3] then
-      a = utils.predifinedSideLengths[3]
-      b = utils.predifinedSideLengths[2]
-      c = utils.predifinedSideLengths[1]
+      transform = Transform.createTranslation2D(xTrans, yTrans)
     end
-    --Formula Source: https://math.stackexchange.com/questions/543961/
-    print(a,b,c)
-    x = (c*c - b*b + a*a) / (2*a)
-    y = math.sqrt(c*c - x*x)
     return firstPoint:add(Point.create(x, y))
   else
     return error("Error: wrong side length")
