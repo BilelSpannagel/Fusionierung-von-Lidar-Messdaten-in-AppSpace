@@ -55,18 +55,48 @@ function DataProcessing.round(num, numDecimalPlaces)
   return math.floor(num * mult + 0.5) / mult
 end
 
---fusePointClouds(firstCloud:PointCloud, secondCloud:PointCloud):resultCloud
+--fusePointClouds(firstCloud:PointCloud, secondCloud:PointCloud): pointCloud
 function DataProcessing.fusePointClouds(firstCloud, secondCloud)
   local _, firstEdgeLength, secondEdgeLength, firstCorner, secondCorner, thirdCorner, fourthCorner, combinedEdgeLength
+  local resultCloud
+  local compareCorner = {}
+  local sideLengthError = error("Error: wrong side length")
   firstCorner, secondCorner, firstEdgeLength = DataProcessing.getTwoCornersAndEdgeLength(firstCloud)
   thirdCorner, fourthCorner , secondEdgeLength = DataProcessing.getTwoCornersAndEdgeLength(secondCloud)
   firstEdgeLength = DataProcessing.round(firstEdgeLength, -1)
   secondEdgeLength = DataProcessing.round(secondEdgeLength, -1)
   combinedEdgeLength = firstEdgeLength + secondEdgeLength
   if firstEdgeLength == secondEdgeLength then
-    
+    local lengthIsLogic = false
+    for length in utils.predifinedSideLengths do
+      if firstEdgeLength == length then
+        lengthIsLogic = true
+      end
+    end
+    if lengthIsLogic == true then
+      compareCorner[0] = firstCorner
+      compareCorner[1] = thirdCorner
+    else
+      return sideLengthError
+    end
+  else
+    local firstLengthIsLogic = false
+    local secondLengthIsLogic = false
+    for length in utils.predifinedSideLengths do
+      if firstEdgeLength == length then
+        firstLengthIsLogic = true
+      end
+      if secondEdgeLength == length then
+        secondLengthIsLogic = true
+      end
+    end
+    if firstLengthIsLogic == true or secondLengthIsLogic == true then
+      
+    else
+      return sideLengthError
+    end
   end
-
+  return resultCloud
 end
 
 
