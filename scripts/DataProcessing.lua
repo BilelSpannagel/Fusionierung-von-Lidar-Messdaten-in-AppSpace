@@ -58,24 +58,6 @@ local function isSideLengthInPredinedSideLengths(input)
   return false
 end
 
-<<<<<<< HEAD
---getThirdCorner(firstPoint:Point, secondPoint: Point, edgeLength:number)
-function DataProcessing.getThirdCorner(firstPoint, secondPoint, edgeLength)
-  local alpha, A, G, x, y
-  if isSideLengthInPredinedSideLengths(edgeLength) then
-    A = math.abs(firstPoint:getX() - secondPoint:getX())
-    G = math.abs(firstPoint:getY() - secondPoint:getY())
-    alpha = math.atan(A/G)
-    if edgeLength == utils.predifinedSideLengths[1] then
-      
-    elseif edgeLength == utils.predifinedSideLengths[2] then
-      
-    elseif edgeLength == utils.predifinedSideLengths[3] then
-      
-    end
-    
-    return
-=======
 --getThirdCorner(firstPoint:Point, secondPoint: Point) : point
 function DataProcessing.getThirdCorner(firstPoint, secondPoint)
 
@@ -96,12 +78,10 @@ function DataProcessing.getThirdCorner(firstPoint, secondPoint)
     local retPoint = Point.create(A, G + utils.predifinedSideLengths[1])
     DataProcessing:rotateAroundPoint(firstPoint, retPoint, alpha+utils.predifinedAngle[1])
     return retPoint
->>>>>>> e962ab367b842e97f667a280b2aab84f5ed69642
   else
     print("Falsche Kantenlänge")
     return nil
   end
-  
 end
 
 --rotateAroundPoint(originPoint:Point, pointToRotate: Point, angle:number) : point
