@@ -58,6 +58,7 @@ local function isSideLengthInPredinedSideLengths(input)
   return false
 end
 
+<<<<<<< HEAD
 --getThirdCorner(firstPoint:Point, secondPoint: Point, edgeLength:number)
 function DataProcessing.getThirdCorner(firstPoint, secondPoint, edgeLength)
   local alpha, A, G, x, y
@@ -74,9 +75,44 @@ function DataProcessing.getThirdCorner(firstPoint, secondPoint, edgeLength)
     end
     
     return
+=======
+--getThirdCorner(firstPoint:Point, secondPoint: Point) : point
+function DataProcessing.getThirdCorner(firstPoint, secondPoint)
+
+  local A = math.abs(firstPoint:getX() - secondPoint:getX())
+  local G = math.abs(firstPoint:getY() - secondPoint:getY())
+  local alpha = math.atan(A/G)
+  local edgeLength = math.sqrt(math.pow(A, 2)+math.pow(G, 2))
+    
+  if edgeLength == utils.predifinedSideLengths[1] then
+    local retPoint = Point.create(A, G + utils.predifinedSideLengths[2])
+    DataProcessing:rotateAroundPoint(firstPoint, retPoint, alpha+utils.predifinedAngle[2])
+    return retPoint
+  elseif edgeLength == utils.predifinedSideLengths[2] then
+    local retPoint = Point.create(A, G + utils.predifinedSideLengths[3])
+    DataProcessing:rotateAroundPoint(firstPoint, retPoint, alpha+utils.predifinedAngle[3])
+    return retPoint
+  elseif edgeLength == utils.predifinedSideLengths[3] then
+    local retPoint = Point.create(A, G + utils.predifinedSideLengths[1])
+    DataProcessing:rotateAroundPoint(firstPoint, retPoint, alpha+utils.predifinedAngle[1])
+    return retPoint
+>>>>>>> e962ab367b842e97f667a280b2aab84f5ed69642
   else
-    return error("Error: wrong side length")
+    print("Falsche Kantenlänge")
+    return nil
   end
+  
+end
+
+--rotateAroundPoint(originPoint:Point, pointToRotate: Point, angle:number) : point
+function DataProcessing.rotateAroundPoint(originPoint, pointToRotate, angle)
+  local retPoint = Point.create(pointToRotate:getX() - originPoint:getX(), pointToRotate:getY() - originPoint:getY())
+  retPoint:setX(math.cos(angle) * retPoint:getX() + (-math.sin(angle) * retPoint:getY()))
+  retPoint:setY(math.sin(angle) * retPoint:getX() + (math.cos(angle) * retPoint:getY()))
+  retPoint:setX(retPoint:getX() + originPoint:getX())
+  retPoint:setY(retPoint:getY() + originPoint:getY())
+
+  return retPoint
 end
 
 --@round(num:number, numDecimalPlaces:number): number

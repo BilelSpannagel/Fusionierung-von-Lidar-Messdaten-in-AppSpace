@@ -1,6 +1,22 @@
 <layout-column id="viewerRow">
-	<sick-viewer3d id="scanViewer" protocol="auto" viewer-id="scanViewer">
+			<layout-row id="ColumnLayout1" style="flex-grow:0;flex-basis:0">
+		<davinci-button id="showSlaveButton" type="primary" style="flex-grow:1">
+		<span>Show Slave Scans</span>
+			<crown-binding event="submit" name="LIDAR_AppSpace/showSlaveScans" auto-commit></crown-binding>
+	</davinci-button>
+		<davinci-button id="showMasterScansButton" type="primary" icon="action/accessibility">
+			<span>Show Master Scans</span>
+			<crown-binding event="submit" name="LIDAR_AppSpace/showOwnScans" auto-commit></crown-binding>
+		</davinci-button>
+		<davinci-button id="calibratedButton" type="primary">
+			<span>calibrate</span>
+			<crown-binding event="submit" name="LIDAR_AppSpace/calibrate" auto-commit></crown-binding>
+		</davinci-button>
+	</layout-row>
+	<sick-viewer3d id="scanViewer" protocol="auto" viewer-id="scanViewer" style="flex-basis:1">
 	</sick-viewer3d>
+	
+	
 	
 	
 	
