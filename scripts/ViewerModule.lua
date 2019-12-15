@@ -23,20 +23,11 @@ function ViewerModule.showScans(scan)
   --draw scans
   function drawScans()
     --Viewer:clear()
-
     local cloud = Scan.Transform.transformToPointCloud(transformer, scans[0])
-    if Scan.getPointPhi(scans[0], 0) == 0 then
-      --print "set first scan"
-      ViewerModule.lastScan = transformer:transformToPointCloud(scans[0])
-    elseif Scan.getPointPhi(scans[1], 0) == 0 then
-      --print "set second scan"
-      ViewerModule.lastScan = transformer:transformToPointCloud(scans[1])
-    elseif Scan.getPointPhi(scans[2], 0) == 0 then
-      --print "set third scan"
-      ViewerModule.lastScan = transformer:transformToPointCloud(scans[2])
-    elseif Scan.getPointPhi(scans[3], 0) == 0 then
-      --print "set fourth scan"
-      ViewerModule.lastScan = transformer:transformToPointCloud(scans[3])
+    for _, eachScan in ipairs(scans) do
+      if Scan.getPointPhi(eachScan, 0) == 0 then
+        ViewerModule.lastScan = transformer:transformToPointCloud(eachScan)
+      end
     end
     
     cloud = cloud:merge(Scan.Transform.transformToPointCloud(transformer, scans[1]))
