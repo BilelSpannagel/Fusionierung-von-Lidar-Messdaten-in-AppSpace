@@ -60,20 +60,20 @@ end
 
 --getThirdCorner(firstPoint:Point, secondPoint: Point, edgeLength:number)
 function DataProcessing.getThirdCorner(firstPoint, secondPoint, edgeLength)
-  local alpha, A, G, x, y, transform
+  local alpha, A, G, x, y
   if isSideLengthInPredinedSideLengths(edgeLength) then
     A = math.abs(firstPoint:getX() - secondPoint:getX())
     G = math.abs(firstPoint:getY() - secondPoint:getY())
     alpha = math.atan(A/G)
-    
     if edgeLength == utils.predifinedSideLengths[1] then
-      transform = Transform.createTranslation2D(0, 15)
+      
     elseif edgeLength == utils.predifinedSideLengths[2] then
-      transform = Transform.createTranslation2D(-15, 10)
+      
     elseif edgeLength == utils.predifinedSideLengths[3] then
-      transform = Transform.createTranslation2D(xTrans, yTrans)
+      
     end
-    return firstPoint:add(Point.create(x, y))
+    
+    return
   else
     return error("Error: wrong side length")
   end
