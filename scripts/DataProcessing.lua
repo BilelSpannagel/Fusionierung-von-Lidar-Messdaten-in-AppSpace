@@ -48,25 +48,92 @@ function DataProcessing.getCorners(inputCloud)
   thirdPoint, _ = inputCloud:getPoint3D(inputCloud:getSize()-1)
   return closestPoint, closestPointIndex, secondPoint, thirdPoint
 end
+--@isSideLengthInPredinedSideLengths(input: number):boolean
+local function isSideLengthInPredinedSideLengths(input)
+  for _, length in ipairs(utils.predifinedSideLengths) do
+    if input == length then
+       return true
+    end
+  end
+  return false
+end
+
+--getThirdCorner(firstPoint:Point, secondPoint: Point) : point
+function DataProcessing.getThirdCorner(firstPoint, secondPoint)
+
+  local A = math.abs(firstPoint:getX() - secondPoint:getX())
+  local G = math.abs(firstPoint:getY() - secondPoint:getY())
+  local alpha = math.atan(A/G)
+  local edgeLength = math.sqrt(math.pow(A, 2)+math.pow(G, 2))
+    
+  if edgeLength == utils.predifinedSideLengths[1] then
+    local retPoint = Point.create(A, G + utils.predifinedSideLengths[2])
+    DataProcessing:rotateAroundPoint(firstPoint, retPoint, alpha+utils.predifinedAngle[2])
+    return retPoint
+  elseif edgeLength == utils.predifinedSideLengths[2] then
+    local retPoint = Point.create(A, G + utils.predifinedSideLengths[3])
+    DataProcessing:rotateAroundPoint(firstPoint, retPoint, alpha+utils.predifinedAngle[3])
+    return retPoint
+  elseif edgeLength == utils.predifinedSideLengths[3] then
+    local retPoint = Point.create(A, G + utils.predifinedSideLengths[1])
+    DataProcessing:rotateAroundPoint(firstPoint, retPoint, alpha+utils.predifinedAngle[1])
+    return retPoint
+  else
+    print("Falsche Kantenlänge")
+    return nil
+  end
+  
+end
+
+--rotateAroundPoint(originPoint:Point, pointToRotate: Point, angle:number) : point
+function DataProcessing.rotateAroundPoint(originPoint, pointToRotate, angle)
+  local retPoint = Point.create(pointToRotate:getX() - originPoint:getX(), pointToRotate:getY() - originPoint:getY())
+  retPoint:setX(math.cos(angle) * retPoint:getX() + (-math.sin(angle) * retPoint:getY()))
+  retPoint:setY(math.sin(angle) * retPoint:getX() + (math.cos(angle) * retPoint:getY()))
+  retPoint:setX(retPoint:getX() + originPoint:getX())
+  retPoint:setY(retPoint:getY() + originPoint:getY())
+
+  return retPoint
+end
 
 --@round(num:number, numDecimalPlaces:number): number
-function DataProcessing.round(num, numDecimalPlaces)
+local function round(num, numDecimalPlaces)
   local mult = 10^(numDecimalPlaces or 0)
   return math.floor(num * mult + 0.5) / mult
 end
 
---fusePointClouds(firstCloud:PointCloud, secondCloud:PointCloud):resultCloud
+
+--@fusePointClouds(firstCloud:PointCloud, secondCloud:PointCloud): pointCloud
 function DataProcessing.fusePointClouds(firstCloud, secondCloud)
   local _, firstEdgeLength, secondEdgeLength, firstCorner, secondCorner, thirdCorner, fourthCorner, combinedEdgeLength
+  local resultCloud
+  local compareCorner = {}
   firstCorner, secondCorner, firstEdgeLength = DataProcessing.getTwoCornersAndEdgeLength(firstCloud)
   thirdCorner, fourthCorner , secondEdgeLength = DataProcessing.getTwoCornersAndEdgeLength(secondCloud)
-  firstEdgeLength = DataProcessing.round(firstEdgeLength, -1)
-  secondEdgeLength = DataProcessing.round(secondEdgeLength, -1)
+  firstEdgeLength = round(firstEdgeLength, -1)
+  secondEdgeLength = round(secondEdgeLength, -1)
   combinedEdgeLength = firstEdgeLength + secondEdgeLength
   if firstEdgeLength == secondEdgeLength then
-    
-  end
+    local lengthIsLogic = false
+    for length in utils.predifinedSideLengths do
+      if firstEdgeLength == length then
+        lengthIsLogic = true
+      end
+    end
+    if lengthIsLogic == true then
+      compareCorner[0] = firstCorner
+      compareCorner[1] = thirdCorner
+    else
+      return error("Error: wrong side length")
+    end
+  else
+    if isSideLengthInPredinedSideLengths(firstEdgeLength) and isSideLengthInPredinedSideLengths(secondEdgeLength) then
 
+    else
+      return error("Error: wrong side length")
+    end
+  end
+  return resultCloud
 end
 
 

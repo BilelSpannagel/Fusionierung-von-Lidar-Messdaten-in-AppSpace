@@ -6,8 +6,6 @@ Viewer = require("ViewerModule")
 Communication = require("Communication")
 provider = Scan.Provider.Scanner.create()
 
-
-
 --@showMasterScans():void
 function showOwnScans()
   Communication.stopReceiving()
@@ -36,8 +34,6 @@ local function main()
   Script.serveFunction("LIDAR_AppSpace.showOwnScans", "showOwnScans")
   Script.serveFunction("LIDAR_AppSpace.calibrate", "calibrate")
 
-
-
   local Triangle = require("Triangle")
   local cloud = Triangle.createTwoLines()
   --local cloud = Triangle.createOneLine()
@@ -45,7 +41,15 @@ local function main()
   local changedCloud = DataProcessing.removePointsBeyond(cloud, 1000)
   print(DataProcessing.getTwoCornersAndEdgeLength(changedCloud))
   Viewer.PointCloudViewer(changedCloud)
-
+ 
+  local firstPoint, secondPoint, distance = DataProcessing.getTwoCornersAndEdgeLength(changedCloud)
+  local firstX, firstY = firstPoint:getXY()
+  local secondX, secondY = secondPoint:getXY()
+  print(firstX, firstY, secondX, secondY, distance)
+  local thirdPoint = DataProcessing.getThirdCorner(Point.create(0,0),Point.create(150, 0), 150)
+  local thirdX, thirdY = thirdPoint:getXY()
+  print("Dritter Punkt: ", thirdX, thirdY)
+  PointCloudViewer.PointCloudViewer(changedCloud)
 
   --scanProvider = Scan.Provider.Scanner.create()
   --Communication.sendScans(scanProvider, "192.168.1.20") --Set the right IP!

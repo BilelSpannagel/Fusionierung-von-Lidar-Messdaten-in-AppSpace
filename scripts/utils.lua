@@ -1,6 +1,6 @@
 local utils = {}
 
-utils.predifinedSideLengths = {100,150,180}
+utils.predifinedSideLengths = {100,180,150}
 utils.originPoint = Point.create(0, 0, 0)
 utils.showMaster = false
 
