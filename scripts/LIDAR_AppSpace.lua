@@ -22,9 +22,10 @@ end
 
 --@calibrate():void
 function calibrate()
+  local transformer = Scan.Transform.create()
   Communication.stopReceiving()
   provider:deregister("OnNewScan", Viewer.showScans)
-  local cloud = Viewer.lastScan:clone()
+  local cloud = transformer:TransformToPointCloud(Viewer.lastScan)
   cloud = DataProcessing.removePointsBeyond(cloud, 500)
   Viewer.PointCloudViewer(cloud)
 end
