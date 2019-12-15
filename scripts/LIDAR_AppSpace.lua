@@ -22,7 +22,7 @@ end
 
 --@calibrate():void
 function calibrate()
-  local transformer = Scan.Transform.create()
+  transformer = Scan.Transform.create()
   Communication.stopReceiving()
   provider:deregister("OnNewScan", Viewer.showScans)
   local cloud = transformer:TransformToPointCloud(Viewer.lastScan)
@@ -34,7 +34,7 @@ local function main()
   Script.serveFunction("LIDAR_AppSpace.showSlaveScans", "showSlaveScans")
   Script.serveFunction("LIDAR_AppSpace.showOwnScans", "showOwnScans")
   Script.serveFunction("LIDAR_AppSpace.calibrate", "calibrate")
-
+  --[[
   local Triangle = require("Triangle")
   local cloud = Triangle.createTwoLines()
   --local cloud = Triangle.createOneLine()
@@ -51,7 +51,7 @@ local function main()
   local thirdX, thirdY = thirdPoint:getXY()
   print("Dritter Punkt: ", thirdX, thirdY)
   Viewer.PointCloudViewer(changedCloud)
-
+  --]]
   --scanProvider = Scan.Provider.Scanner.create()
   --Communication.sendScans(scanProvider, "192.168.1.20") --Set the right IP!
 

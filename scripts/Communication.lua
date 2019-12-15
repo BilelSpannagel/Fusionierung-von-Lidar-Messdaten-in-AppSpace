@@ -11,12 +11,10 @@ function handle(data,ipaddress,port)
 end
 
 function Communication.receiveScans(_handleOnReceive)
--- luacheck: globals receiveHandle
+  -- luacheck: globals receiveHandle
+  
   receiveHandle = _handleOnReceive
-
   --@hndOnReceive(data, ipaddess, port): void
-
-
   UDPSocket.register(socket, "OnReceive", "handle")
   print "Socket bound"
 end
