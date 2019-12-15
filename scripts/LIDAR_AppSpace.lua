@@ -41,13 +41,19 @@ function calibrate()
   
   cloud = DataProcessing.removePointsBeyond(cloud, 300)
   local firstPoint, secondPoint, distance = DataProcessing.getTwoCornersAndEdgeLength(cloud)
+  local thirdPoint = DataProcessing:getThirdCorner(firstPoint, secondPoint)
+
   local firstX, firstY = firstPoint:getXY()
   local secondX, secondY = secondPoint:getXY()
+  local thirdX, thirdY = thirdPoint:getXY()
+  
 
   print(distance)
   print("FirstPoint X:", firstX, "Y:", firstY,"SecondPoint X:", secondX, "Y:", secondY, "Edge Length:", distance)
+  print("Calculated ThirdPoint X:", thirdX, "Y:" , thirdY)
   Viewer.PointCloudViewer(cloud)
 end
+
 
 local function main()
   Script.serveFunction("LIDAR_AppSpace.showSlaveScans", "showSlaveScans")
