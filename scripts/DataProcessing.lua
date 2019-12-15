@@ -96,17 +96,26 @@ function DataProcessing.rotateAroundPoint(originPoint, pointToRotate, angle)
 end
 
 
---translatePoint(originPoint:Point,vec:Point) : Point
-function DataProcessing.translatePoint(originpoint,vec)
+--translatePositivePoint(originPoint:Point,vec:Point) : Point
+function DataProcessing.translatePositivePoint(originpoint,vec)
   originpoint = Point.add(originpoint, vec)
   return originpoint
 end
 
---computeAngle(p1Scan1:Point, p2Scan1:Point, p2Scan2:Point) : number
-function DataProcessing.computeAngle(p1Scan1, p2Scan1, p2Scan2)
---Mach ich bald fertig
-  math.acos()
-  local angle = 0
+--translateNegativePoint(originPoint:Point,vec:Point) : Point
+function DataProcessing.translateNegativePoint(originpoint,vec)
+  Point.setXY(vec, Point.getX(vec) * (-1), Point.getY(vec) * (-1) )
+  originpoint = Point.add(originpoint, vec)
+  return originpoint
+end
+
+--computeAngle(p1Scan1:Point, p1Scan2:Point, p2Scan1:Point, p2Scan2:Point) : number
+function DataProcessing.computeAngle(p1Scan1, p1Scan2, p2Scan1, p2Scan2)
+  local zero = Point.create(0, 0)
+  DataProcessing:translateNegativePoint(p2Scan1, p1Scan1)
+  DataProcessing:translateNegativePoint(p2Scan2, p1Scan2)
+  local denominator = Point.getDistance(p2Scan1, zero)*Point.getDistance(p2Scan1, zero)
+  local angle = math.acos(((p2Scan1:getX()*p2Scan1:getX())+(p2Scan1:getY()*p2Scan1:getY())) / denominator)
   return angle
 end
 
