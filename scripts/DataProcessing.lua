@@ -86,8 +86,17 @@ end
 
 
 --getThirdCorner(firstPoint:Point, secondPoint: Point) : point
-function DataProcessing.getThirdCorner(firstPoint, secondPoint)
-  print("X:",firstPoint:getX())
+function DataProcessing.getThirdCorner(p1, p2)
+  print("X:",p1:getX())
+
+  -- Get Left Point
+  local firstPoint = p2
+  local secondPoint = p1
+  if (p1:getX() < p2:getX()) then
+    firstPoint = p1
+    secondPoint = p2
+  end
+  
   local A = math.abs(secondPoint:getX() - firstPoint:getX())
   local G = math.abs(secondPoint:getY() - firstPoint:getY())
   local alpha
