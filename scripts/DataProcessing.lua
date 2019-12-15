@@ -95,6 +95,21 @@ function DataProcessing.rotateAroundPoint(originPoint, pointToRotate, angle)
   return retPoint
 end
 
+
+--translatePoint(originPoint:Point,vec:Point) : Point
+function DataProcessing.translatePoint(originpoint,vec)
+  originpoint = Point.add(originpoint, vec)
+  return originpoint
+end
+
+--computeAngle(p1Scan1:Point, p2Scan1:Point, p2Scan2:Point) : number
+function DataProcessing.computeAngle(p1Scan1, p2Scan1, p2Scan2)
+--Mach ich bald fertig
+  math.acos()
+  local angle = 0
+  return angle
+end
+
 --@round(num:number, numDecimalPlaces:number): number
 local function round(num, numDecimalPlaces)
   local mult = 10^(numDecimalPlaces or 0)
