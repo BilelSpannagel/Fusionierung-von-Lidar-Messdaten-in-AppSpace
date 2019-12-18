@@ -17,26 +17,21 @@ end
 
 --@getTwoCornersAndEdgeLength(inputCloud:PointCloud):Point, Point, Float
 function DataProcessing.getTwoCornersAndEdgeLength(inputCloud)
-  local closestPoint, firstPoint, lastPoint, firstEdgeLength, pointCloudSize
-  local secondEdgeLength, closestPointIndex, leftClosestPoint, rightClosestPoint, _
+  local closestPoint, firstPoint, lastPoint, pointCloudSize, closestPointIndex, distance, _
 
   closestPoint, closestPointIndex, _, _ = DataProcessing.getCorners(inputCloud)
   firstPoint, lastPoint = inputCloud:findMaxDistancePointPair()
-  firstEdgeLength = Point.getDistance(firstPoint, closestPoint)
-  secondEdgeLength = Point.getDistance(closestPoint, lastPoint)
+  distance = Point.getDistance(firstPoint, lastPoint)
   pointCloudSize = inputCloud:getSize()
 
   if ((closestPointIndex == 0) or (closestPointIndex == pointCloudSize - 1)) then
-    return firstPoint, lastPoint, Point.getDistance(firstPoint, lastPoint)
+    return firstPoint, lastPoint, distance
   else
-    leftClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex - 1)
-    rightClosestPoint, _ = inputCloud:getPoint3D(closestPointIndex + 1)
-
-    if (Point.getDistance(leftClosestPoint, rightClosestPoint) * 1.05 >
-      (Point.getDistance(leftClosestPoint, closestPoint) + Point.getDistance(closestPoint, rightClosestPoint))) then
-      return firstPoint, lastPoint, (firstEdgeLength + secondEdgeLength)
+    if (distance * 1.1 <
+      (Point.getDistance(firstPoint, closestPoint) + Point.getDistance(lastPoint, closestPoint))) then
+      return firstPoint, closestPoint, Point.getDistance(firstPoint, closestPoint)
     else
-      return firstPoint, closestPoint, firstEdgeLength
+      return firstPoint, lastPoint, distance
     end
   end
 end

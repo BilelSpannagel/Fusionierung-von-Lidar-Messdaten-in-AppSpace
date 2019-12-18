@@ -8,6 +8,7 @@ provider = Scan.Provider.Scanner.create()
 
 --@showMasterScans():void
 function showOwnScans()
+  provider:deregister("OnNewScan", Viewer.showScans)
   Communication.stopReceiving()
   print("show own scans called")
   provider:register("OnNewScan", Viewer.showScans)
@@ -16,6 +17,7 @@ end
 --@showSlaveScans():void
 function showSlaveScans()
   provider:deregister("OnNewScan", Viewer.showScans)
+  Communication.stopReceiving()
   print"show slave scans called"
     Communication.receiveScans(Viewer.showScans)
 end
