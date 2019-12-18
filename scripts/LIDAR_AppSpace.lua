@@ -42,17 +42,21 @@ function calibrate()
 
   
   cloud = DataProcessing.removePointsBeyond(cloud, 300)
-  local firstPoint, secondPoint, distance = DataProcessing.getTwoCornersAndEdgeLength(cloud)
+  local firstPoint, firstPointIndex, secondPoint, secondPointIndex, distance, thirdPoint, thirdPointIndex, secondDistance
+  = DataProcessing.getTwoCornersAndEdgeLength(cloud)
   
   local firstX, firstY = firstPoint:getXY()
   local secondX, secondY = secondPoint:getXY()
   
+  cloud:setIntensity({firstPointIndex, secondPointIndex, thirdPointIndex}, 0.3)
   
   print(distance)
-  print("FirstPoint X:", firstX, "Y:", firstY,"SecondPoint X:", secondX, "Y:", secondY, "Edge Length:", distance)
+  print("FirstPoint X:", firstX, "Y:", firstY,"SecondPoint X:", secondX, "Y:", secondY, "Edge Lengths:", distance, secondDistance)
   Viewer.PointCloudViewer(cloud)
   
-  local thirdPoint = DataProcessing.getThirdCorner(firstPoint, secondPoint)
+  if thirdPoint == nil then
+    thirdPoint = DataProcessing.getThirdCorner(firstPoint, secondPoint)
+  end
   local thirdX, thirdY = thirdPoint:getXY()
   print("Calculated ThirdPoint X:", thirdX, "Y:" , thirdY)
 end

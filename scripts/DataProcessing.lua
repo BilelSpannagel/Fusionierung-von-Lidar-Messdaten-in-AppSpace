@@ -15,23 +15,25 @@ function DataProcessing.removePointsBeyond(inputCloud, maxDistance)
   return resultCloud
 end
 
---@getTwoCornersAndEdgeLength(inputCloud:PointCloud):Point, Point, Float
+--@getTwoCornersAndEdgeLength(inputCloud:PointCloud):Point, Int, Point, Int, Float, Point, Int, Float
 function DataProcessing.getTwoCornersAndEdgeLength(inputCloud)
   local closestPoint, firstPoint, lastPoint, pointCloudSize, closestPointIndex, distance, _
+  local firstPointIndex, lastPointIndex
 
   closestPoint, closestPointIndex, _, _ = DataProcessing.getCorners(inputCloud)
-  firstPoint, lastPoint = inputCloud:findMaxDistancePointPair()
+  firstPoint, lastPoint, firstPointIndex, lastPointIndex = inputCloud:findMaxDistancePointPair()
   distance = Point.getDistance(firstPoint, lastPoint)
   pointCloudSize = inputCloud:getSize()
 
   if ((closestPointIndex == 0) or (closestPointIndex == pointCloudSize - 1)) then
-    return firstPoint, lastPoint, distance
+    return firstPoint, firstPointIndex, lastPoint, lastPointIndex, distance
   else
     if (distance * 1.1 <
       (Point.getDistance(firstPoint, closestPoint) + Point.getDistance(lastPoint, closestPoint))) then
-      return firstPoint, closestPoint, Point.getDistance(firstPoint, closestPoint)
+      return firstPoint, firstPointIndex, closestPoint, closestPointIndex, Point.getDistance(firstPoint, closestPoint),
+      lastPoint, lastPointIndex, Point.getDistance(lastPoint, closestPoint)
     else
-      return firstPoint, lastPoint, distance
+      return firstPoint, firstPointIndex, lastPoint, lastPointIndex, distance
     end
   end
 end
