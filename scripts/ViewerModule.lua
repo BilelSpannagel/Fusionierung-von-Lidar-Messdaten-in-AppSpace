@@ -11,6 +11,8 @@ pointCloudDecoration:setXColormap(0)
 ViewerModule.transformer = Scan.Transform.create()
 ViewerModule.Viewer = View.create("scanViewer")
 ViewerModule.Viewer:setDefaultDecoration(pointCloudDecoration)
+ViewerModule.Viewer:addShape(Shape.createCircle(Point.create(0,0), 65))
+ViewerModule.Viewer:addShape(Shape.createCircle(Point.create(0,0), 300))
 
 
 function ViewerModule.PointCloudViewer(cloud)

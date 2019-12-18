@@ -26,20 +26,18 @@ end
 function calibrate()
   Communication.stopReceiving()
   provider:deregister("OnNewScan", Viewer.showScans)
-  
+  ---[[
+  local medianFilter = Scan.MedianFilter.create()
+  medianFilter:setType("2d")
+  --]]
   edgeHitFilter = Scan.EchoFilter.create()
   edgeHitFilter:setType("Last")
 
-  --[[
-  medianFilter = Scan.MedianFilter.create()
-  medianFilter:setAvaregeDepth()
-  --]]
-
-
-  local scan = edgeHitFilter:filter(Viewer.lastScan:clone())
+  --local scan = edgeHitFilter:filter(Viewer.lastScan:clone())
   --local scan = Viewer.lastScan
+  --local  scan = medianFilter:filter()
+  local scan = edgeHitFilter:filter(Viewer.lastScan:clone())
   local cloud = Viewer.transformer:transformToPointCloud(scan)
-
   
   cloud = DataProcessing.removePointsBeyond(cloud, 300)
   local firstPoint, firstPointIndex, secondPoint, secondPointIndex, distance, thirdPoint, thirdPointIndex, secondDistance
