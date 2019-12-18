@@ -20,7 +20,8 @@ function DataProcessing.getTwoCornersAndEdgeLength(inputCloud)
   local closestPoint, firstPoint, lastPoint, firstEdgeLength, pointCloudSize
   local secondEdgeLength, closestPointIndex, leftClosestPoint, rightClosestPoint, _
 
-  closestPoint, closestPointIndex, firstPoint, lastPoint = DataProcessing.getCorners(inputCloud)
+  closestPoint, closestPointIndex, _, _ = DataProcessing.getCorners(inputCloud)
+  firstPoint, lastPoint = inputCloud:findMaxDistancePointPair()
   firstEdgeLength = Point.getDistance(firstPoint, closestPoint)
   secondEdgeLength = Point.getDistance(closestPoint, lastPoint)
   pointCloudSize = inputCloud:getSize()
