@@ -67,9 +67,10 @@ end
 
 --rotateAroundPoint(originPoint:Point, pointToRotate: Point, angle:number) : point
 function DataProcessing.rotateAroundPoint(originPoint, pointToRotate, angle)
-  local retPoint = Point.create(pointToRotate:getX() - originPoint:getX(), pointToRotate:getY() - originPoint:getY())
-  retPoint:setX(math.cos(angle) * retPoint:getX() + (-math.sin(angle) * retPoint:getY()))
-  retPoint:setY(math.sin(angle) * retPoint:getX() + (math.cos(angle) * retPoint:getY()))
+  local shiftedPoint = Point.create(pointToRotate:getX() - originPoint:getX(), pointToRotate:getY() - originPoint:getY())
+  local retPoint = Point.create()
+  retPoint:setX(math.cos(angle) * shiftedPoint:getX() + (-math.sin(angle) * shiftedPoint:getY())) --getX 0 löschbar
+  retPoint:setY(math.sin(angle) * shiftedPoint:getX() + (math.cos(angle) * shiftedPoint:getY()))
   retPoint:setX(retPoint:getX() + originPoint:getX())
   retPoint:setY(retPoint:getY() + originPoint:getY())
 
