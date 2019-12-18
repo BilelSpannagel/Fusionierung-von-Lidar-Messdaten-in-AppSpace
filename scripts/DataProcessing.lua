@@ -65,11 +65,11 @@ local function isSideLengthInPredinedSideLengths(input)
 end
 
 
---rotateAroundPoint(originPoint:Point, pointToRotate: Point, angle:number) : point
-function DataProcessing.rotateAroundPoint(originPoint, pointToRotate, angle)
-  local shiftedPoint = Point.create(pointToRotate:getX() - originPoint:getX(), pointToRotate:getY() - originPoint:getY())
-  local retPoint = Point.create()
-  retPoint:setX(math.cos(angle) * shiftedPoint:getX() + (-math.sin(angle) * shiftedPoint:getY())) --getX 0 löschbar
+--rotateAroundPoint(originPoint:Point, pointRotate: Point, angle:number) : point
+function DataProcessing.rotateAroundPoint(originPoint, pointRotate, angle)
+  local shiftedPoint = Point.create(pointRotate:getX() - originPoint:getX(), pointRotate:getY() - originPoint:getY())
+  local retPoint = Point.create(0,0)
+  retPoint:setX(math.cos(angle) * shiftedPoint:getX() + (-math.sin(angle) * shiftedPoint:getY()))
   retPoint:setY(math.sin(angle) * shiftedPoint:getX() + (math.cos(angle) * shiftedPoint:getY()))
   retPoint:setX(retPoint:getX() + originPoint:getX())
   retPoint:setY(retPoint:getY() + originPoint:getY())
@@ -86,38 +86,44 @@ end
 
 --@getThirdCorner(p1:Point, p2: Point): point
 function DataProcessing.getThirdCorner(p1, p2)
-  print("X: ", Point.getX(p1))
-
   -- Get Left Point
   local firstPoint = p2
   local secondPoint = p1
-  if (p1:getX() < p2:getX()) then
+  if (p1:getY() > p2:getY()) then
     firstPoint = p1
     secondPoint = p2
   end
   
-  local A = math.abs(secondPoint:getX() - firstPoint:getX())
-  local G = math.abs(secondPoint:getY() - firstPoint:getY())
+  local A = secondPoint:getX() - (firstPoint:getX())
+  local G = secondPoint:getY() - (firstPoint:getY())
+  print(A,G)
   local alpha
   if (G ~= 0) then
-    alpha = math.atan(G/A)
+    alpha = math.deg(math.atan(G/A))
+    
   else
     alpha = 0
   end
-
+  
   local edgeLength = math.sqrt(math.pow(A, 2)+math.pow(G, 2))
 
   if checkEdgeLength(edgeLength, 1) then
-    local retPoint = Point.create(firstPoint:getX(), firstPoint:getY() + utils.predifinedSideLengths[2])
-    retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, alpha+utils.predifinedAngle[1])
+    local deg = (-(alpha)-utils.predifinedAngle[1])
+    local retPoint = Point.create(firstPoint:getX()+ utils.predifinedSideLengths[2], firstPoint:getY())
+    retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, deg)
+    print(alpha,utils.predifinedAngle[1],deg)
     return retPoint
   elseif checkEdgeLength(edgeLength, 2) then
-    local retPoint = Point.create(firstPoint:getX(), firstPoint:getY() + utils.predifinedSideLengths[3])
-    retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, alpha+utils.predifinedAngle[2])
+    local deg = (-(alpha)-utils.predifinedAngle[2])
+    local retPoint = Point.create(firstPoint:getX()+utils.predifinedSideLengths[3], firstPoint:getY())
+    retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, deg)
+    print(alpha,utils.predifinedAngle[2],deg)
     return retPoint
   elseif checkEdgeLength(edgeLength, 3) then
-    local retPoint = Point.create(firstPoint:getX(), firstPoint:getY() + utils.predifinedSideLengths[1])
-    retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, alpha+utils.predifinedAngle[3])
+    local deg = (-(alpha)-utils.predifinedAngle[3])
+    local retPoint = Point.create(firstPoint:getX()+ utils.predifinedSideLengths[1], firstPoint:getY())
+    retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, deg)
+    print(alpha,utils.predifinedAngle[3],deg)
     return retPoint
   else
     print("Falsche Kantenlänge")
