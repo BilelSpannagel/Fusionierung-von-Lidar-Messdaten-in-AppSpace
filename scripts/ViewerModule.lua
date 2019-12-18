@@ -1,14 +1,14 @@
 local ViewerModule = {}
 -- luacheck: globals Viewer
 
--- luacheck: globals numScans scans pointCloudDecoration transformer ViewerModule.lastScan
+-- luacheck: globals numScans scans pointCloudDecoration ViewerModule.transformer ViewerModule.lastScan
 ViewerModule.lastScan = 0
 numScans = 0
 scans = {}
 pointCloudDecoration = View.PointCloudDecoration.create()
 pointCloudDecoration:setPointSize(3)
 pointCloudDecoration:setXColormap(0)
-transformer = Scan.Transform.create()
+ViewerModule.transformer = Scan.Transform.create()
 ViewerModule.Viewer = View.create("scanViewer")
 ViewerModule.Viewer:setDefaultDecoration(pointCloudDecoration)
 
@@ -23,16 +23,16 @@ function ViewerModule.showScans(scan)
   --draw scans
   function drawScans()
     --Viewer:clear()
-    local cloud = Scan.Transform.transformToPointCloud(transformer, scans[0])
+    local cloud = Scan.Transform.transformToPointCloud(ViewerModule.transformer, scans[0])
     for _, eachScan in ipairs(scans) do
       if Scan.getPointPhi(eachScan, 0) == 0 then
-        ViewerModule.lastScan = transformer:transformToPointCloud(eachScan)
+        ViewerModule.lastScan = eachScan
       end
     end
     
-    cloud = cloud:merge(Scan.Transform.transformToPointCloud(transformer, scans[1]))
-    cloud = cloud:merge(Scan.Transform.transformToPointCloud(transformer, scans[2]))
-    cloud = cloud:merge(Scan.Transform.transformToPointCloud(transformer, scans[3]))
+    cloud = cloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, scans[1]))
+    cloud = cloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, scans[2]))
+    cloud = cloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, scans[3]))
     
     ViewerModule.Viewer:addPointCloud(cloud)
         
