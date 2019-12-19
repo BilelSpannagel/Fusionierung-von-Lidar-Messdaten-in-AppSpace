@@ -67,15 +67,30 @@ end
 
 --rotateAroundPoint(originPoint:Point, pointRotate: Point, angle:number) : point
 function DataProcessing.rotateAroundPoint(originPoint, pointRotate, angle)
+  local anglerad = (3.141 / 180) * angle
   local shiftedPoint = Point.create(pointRotate:getX() - originPoint:getX(), pointRotate:getY() - originPoint:getY())
   local retPoint = Point.create(0,0)
-  retPoint:setX(math.cos(angle) * shiftedPoint:getX() + (-math.sin(angle) * shiftedPoint:getY()))
-  retPoint:setY(math.sin(angle) * shiftedPoint:getX() + (math.cos(angle) * shiftedPoint:getY()))
+  retPoint:setX(math.cos(anglerad) * shiftedPoint:getX() + (math.sin(anglerad) * shiftedPoint:getY()))
+  retPoint:setY(math.sin(anglerad) * shiftedPoint:getX() + (math.cos(anglerad) * shiftedPoint:getY()))
   retPoint:setX(retPoint:getX() + originPoint:getX())
   retPoint:setY(retPoint:getY() + originPoint:getY())
 
   return retPoint
 end
+
+--@getDegree(point1:Point, point2:Point):number
+function DataProcessing.getDegree(point1, point2)
+  local lenghtp1 = math.sqrt(math.pow(point1:getX(), 2)+math.pow(point1:getY(), 2))
+  local lenghtp2 = math.sqrt(math.pow(point2:getX(), 2)+math.pow(point2:getY(), 2))
+  local nenner = lenghtp1 * lenghtp2
+
+  local zaehler = (point1:getX()*point2:getX()) + (point1:getY()*point2:getY())
+
+  local degree = math.deg(math.acos(zaehler/nenner))
+  return degree
+end
+
+
 
 --@checkEdgeLength(p1:type):returnType
 local function checkEdgeLength(length, index)
@@ -108,19 +123,19 @@ function DataProcessing.getThirdCorner(p1, p2)
   local edgeLength = math.sqrt(math.pow(A, 2)+math.pow(G, 2))
 
   if checkEdgeLength(edgeLength, 1) then
-    local deg = (-(alpha)-utils.predifinedAngle[1])
+    local deg = (alpha+utils.predifinedAngle[1])
     local retPoint = Point.create(firstPoint:getX()+ utils.predifinedSideLengths[2], firstPoint:getY())
     retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, deg)
     print(alpha,utils.predifinedAngle[1],deg)
     return retPoint
   elseif checkEdgeLength(edgeLength, 2) then
-    local deg = (-(alpha)-utils.predifinedAngle[2])
+    local deg = (alpha+utils.predifinedAngle[2])
     local retPoint = Point.create(firstPoint:getX()+utils.predifinedSideLengths[3], firstPoint:getY())
     retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, deg)
     print(alpha,utils.predifinedAngle[2],deg)
     return retPoint
   elseif checkEdgeLength(edgeLength, 3) then
-    local deg = (-(alpha)-utils.predifinedAngle[3])
+    local deg = (alpha+utils.predifinedAngle[3])
     local retPoint = Point.create(firstPoint:getX()+ utils.predifinedSideLengths[1], firstPoint:getY())
     retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, deg)
     print(alpha,utils.predifinedAngle[3],deg)
