@@ -13,6 +13,10 @@
                 <function name="calibrate">
                     <desc>starts the calibration process</desc>
                 </function>
+                <function name="setCutOffDistance">
+                    <desc></desc>
+                    <param name="distance" type="int" desc=""/>
+                </function>
             </serves>
         </crown>
         <crown name="Engine">

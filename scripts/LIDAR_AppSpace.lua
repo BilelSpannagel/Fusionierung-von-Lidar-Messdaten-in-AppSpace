@@ -1,10 +1,11 @@
 print"start Script"
 
--- luacheck: globals Viewer Communication provider DataProcessing
+-- luacheck: globals Viewer Communication provider DataProcessing utils
 DataProcessing = require("DataProcessing")
 Viewer = require("ViewerModule")
 Communication = require("Communication")
 provider = Scan.Provider.Scanner.create()
+utils = require("utils")
 
 --@showMasterScans():void
 function showOwnScans()
@@ -39,7 +40,7 @@ function calibrate()
   local scan = edgeHitFilter:filter(Viewer.lastScan:clone())
   local cloud = Viewer.transformer:transformToPointCloud(scan)
   
-  cloud = DataProcessing.removePointsBeyond(cloud, 300)
+  cloud = DataProcessing.removePointsBeyond(cloud, utils.cutOffDistance)
   local firstPoint, firstPointIndex, secondPoint, secondPointIndex, distance, thirdPoint, thirdPointIndex, secondDistance
   = DataProcessing.getTwoCornersAndEdgeLength(cloud)
   
@@ -59,11 +60,20 @@ function calibrate()
   print("Calculated ThirdPoint X:", thirdX, "Y:" , thirdY)
 end
 
+function setCutOffDistance(distance)
+    local _
+    utils.cutOffDistance = distance * 10
+  Viewer.Viewer:remove("cutOffDistanceShape")
+  Viewer.Viewer:addShape(Shape.createCircle(Point.create(0,0), utils.cutOffDistance), _, "cutOffDistanceShape")
+  Viewer.Viewer:present()
+end
+
 
 local function main()
   Script.serveFunction("LIDAR_AppSpace.showSlaveScans", "showSlaveScans")
   Script.serveFunction("LIDAR_AppSpace.showOwnScans", "showOwnScans")
   Script.serveFunction("LIDAR_AppSpace.calibrate", "calibrate")
+  Script.serveFunction("LIDAR_AppSpace.setCutOffDistance", "setCutOffDistance", "int")
   --[[
   local Triangle = require("Triangle")
   local cloud = Triangle.createTwoLines()

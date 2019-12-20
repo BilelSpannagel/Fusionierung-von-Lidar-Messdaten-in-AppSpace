@@ -2,6 +2,7 @@ local ViewerModule = {}
 -- luacheck: globals Viewer
 
 -- luacheck: globals numScans scans pointCloudDecoration ViewerModule.transformer ViewerModule.lastScan
+local _
 ViewerModule.lastScan = 0
 numScans = 0
 scans = {}
@@ -11,9 +12,7 @@ pointCloudDecoration:setXColormap(0)
 ViewerModule.transformer = Scan.Transform.create()
 ViewerModule.Viewer = View.create("scanViewer")
 ViewerModule.Viewer:setDefaultDecoration(pointCloudDecoration)
-ViewerModule.Viewer:addShape(Shape.createCircle(Point.create(0,0), 65))
-ViewerModule.Viewer:addShape(Shape.createCircle(Point.create(0,0), 300))
-
+ViewerModule.Viewer:addShape(Shape.createCircle(Point.create(0,0), 65), _, "LidarShape")
 
 function ViewerModule.PointCloudViewer(cloud)
 ViewerModule.Viewer:addPointCloud(cloud)
