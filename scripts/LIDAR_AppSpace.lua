@@ -54,8 +54,12 @@ function calibrate()
   Viewer.PointCloudViewer(cloud)
   
   if thirdPoint == nil then
+    --local fPoint = Point.create(firstPoint:getY(),firstPoint:getX())
+    --local sPoint = Point.create(secondPoint:getY(),secondPoint:getX())
     thirdPoint = DataProcessing.getThirdCorner(firstPoint, secondPoint)
   end
+  local triangle = Shape.createPolyline({firstPoint, secondPoint, thirdPoint}, true)
+  Viewer.Viewer:addShape(triangle)
   local thirdX, thirdY = thirdPoint:getXY()
   print("Calculated ThirdPoint X:", thirdX, "Y:" , thirdY)
 end
