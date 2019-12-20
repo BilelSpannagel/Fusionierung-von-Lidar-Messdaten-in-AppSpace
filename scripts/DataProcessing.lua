@@ -92,7 +92,7 @@ end
 
 --@generateTransformationMatrix(OriginP1:Point, angle:number, DestinationP1:Point)
 function DataProcessing.generateTransformationMatrix(OriginP1, angle, DestinationP1)
-      
+
 end
 
 --@checkEdgeLength(p1:type):returnType
@@ -121,6 +121,10 @@ function DataProcessing.getThirdCorner(p1, p2)
     
   else
     alpha = 0
+  end
+
+  if(alpha > 0) then
+      alpha = -90 -(90-alpha)
   end
   
   local edgeLength = math.sqrt(math.pow(A, 2)+math.pow(G, 2))
