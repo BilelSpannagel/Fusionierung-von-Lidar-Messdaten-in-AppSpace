@@ -51,7 +51,8 @@ function calibrate()
   cloud:setIntensity({firstPointIndex, secondPointIndex, thirdPointIndex}, 0.3)
   
   print(distance)
-  print("FirstPoint X:", firstX, "Y:", firstY,"SecondPoint X:", secondX, "Y:", secondY, "Edge Lengths:", distance, secondDistance)
+  print("FirstPoint X:", firstX, "Y:", firstY,"SecondPoint X:", secondX, "Y:", secondY, "Edge Lengths:",
+  distance, secondDistance)
   Viewer.PointCloudViewer(cloud)
   
   if thirdPoint == nil then
