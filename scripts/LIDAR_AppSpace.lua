@@ -26,20 +26,18 @@ end
 function calibrate()
   Communication.stopReceiving()
   provider:deregister("OnNewScan", Viewer.showScans)
-  
+  ---[[
+  local medianFilter = Scan.MedianFilter.create()
+  medianFilter:setType("2d")
+  --]]
   edgeHitFilter = Scan.EchoFilter.create()
   edgeHitFilter:setType("Last")
 
-  --[[
-  medianFilter = Scan.MedianFilter.create()
-  medianFilter:setAvaregeDepth()
-  --]]
-
-
-  local scan = edgeHitFilter:filter(Viewer.lastScan:clone())
+  --local scan = edgeHitFilter:filter(Viewer.lastScan:clone())
   --local scan = Viewer.lastScan
+  --local  scan = medianFilter:filter()
+  local scan = edgeHitFilter:filter(Viewer.lastScan:clone())
   local cloud = Viewer.transformer:transformToPointCloud(scan)
-
   
   cloud = DataProcessing.removePointsBeyond(cloud, 300)
   local firstPoint, firstPointIndex, secondPoint, secondPointIndex, distance, thirdPoint, thirdPointIndex, secondDistance
@@ -51,11 +49,12 @@ function calibrate()
   cloud:setIntensity({firstPointIndex, secondPointIndex, thirdPointIndex}, 0.3)
   
   print(distance)
-  print("FirstPoint X:", firstX, "Y:", firstY,"SecondPoint X:", secondX, "Y:", secondY, "Edge Lengths:",
-  distance, secondDistance)
+  print("FirstPoint X:", firstX, "Y:", firstY,"SecondPoint X:", secondX, "Y:", secondY, "Edge Lengths:", distance, secondDistance)
   Viewer.PointCloudViewer(cloud)
   
   if thirdPoint == nil then
+    --local fPoint = Point.create(firstPoint:getY(),firstPoint:getX())
+    --local sPoint = Point.create(secondPoint:getY(),secondPoint:getX())
     thirdPoint = DataProcessing.getThirdCorner(firstPoint, secondPoint)
   end
   local thirdX, thirdY = thirdPoint:getXY()
