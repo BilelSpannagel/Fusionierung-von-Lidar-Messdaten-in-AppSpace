@@ -90,7 +90,10 @@ function DataProcessing.getDegree(point1, point2)
   return degree
 end
 
-
+--@generateTransformationMatrix(OriginP1:Point, angle:number, DestinationP1:Point)
+function DataProcessing.generateTransformationMatrix(OriginP1, angle, DestinationP1)
+      
+end
 
 --@checkEdgeLength(p1:type):returnType
 local function checkEdgeLength(length, index)
