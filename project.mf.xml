@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<manifest>
+    <application name="LIDAR_AppSpace">
+        <crown name="LIDAR_AppSpace">
+            <desc>user script</desc>
+            <serves>
+                <function name="showSlaveScans">
+                    <desc></desc>
+                </function>
+                <function name="showOwnScans">
+                    <desc></desc>
+                </function>
+                <function name="calibrate">
+                    <desc>starts the calibration process</desc>
+                </function>
+                <function name="setCutOffDistance">
+                    <desc></desc>
+                    <param name="distance" type="int" desc=""/>
+                </function>
+            </serves>
+        </crown>
+        <crown name="Engine">
+            <uses>
+                <event name="OnStarted"/>
+            </uses>
+        </crown>
+        <crown name="Timer">
+            <uses>
+                <event name="OnExpired"/>
+                <function name="create"/>
+                <function name="setPeriodic"/>
+                <function name="start"/>
+                <function name="register"/>
+                <function name="setExpirationTime"/>
+            </uses>
+        </crown>
+        <crown name="UDPSocket">
+            <uses>
+                <event name="OnReceive"/>
+                <function name="create"/>
+                <function name="register"/>
+                <function name="transmit"/>
+                <function name="bind"/>
+            </uses>
+        </crown>
+        <crown name="Recording">
+            <uses/>
+            <crown name="Recorder">
+                <uses>
+                    <function name="stop"/>
+                    <function name="start"/>
+                    <function name="removeAllTargets"/>
+                    <function name="create"/>
+                    <function name="setProviders"/>
+                    <function name="addFileTarget"/>
+                    <function name="setDataFormat"/>
+                </uses>
+            </crown>
+            <crown name="Provider">
+                <uses>
+                    <function name="create"/>
+                    <function name="setSelected"/>
+                    <function name="setCrownName"/>
+                    <function name="setAppName"/>
+                </uses>
+            </crown>
+            <crown name="Player">
+                <uses>
+                    <function name="create"/>
+                    <function name="stop"/>
+                    <function name="start"/>
+                    <function name="setFileSource"/>
+                    <function name="pause"/>
+                </uses>
+            </crown>
+        </crown>
+        <crown name="Scan">
+            <uses>
+                <function name="getNumber"/>
+            </uses>
+            <crown name="Provider">
+                <uses/>
+                <crown name="RemoteScanner">
+                    <uses>
+                        <function name="stop"/>
+                        <function name="create"/>
+                        <function name="setIPAddress"/>
+                    </uses>
+                </crown>
+                <crown name="Scanner">
+                    <uses>
+                        <function name="register"/>
+                    </uses>
+                </crown>
+            </crown>
+            <crown name="Transform">
+                <uses>
+                    <function name="create"/>
+                    <function name="transformToPointCloud"/>
+                </uses>
+            </crown>
+        </crown>
+        <crown name="table">
+            <uses>
+                <function name="insert"/>
+            </uses>
+        </crown>
+        <crown name="Point">
+            <uses>
+                <function name="getDistance"/>
+                <function name="create"/>
+            </uses>
+        </crown>
+        <crown name="Script">
+            <uses>
+                <function name="serveFunction"/>
+                <function name="sleep"/>
+                <function name="register"/>
+            </uses>
+        </crown>
+        <crown name="View">
+            <uses>
+                <function name="create"/>
+            </uses>
+            <crown name="PointCloudDecoration">
+                <uses>
+                    <function name="setPointSize"/>
+                    <function name="create"/>
+                    <function name="setXColormap"/>
+                </uses>
+            </crown>
+        </crown>
+        <crown name="PointCloud">
+            <uses>
+                <function name="merge"/>
+                <function name="create"/>
+                <function name="appendPoint"/>
+            </uses>
+        </crown>
+        <crown name="math">
+            <uses>
+                <function name="floor"/>
+            </uses>
+        </crown>
+        <crown name="string">
+            <uses>
+                <function name="upper"/>
+            </uses>
+        </crown>
+        <crown name="Object">
+            <uses>
+                <function name="deserialize"/>
+                <function name="serialize"/>
+            </uses>
+        </crown>
+        <meta key="author">Bilel Spannagel</meta>
+        <meta key="version">3.0.0</meta>
+        <meta key="priority">low</meta>
+        <meta key="tags">Scan,PointCloud</meta>
+        <meta key="read-protected">false</meta>
+        <meta key="copy-protected">false</meta>
+        <entry path="scripts" default="LIDAR_AppSpace.lua"/>
+    </application>
+</manifest>
