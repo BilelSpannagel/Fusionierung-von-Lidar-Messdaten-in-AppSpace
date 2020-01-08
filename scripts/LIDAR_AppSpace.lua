@@ -7,24 +7,30 @@ Communication = require("Communication")
 provider = Scan.Provider.Scanner.create()
 utils = require("utils")
 
---@showMasterScans():void
-function showOwnScans()
+-- @removeScansAndShapes():void
+function removeScansAndShapes()
   provider:deregister("OnNewScan", Viewer.showScans)
   Communication.stopReceiving()
+  Viewer.Viewer:remove("foundTriangle")
+end
+
+--@showMasterScans():void
+function showOwnScans()
+  removeScansAndShapes()
   print("show own scans called")
   provider:register("OnNewScan", Viewer.showScans)
 end
 
 --@showSlaveScans():void
 function showSlaveScans()
-  provider:deregister("OnNewScan", Viewer.showScans)
-  Communication.stopReceiving()
+  removeScansAndShapes()
   print"show slave scans called"
     Communication.receiveScans(Viewer.showScans)
 end
 
 --@calibrate():void
 function calibrate()
+  local _
   Communication.stopReceiving()
   provider:deregister("OnNewScan", Viewer.showScans)
   ---[[
@@ -51,22 +57,24 @@ function calibrate()
   
   print(distance)
   print("FirstPoint X:", firstX, "Y:", firstY,"SecondPoint X:", secondX, "Y:", secondY, "Edge Lengths:", distance, secondDistance)
-  Viewer.PointCloudViewer(cloud)
   
   if thirdPoint == nil then
     --local fPoint = Point.create(firstPoint:getY(),firstPoint:getX())
     --local sPoint = Point.create(secondPoint:getY(),secondPoint:getX())
     thirdPoint = DataProcessing.getThirdCorner(firstPoint, secondPoint)
   end
-  local triangle = Shape.createPolyline({firstPoint, secondPoint, thirdPoint}, true)
-  Viewer.Viewer:addShape(triangle)
+  local points = {Point.create(firstPoint:getXY()), Point.create(secondPoint:getXY()), Point.create(thirdPoint:getXY())}
+  local triangle = Shape.createPolyline(points, true)
+  Viewer.Viewer:addShape(triangle, _, "foundTriangle")
   local thirdX, thirdY = thirdPoint:getXY()
   print("Calculated ThirdPoint X:", thirdX, "Y:" , thirdY)
+
+  Viewer.PointCloudViewer(cloud)
 end
 
 function setCutOffDistance(distance)
-    local _
-    utils.cutOffDistance = distance * 10
+  local _
+  utils.cutOffDistance = distance * 10
   Viewer.Viewer:remove("cutOffDistanceShape")
   Viewer.Viewer:addShape(Shape.createCircle(Point.create(0,0), utils.cutOffDistance), _, "cutOffDistanceShape")
   Viewer.Viewer:present()

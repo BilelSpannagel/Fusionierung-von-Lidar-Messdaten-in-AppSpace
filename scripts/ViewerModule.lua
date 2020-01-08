@@ -13,6 +13,8 @@ ViewerModule.transformer = Scan.Transform.create()
 ViewerModule.Viewer = View.create("scanViewer")
 ViewerModule.Viewer:setDefaultDecoration(pointCloudDecoration)
 ViewerModule.Viewer:addShape(Shape.createCircle(Point.create(0,0), 65), _, "LidarShape")
+ViewerModule.Viewer:addShape(Shape.createLineSegment(Point.create(0,0), Point.create(-8190, 5740)))
+ViewerModule.Viewer:addShape(Shape.createLineSegment(Point.create(0,0), Point.create(-8190, -5740)))
 
 function ViewerModule.PointCloudViewer(cloud)
 ViewerModule.Viewer:addPointCloud(cloud)
