@@ -63,12 +63,22 @@ function calibrate()
     --local sPoint = Point.create(secondPoint:getY(),secondPoint:getX())
     thirdPoint = DataProcessing.getThirdCorner(firstPoint, secondPoint)
   end
-  local points = {Point.create(firstPoint:getXY()), Point.create(secondPoint:getXY()), Point.create(thirdPoint:getXY())}
-  local triangle = Shape.createPolyline(points, true)
-  Viewer.Viewer:addShape(triangle, _, "foundTriangle")
+  --local points = {Point.create(firstPoint:getXY()), Point.create(secondPoint:getXY()), Point.create(thirdPoint:getXY())}
+  --local triangle = Shape.createPolyline(points, true)
+  local d1 = Point.create(firstPoint:getX(),firstPoint:getY(),76.0)
+  local d2 = Point.create(secondPoint:getX(),secondPoint:getY(),76.0)
+  local d3 = Point.create(thirdPoint:getX(),thirdPoint:getY(),76.0)
+  local d4 = Point.create(firstPoint:getX(),firstPoint:getY(),0.0)
+  local d5 = Point.create(secondPoint:getX(),secondPoint:getY(),0.0)
+  local d6 = Point.create(thirdPoint:getX(),thirdPoint:getY(),0.0)
+  local pp = {d1,d2,d3,d1,d4,d5,d6,d4,d5,d2,d3,d6}
+  local line3d = Shape3D.createPolyline(pp)
+  Viewer.Viewer:addShape(line3d, _, "foundTriangle")
+  --Viewer.Viewer:addShape(triangle, _, "foundTriangle")
+
   local thirdX, thirdY = thirdPoint:getXY()
   print("Calculated ThirdPoint X:", thirdX, "Y:" , thirdY)
-
+  
   Viewer.PointCloudViewer(cloud)
 end
 
