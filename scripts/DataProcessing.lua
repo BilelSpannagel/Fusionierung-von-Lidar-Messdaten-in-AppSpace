@@ -125,6 +125,7 @@ function DataProcessing.getThirdCorner(p1, p2)
 
   if(alpha > 0) then
       alpha = -90 -(90-alpha)
+      -- Ist das nicht das selbe wie alpha = alpha - 180 ?
   end
   
   local edgeLength = math.sqrt(math.pow(A, 2)+math.pow(G, 2))
@@ -191,13 +192,13 @@ function DataProcessing.fusePointClouds(firstCloud, secondCloud)
   secondEdgeLength = round(secondEdgeLength, -1)
   combinedEdgeLength = firstEdgeLength + secondEdgeLength
   if firstEdgeLength == secondEdgeLength then
-    local lengthIsLogic = false
+    local lengthIsLogical = false
     for length in utils.predifinedSideLengths do
       if firstEdgeLength == length then
-        lengthIsLogic = true
+        lengthIsLogical = true
       end
     end
-    if lengthIsLogic == true then
+    if lengthIsLogical == true then
       compareCorner[0] = firstCorner
       compareCorner[1] = thirdCorner
     else
