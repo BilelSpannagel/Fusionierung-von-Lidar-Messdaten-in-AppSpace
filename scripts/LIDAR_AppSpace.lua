@@ -33,6 +33,7 @@ function calibrate()
   local _
   Communication.stopReceiving()
   provider:deregister("OnNewScan", Viewer.showScans)
+  Viewer.Viewer:remove("foundTriangle")
   ---[[
   local medianFilter = Scan.MedianFilter.create()
   medianFilter:setType("2d")
@@ -55,7 +56,6 @@ function calibrate()
   
   cloud:setIntensity({firstPointIndex, secondPointIndex, thirdPointIndex}, 0.3)
   
-  print(distance)
   print("FirstPoint X:", firstX, "Y:", firstY,"SecondPoint X:", secondX, "Y:", secondY, "Edge Lengths:", distance, secondDistance)
   
   if thirdPoint == nil then
@@ -78,6 +78,23 @@ function calibrate()
 
   local thirdX, thirdY = thirdPoint:getXY()
   print("Calculated ThirdPoint X:", thirdX, "Y:" , thirdY)
+
+  --Save to global
+
+  if DataProcessing.checkEdgeLenght(distance,1) then
+    utils.masterPoint1 = firstPoint
+    utils.masterPoint2 = secondPoint
+    utils.masterPoint3 = thirdPoint
+  elseif DataProcessing.checkEdgeLenght(distance,2) then
+    utils.masterPoint2 = firstPoint
+    utils.masterPoint3 = secondPoint
+    utils.masterPoint1 = thirdPoint
+  elseif DataProcessing.checkEdgeLenght(distance,3) then
+    utils.masterPoint3 = firstPoint
+    utils.masterPoint1 = secondPoint
+    utils.masterPoint2 = thirdPoint
+  end
+  
   
   Viewer.PointCloudViewer(cloud)
 end

@@ -91,8 +91,8 @@ function DataProcessing.getDegree(point1, point2)
 end
 
 
---@checkEdgeLength(p1:type):returnType
-local function checkEdgeLength(length, index)
+--@checkEdgeLength(p1:float):bool
+function checkEdgeLength(length, index)
   local predifinedEdgeLength = utils.predifinedSideLengths[index]
   return predifinedEdgeLength * 0.90 < length and length < predifinedEdgeLength * 1.1
 end
