@@ -81,15 +81,15 @@ function calibrate()
 
   --Save to global
 
-  if DataProcessing.checkEdgeLenght(distance,1) then
+  if DataProcessing.checkEdgeLength(distance,1) then
     utils.masterPoint1 = firstPoint
     utils.masterPoint2 = secondPoint
     utils.masterPoint3 = thirdPoint
-  elseif DataProcessing.checkEdgeLenght(distance,2) then
+  elseif DataProcessing.checkEdgeLength(distance,2) then
     utils.masterPoint2 = firstPoint
     utils.masterPoint3 = secondPoint
     utils.masterPoint1 = thirdPoint
-  elseif DataProcessing.checkEdgeLenght(distance,3) then
+  elseif DataProcessing.checkEdgeLength(distance,3) then
     utils.masterPoint3 = firstPoint
     utils.masterPoint1 = secondPoint
     utils.masterPoint2 = thirdPoint
