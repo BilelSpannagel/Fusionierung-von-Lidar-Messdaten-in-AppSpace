@@ -30,19 +30,15 @@ end
 
 --@calibrate():void
 function calibrate()
-  local _
   Communication.stopReceiving()
   provider:deregister("OnNewScan", Viewer.showScans)
-  ---[[
+
   local medianFilter = Scan.MedianFilter.create()
   medianFilter:setType("2d")
-  --]]
+
   edgeHitFilter = Scan.EchoFilter.create()
   edgeHitFilter:setType("Last")
 
-  --local scan = edgeHitFilter:filter(Viewer.lastScan:clone())
-  --local scan = Viewer.lastScan
-  --local  scan = medianFilter:filter()
   local scan = edgeHitFilter:filter(Viewer.lastScan:clone())
   local cloud = Viewer.transformer:transformToPointCloud(scan)
   
@@ -59,8 +55,6 @@ function calibrate()
   print("FirstPoint X:", firstX, "Y:", firstY,"SecondPoint X:", secondX, "Y:", secondY, "Edge Lengths:", distance, secondDistance)
   
   if thirdPoint == nil then
-    --local fPoint = Point.create(firstPoint:getY(),firstPoint:getX())
-    --local sPoint = Point.create(secondPoint:getY(),secondPoint:getX())
     thirdPoint = DataProcessing.getThirdCorner(firstPoint, secondPoint)
   end
   local points = {Point.create(firstPoint:getXY()), Point.create(secondPoint:getXY()), Point.create(thirdPoint:getXY())}
@@ -86,28 +80,5 @@ local function main()
   Script.serveFunction("LIDAR_AppSpace.showOwnScans", "showOwnScans")
   Script.serveFunction("LIDAR_AppSpace.calibrate", "calibrate")
   Script.serveFunction("LIDAR_AppSpace.setCutOffDistance", "setCutOffDistance", "int")
-  --[[
-  local Triangle = require("Triangle")
-  local cloud = Triangle.createTwoLines()
-  --local cloud = Triangle.createOneLine()
-  --local cloud = Triangle.createOneLineWithFirstPointAsClosestPoint()
-  local changedCloud = DataProcessing.removePointsBeyond(cloud, 1000)
-  print(DataProcessing.getTwoCornersAndEdgeLength(changedCloud))
-  Viewer.PointCloudViewer(changedCloud)
- 
-  local firstPoint, secondPoint, distance = DataProcessing.getTwoCornersAndEdgeLength(changedCloud)
-  local firstX, firstY = firstPoint:getXY()
-  local secondX, secondY = secondPoint:getXY()
-  print(firstX, firstY, secondX, secondY, distance)
-  local thirdPoint = DataProcessing.getThirdCorner(Point.create(0,0),Point.create(150, 0), 150)
-  local thirdX, thirdY = thirdPoint:getXY()
-  print("Dritter Punkt: ", thirdX, thirdY)
-  Viewer.PointCloudViewer(changedCloud)
-  --]]
-  --scanProvider = Scan.Provider.Scanner.create()
-  --Communication.sendScans(scanProvider, "192.168.1.20") --Set the right IP!
-
-  --Communication.receiveScans(Viewer.showScans)
-  --showOwnScans()
 end
 Script.register("Engine.OnStarted", main)
