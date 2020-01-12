@@ -55,7 +55,7 @@ end
 
 --rotateAroundPoint(originPoint:Point, pointRotate: Point, angle:number) : point
 function DataProcessing.rotateAroundPoint(originPoint, pointRotate, angle)
-  local anglerad = math.pi / 180 * angle
+  local anglerad = math.rad(angle)
   local shiftedPoint = Point.create(pointRotate:getX() - originPoint:getX(), pointRotate:getY() - originPoint:getY())
   local retPoint = Point.create(0,0)
 
@@ -66,6 +66,7 @@ function DataProcessing.rotateAroundPoint(originPoint, pointRotate, angle)
 
   return retPoint
 end
+
 
 --@getDegree(point1:Point, point2:Point):number
 function DataProcessing.getDegree(point1, point2)

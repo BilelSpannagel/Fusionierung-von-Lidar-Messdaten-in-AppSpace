@@ -64,12 +64,11 @@ function calibrate()
   Viewer.PointCloudViewer(cloud)
 end
 
---@setCutOffDistance(distance: int):nil
+--@setCutOffDistance(distance: int):void
 function setCutOffDistance(distance)
-  local _
   utils.cutOffDistance = distance * 10
   Viewer.Viewer:remove("cutOffDistanceShape")
-  Viewer.Viewer:addShape(Shape.createCircle(Point.create(0,0), utils.cutOffDistance), _, "cutOffDistanceShape")
+  Viewer.Viewer:addShape(Shape.createCircle(Point.create(0,0), utils.cutOffDistance), nil, "cutOffDistanceShape")
   Viewer.Viewer:present()
 end
 
@@ -79,6 +78,5 @@ local function main()
   Script.serveFunction("LIDAR_AppSpace.showOwnScans", "showOwnScans")
   Script.serveFunction("LIDAR_AppSpace.calibrate", "calibrate")
   Script.serveFunction("LIDAR_AppSpace.setCutOffDistance", "setCutOffDistance", "int")
-  setCutOffDistance(utils.cutOffDistance)
 end
 Script.register("Engine.OnStarted", main)
