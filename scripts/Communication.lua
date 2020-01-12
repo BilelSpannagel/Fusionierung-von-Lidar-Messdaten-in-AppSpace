@@ -1,15 +1,15 @@
 local Communication = {}
-
+--luacheck: globals socket handle
 socket = UDPSocket.create()
 UDPSocket.bind(socket, 2111)
 
---@receiveScans(_handleOnReceive: Handle):void
-
+--@handle(data: String,ipaddress: String,port: int):void
 function handle(data,ipaddress,port)
   local scan = Object.deserialize(data, "MSGPACK")
   receiveHandle(scan)
 end
-
+  
+--@receiveScans(_handleOnReceive: Handle):void
 function Communication.receiveScans(_handleOnReceive)
   -- luacheck: globals receiveHandle
   

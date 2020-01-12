@@ -1,6 +1,7 @@
 print"start Script"
 
--- luacheck: globals Viewer Communication provider DataProcessing utils
+--luacheck: globals Viewer Communication provider DataProcessing utils removeScansAndShapes showOwnScans showSlaveScans
+--luacheck: globals calibrate setCutOffDistance
 DataProcessing = require("DataProcessing")
 Viewer = require("ViewerModule")
 Communication = require("Communication")
@@ -33,10 +34,7 @@ function calibrate()
   Communication.stopReceiving()
   provider:deregister("OnNewScan", Viewer.showScans)
 
-  local medianFilter = Scan.MedianFilter.create()
-  medianFilter:setType("2d")
-
-  edgeHitFilter = Scan.EchoFilter.create()
+  local edgeHitFilter = Scan.EchoFilter.create()
   edgeHitFilter:setType("Last")
 
   local scan = edgeHitFilter:filter(Viewer.lastScan:clone())
@@ -48,24 +46,25 @@ function calibrate()
   
   local firstX, firstY = firstPoint:getXY()
   local secondX, secondY = secondPoint:getXY()
-  
-  cloud:setIntensity({firstPointIndex, secondPointIndex, thirdPointIndex}, 0.3)
-  
-  print(distance)
-  print("FirstPoint X:", firstX, "Y:", firstY,"SecondPoint X:", secondX, "Y:", secondY, "Edge Lengths:", distance, secondDistance)
-  
   if thirdPoint == nil then
     thirdPoint = DataProcessing.getThirdCorner(firstPoint, secondPoint)
   end
+  local thirdX, thirdY = thirdPoint:getXY()
+  
+  print(
+    "FirstPoint            X:", firstX, "Y:", firstY,
+    "\nSecondPoint           X:", secondX, "Y:", secondY,
+    "\nCalculated ThirdPoint X:", thirdX, "Y:", thirdY,
+    "\nEdge Lengths:", distance, secondDistance)
+  
+  cloud:setIntensity({firstPointIndex, secondPointIndex, thirdPointIndex}, 0.3)
   local points = {Point.create(firstPoint:getXY()), Point.create(secondPoint:getXY()), Point.create(thirdPoint:getXY())}
   local triangle = Shape.createPolyline(points, true)
   Viewer.Viewer:addShape(triangle, nil, "foundTriangle")
-  local thirdX, thirdY = thirdPoint:getXY()
-  print("Calculated ThirdPoint X:", thirdX, "Y:" , thirdY)
-
   Viewer.PointCloudViewer(cloud)
 end
 
+--@setCutOffDistance(distance: int):nil
 function setCutOffDistance(distance)
   local _
   utils.cutOffDistance = distance * 10
