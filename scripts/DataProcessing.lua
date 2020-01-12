@@ -53,16 +53,6 @@ function DataProcessing.getCorners(inputCloud)
   return closestPoint, closestPointIndex, secondPoint, thirdPoint
 end
 
---@isSideLengthInPredinedSideLengths(input: number):boolean
-local function isSideLengthInPredinedSideLengths(input)
-  for _, length in ipairs(utils.predifinedSideLengths) do
-    if input == length then
-       return true
-    end
-  end
-  return false
-end
-
 --rotateAroundPoint(originPoint:Point, pointRotate: Point, angle:number) : point
 function DataProcessing.rotateAroundPoint(originPoint, pointRotate, angle)
   local anglerad = math.pi / 180 * angle
@@ -92,11 +82,21 @@ function DataProcessing.generateTransformationMatrix(OriginP1, angle, Destinatio
 
 end
 
---@checkEdgeLength(p1:type):returnType
+--@checkEdgeLength(length: double, index: int):Boolean
 local function checkEdgeLength(length, index)
   local predifinedEdgeLength = utils.predifinedSideLengths[index]
   return predifinedEdgeLength * 0.90 < length and length < predifinedEdgeLength * 1.1
 end
+
+--@edgeLengthIsRealistic(length: double):Boolean
+local function edgeLengthIsRealistic(length)
+  for i = 0, 2 do
+    if checkEdgeLength(length, i) then
+      return true
+    end
+  end
+end
+
 
 --@getThirdCorner(p1:Point, p2: Point): point
 function DataProcessing.getThirdCorner(p1, p2)
@@ -174,22 +174,15 @@ end
 
 --@fusePointClouds(firstCloud:PointCloud, secondCloud:PointCloud): pointCloud
 function DataProcessing.fusePointClouds(firstCloud, secondCloud)
-  local _, firstEdgeLength, secondEdgeLength, firstCorner, secondCorner, thirdCorner, fourthCorner, combinedEdgeLength
+  local _, firstEdgeLength, secondEdgeLength, firstCorner, secondCorner, thirdCorner, fourthCorner
   local resultCloud
   local compareCorner = {}
   firstCorner, secondCorner, firstEdgeLength = DataProcessing.getTwoCornersAndEdgeLength(firstCloud)
-  thirdCorner, fourthCorner , secondEdgeLength = DataProcessing.getTwoCornersAndEdgeLength(secondCloud)
+  thirdCorner, fourthCorner, secondEdgeLength = DataProcessing.getTwoCornersAndEdgeLength(secondCloud)
   firstEdgeLength = round(firstEdgeLength, -1)
   secondEdgeLength = round(secondEdgeLength, -1)
-  combinedEdgeLength = firstEdgeLength + secondEdgeLength
   if firstEdgeLength == secondEdgeLength then
-    local lengthIsLogical = false
-    for length in utils.predifinedSideLengths do
-      if firstEdgeLength == length then
-        lengthIsLogical = true
-      end
-    end
-    if lengthIsLogical == true then
+    if edgeLengthIsRealistic(firstEdgeLength) then
       compareCorner[0] = firstCorner
       compareCorner[1] = thirdCorner
     else

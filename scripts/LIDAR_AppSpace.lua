@@ -59,7 +59,7 @@ function calibrate()
   end
   local points = {Point.create(firstPoint:getXY()), Point.create(secondPoint:getXY()), Point.create(thirdPoint:getXY())}
   local triangle = Shape.createPolyline(points, true)
-  Viewer.Viewer:addShape(triangle, _, "foundTriangle")
+  Viewer.Viewer:addShape(triangle, nil, "foundTriangle")
   local thirdX, thirdY = thirdPoint:getXY()
   print("Calculated ThirdPoint X:", thirdX, "Y:" , thirdY)
 
@@ -80,5 +80,6 @@ local function main()
   Script.serveFunction("LIDAR_AppSpace.showOwnScans", "showOwnScans")
   Script.serveFunction("LIDAR_AppSpace.calibrate", "calibrate")
   Script.serveFunction("LIDAR_AppSpace.setCutOffDistance", "setCutOffDistance", "int")
+  setCutOffDistance(utils.cutOffDistance)
 end
 Script.register("Engine.OnStarted", main)

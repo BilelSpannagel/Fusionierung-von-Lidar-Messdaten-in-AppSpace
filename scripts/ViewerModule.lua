@@ -2,7 +2,6 @@ local ViewerModule = {}
 -- luacheck: globals Viewer
 
 -- luacheck: globals numScans scans pointCloudDecoration ViewerModule.transformer ViewerModule.lastScan
-ViewerModule.lastScan = 0
 numScans = 0
 scans = {}
 pointCloudDecoration = View.PointCloudDecoration.create()

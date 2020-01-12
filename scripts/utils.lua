@@ -8,6 +8,6 @@ utils.degreeSlaveMaster = {0}
 --utils.predifinedAngle = {56.31,33.69, 90}
 utils.originPoint = Point.create(0, 0, 0)
 utils.showMaster = false
-utils.cutOffDistance = 300
+utils.cutOffDistance = 30
 
 return utils
