@@ -28,8 +28,7 @@ function DataProcessing.getTwoCornersAndEdgeLength(inputCloud)
   if ((closestPointIndex == 0) or (closestPointIndex == pointCloudSize - 1)) then
     return firstPoint, firstPointIndex, lastPoint, lastPointIndex, distance
   else
-    if (distance * 1.1 <
-      (Point.getDistance(firstPoint, closestPoint) + Point.getDistance(lastPoint, closestPoint))) then
+    if (distance * 1.1 < (Point.getDistance(firstPoint, closestPoint)+ Point.getDistance(lastPoint, closestPoint))) then
       return firstPoint, firstPointIndex, closestPoint, closestPointIndex, Point.getDistance(firstPoint, closestPoint),
       lastPoint, lastPointIndex, Point.getDistance(lastPoint, closestPoint)
     else
