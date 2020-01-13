@@ -8,14 +8,19 @@
 			<span>Show Master Scans</span>
 			<crown-binding event="submit" name="LIDAR_AppSpace/showOwnScans" auto-commit></crown-binding>
 		</davinci-button>
-		<davinci-button id="calibratedButton" type="primary">
-			<span>calibrate</span>
-			<crown-binding event="submit" name="LIDAR_AppSpace/calibrate" auto-commit></crown-binding>
+		
+				<davinci-button id="showMergedButton" type="primary">
+			<span>Show Merged Scans</span>
+			<crown-binding event="submit" name="LIDAR_AppSpace/showMergedScans" auto-commit></crown-binding>
 		</davinci-button>
 		<davinci-slider id="Slider1" min="20" max="100" ticks="5" unit="cm" legend value="30">
 			<span>Cutoff Distance</span>
 			<crown-binding event="change" name="LIDAR_AppSpace/setCutOffDistance" path="param/args/distance" auto-commit></crown-binding>
 		</davinci-slider>
+		<davinci-button id="calibratedButton" type="primary">
+			<span>calibrate</span>
+			<crown-binding event="submit" name="LIDAR_AppSpace/calibrate" auto-commit></crown-binding>
+		</davinci-button>
 	</layout-row>
 	<sick-viewer3d id="scanViewer" protocol="auto" viewer-id="scanViewer" style="flex-basis:1">
 	</sick-viewer3d>

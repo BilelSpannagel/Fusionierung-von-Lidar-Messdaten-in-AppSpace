@@ -17,6 +17,9 @@
                     <desc></desc>
                     <param name="distance" type="int" desc=""/>
                 </function>
+                <function name="showMergedScans">
+                    <desc>Calibrate and Show merged scan.</desc>
+                </function>
             </serves>
         </crown>
         <crown name="Engine">

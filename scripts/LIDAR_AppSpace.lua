@@ -1,7 +1,7 @@
 print"start Script"
 
---luacheck: globals Viewer Communication provider DataProcessing utils removeScansAndShapes showOwnScans showSlaveScans
---luacheck: globals calibrate setCutOffDistance
+--luacheck: globals Viewer Communication provider DataProcessing utils removeScansAndShapes showOwnScans showSlaveScans 
+--luacheck: globals calibrate setCutOffDistance showMergedScans
 DataProcessing = require("DataProcessing")
 Viewer = require("ViewerModule")
 Communication = require("Communication")
@@ -26,7 +26,7 @@ end
 function showSlaveScans()
   removeScansAndShapes()
   print"show slave scans called"
-    Communication.receiveScans(Viewer.showScans)
+  Communication.receiveScans(Viewer.showScans)
 end
 
 --@calibrate():void
@@ -64,6 +64,15 @@ function calibrate()
   Viewer.PointCloudViewer(cloud)
 end
 
+--@showMergedScans(): void
+function showMergedScans()
+  print("show merged scans called")
+  removeScansAndShapes()
+  Communication.receiveScans()
+  
+end
+
+
 --@setCutOffDistance(distance: int):nil
 function setCutOffDistance(distance)
   local _
@@ -79,6 +88,7 @@ local function main()
   Script.serveFunction("LIDAR_AppSpace.showOwnScans", "showOwnScans")
   Script.serveFunction("LIDAR_AppSpace.calibrate", "calibrate")
   Script.serveFunction("LIDAR_AppSpace.setCutOffDistance", "setCutOffDistance", "int")
+  Script.serveFunction("LIDAR_AppSpace.showMergedScans", "showMergedScans")
   setCutOffDistance(utils.cutOffDistance)
 end
 Script.register("Engine.OnStarted", main)
