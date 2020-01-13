@@ -28,10 +28,9 @@ function DataProcessing.getTwoCornersAndEdgeLength(inputCloud)
   if ((closestPointIndex == 0) or (closestPointIndex == pointCloudSize - 1)) then
     return firstPoint, firstPointIndex, lastPoint, lastPointIndex, distance
   else
-    if (distance * 1.1 <
-      (Point.getDistance(firstPoint, closestPoint) + Point.getDistance(lastPoint, closestPoint))) then
+    if (distance * 1.1 < (Point.getDistance(firstPoint, closestPoint)+ Point.getDistance(lastPoint, closestPoint))) then
       return firstPoint, firstPointIndex, closestPoint, closestPointIndex, Point.getDistance(firstPoint, closestPoint),
-      lastPoint, lastPointIndex, Point.getDistance(lastPoint, closestPoint)
+        lastPoint, lastPointIndex, Point.getDistance(lastPoint, closestPoint)
     else
       return firstPoint, firstPointIndex, lastPoint, lastPointIndex, distance
     end
@@ -55,7 +54,7 @@ end
 
 --rotateAroundPoint(originPoint:Point, pointRotate: Point, angle:number) : point
 function DataProcessing.rotateAroundPoint(originPoint, pointRotate, angle)
-  local anglerad = math.pi / 180 * angle
+  local anglerad = math.rad(angle)
   local shiftedPoint = Point.create(pointRotate:getX() - originPoint:getX(), pointRotate:getY() - originPoint:getY())
   local retPoint = Point.create(0,0)
 
@@ -67,6 +66,7 @@ function DataProcessing.rotateAroundPoint(originPoint, pointRotate, angle)
   return retPoint
 end
 
+
 --@getDegree(point1:Point, point2:Point):number
 function DataProcessing.getDegree(point1, point2)
   local lenghtp1 = math.sqrt(math.pow(point1:getX(), 2)+math.pow(point1:getY(), 2))
@@ -77,13 +77,9 @@ function DataProcessing.getDegree(point1, point2)
   return degree
 end
 
---@generateTransformationMatrix(OriginP1:Point, angle:number, DestinationP1:Point)
-function DataProcessing.generateTransformationMatrix(OriginP1, angle, DestinationP1)
 
-end
-
---@checkEdgeLength(length: double, index: int):Boolean
-local function checkEdgeLength(length, index)
+--@DataProcessing.checkEdgeLength(length: double, index: int):Boolean
+function DataProcessing.checkEdgeLength(length, index)
   local predifinedEdgeLength = utils.predifinedSideLengths[index]
   return predifinedEdgeLength * 0.90 < length and length < predifinedEdgeLength * 1.1
 end
@@ -91,7 +87,7 @@ end
 --@edgeLengthIsRealistic(length: double):Boolean
 local function edgeLengthIsRealistic(length)
   for i = 0, 2 do
-    if checkEdgeLength(length, i) then
+    if DataProcessing.checkEdgeLength(length, i) then
       return true
     end
   end
@@ -125,19 +121,19 @@ function DataProcessing.getThirdCorner(p1, p2)
   
   local edgeLength = math.sqrt(math.pow(A, 2)+math.pow(G, 2))
 
-  if checkEdgeLength(edgeLength, 1) then
+  if DataProcessing.checkEdgeLength(edgeLength, 1) then
     local deg = (alpha+utils.predifinedAngle[1])
     local retPoint = Point.create(firstPoint:getX()+ utils.predifinedSideLengths[2], firstPoint:getY())
     retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, deg)
     --print(alpha,utils.predifinedAngle[1],deg)
     return retPoint
-  elseif checkEdgeLength(edgeLength, 2) then
+  elseif DataProcessing.checkEdgeLength(edgeLength, 2) then
     local deg = (alpha+utils.predifinedAngle[2])
     local retPoint = Point.create(firstPoint:getX()+utils.predifinedSideLengths[3], firstPoint:getY())
     retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, deg)
     --print(alpha,utils.predifinedAngle[2],deg)
     return retPoint
-  elseif checkEdgeLength(edgeLength, 3) then
+  elseif DataProcessing.checkEdgeLength(edgeLength, 3) then
     local deg = (alpha+utils.predifinedAngle[3])
     local retPoint = Point.create(firstPoint:getX()+ utils.predifinedSideLengths[1], firstPoint:getY())
     retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, deg)
@@ -170,6 +166,38 @@ function DataProcessing.computeAngle(p1Scan1, p1Scan2, p2Scan1, p2Scan2)
   local denominator = Point.getDistance(p2Scan1, zero)*Point.getDistance(p2Scan2, zero)
   local angle = math.deg(math.acos(((p2Scan1:getX()*p2Scan2:getX())+(p2Scan1:getY()*p2Scan2:getY())) / denominator))
   return angle
+end
+
+--@computeMatrix(p1Scan1:Point, p2Scan1:Point, angle:number):Matrix
+function DataProcessing.computeMatrix(p1Scan1, p1Scan2, angle)
+  local m1 = Matrix.create(3, 3)
+  m1:setAll(0)
+  m1:setValue(1, 1, 1)
+  m1:setValue(2, 2, 1)
+  m1:setValue(3, 3, 1)
+  m1:setValue(1, 3, Point.getX(p1Scan1))
+  m1:setValue(2, 3, Point.getY(p1Scan1))
+
+  local m2 = Matrix.create(3, 3)
+  m2:setAll(0)
+  m2:setValue(1, 1, 1)
+  m2:setValue(2, 2, 1)
+  m2:setValue(3, 3, 1)
+  m2:setValue(1, 3, -Point.getX(p1Scan2))
+  m2:setValue(2, 3, -Point.getY(p1Scan2))
+
+  local m3 = Matrix.create(3, 3)
+  m3:setAll(0)
+  m3:setValue(1, 1, math.cos(angle))
+  m3:setValue(1, 2, -math.sin(angle))
+  m3:setValue(2, 1, math.sin(angle))
+  m3:setValue(2, 2, math.cos(angle))
+  m3:setValue(3, 3, 1)
+
+  local m4 = Matrix.multiply(m1, m3)
+  local m5 = Matrix.multiply(m4, m2)
+
+  return m5
 end
 
 --@fusePointClouds(firstCloud:PointCloud, secondCloud:PointCloud): pointCloud

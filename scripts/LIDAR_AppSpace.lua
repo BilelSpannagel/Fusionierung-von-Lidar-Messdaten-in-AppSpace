@@ -46,10 +46,39 @@ function calibrate()
   
   local firstX, firstY = firstPoint:getXY()
   local secondX, secondY = secondPoint:getXY()
+  
+  cloud:setIntensity({firstPointIndex, secondPointIndex, thirdPointIndex}, 0.3)
+  
   if thirdPoint == nil then
     thirdPoint = DataProcessing.getThirdCorner(firstPoint, secondPoint)
   end
+
+  local d1 = Point.create(firstPoint:getX(),firstPoint:getY(),76.0)
+  local d2 = Point.create(secondPoint:getX(),secondPoint:getY(),76.0)
+  local d3 = Point.create(thirdPoint:getX(),thirdPoint:getY(),76.0)
+  local d4 = Point.create(firstPoint:getX(),firstPoint:getY(),0.0)
+  local d5 = Point.create(secondPoint:getX(),secondPoint:getY(),0.0)
+  local d6 = Point.create(thirdPoint:getX(),thirdPoint:getY(),0.0)
+  local pp = {d1,d2,d3,d1,d4,d5,d6,d4,d5,d2,d3,d6}
+  local line3d = Shape3D.createPolyline(pp)
+  Viewer.Viewer:addShape(line3d, nil, "foundTriangle")
+
   local thirdX, thirdY = thirdPoint:getXY()
+  --Save to global
+
+  if DataProcessing.checkEdgeLength(distance,1) then
+    utils.masterPoint1 = firstPoint
+    utils.masterPoint2 = secondPoint
+    utils.masterPoint3 = thirdPoint
+  elseif DataProcessing.checkEdgeLength(distance,2) then
+    utils.masterPoint2 = firstPoint
+    utils.masterPoint3 = secondPoint
+    utils.masterPoint1 = thirdPoint
+  elseif DataProcessing.checkEdgeLength(distance,3) then
+    utils.masterPoint3 = firstPoint
+    utils.masterPoint1 = secondPoint
+    utils.masterPoint2 = thirdPoint
+  end
   
   print(
     "FirstPoint            X:", firstX, "Y:", firstY,
@@ -58,9 +87,6 @@ function calibrate()
     "\nEdge Lengths:", distance, secondDistance)
   
   cloud:setIntensity({firstPointIndex, secondPointIndex, thirdPointIndex}, 0.3)
-  local points = {Point.create(firstPoint:getXY()), Point.create(secondPoint:getXY()), Point.create(thirdPoint:getXY())}
-  local triangle = Shape.createPolyline(points, true)
-  Viewer.Viewer:addShape(triangle, nil, "foundTriangle")
   Viewer.PointCloudViewer(cloud)
 end
 
@@ -72,13 +98,11 @@ function showMergedScans()
   
 end
 
-
---@setCutOffDistance(distance: int):nil
+--@setCutOffDistance(distance: int):void
 function setCutOffDistance(distance)
-  local _
   utils.cutOffDistance = distance * 10
   Viewer.Viewer:remove("cutOffDistanceShape")
-  Viewer.Viewer:addShape(Shape.createCircle(Point.create(0,0), utils.cutOffDistance), _, "cutOffDistanceShape")
+  Viewer.Viewer:addShape(Shape.createCircle(Point.create(0,0), utils.cutOffDistance), nil, "cutOffDistanceShape")
   Viewer.Viewer:present()
 end
 
