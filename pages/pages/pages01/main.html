@@ -12,7 +12,7 @@
 			<span>calibrate</span>
 			<crown-binding event="submit" name="LIDAR_AppSpace/calibrate" auto-commit></crown-binding>
 		</davinci-button>
-		<davinci-slider id="Slider1" min="20" max="100" ticks="5" unit="cm" legend>
+		<davinci-slider id="Slider1" min="20" max="100" ticks="5" unit="cm" legend value="30">
 			<span>Cutoff Distance</span>
 			<crown-binding event="change" name="LIDAR_AppSpace/setCutOffDistance" path="param/args/distance" auto-commit></crown-binding>
 		</davinci-slider>
