@@ -17,6 +17,8 @@ end
 
 --@showMasterScans():void
 function showOwnScans()
+  utils.slaveActive = false
+  utils.masterActive = true
   removeScansAndShapes()
   print("show own scans called")
   provider:register("OnNewScan", Viewer.showScans)
@@ -24,6 +26,8 @@ end
 
 --@showSlaveScans():void
 function showSlaveScans()
+  utils.slaveActive = true
+  utils.masterActive = false
   removeScansAndShapes()
   print"show slave scans called"
   Communication.receiveScans(Viewer.showScans)
@@ -66,18 +70,36 @@ function calibrate()
   local thirdX, thirdY = thirdPoint:getXY()
   --Save to global
 
-  if DataProcessing.checkEdgeLength(distance,1) then
-    utils.masterPoint1 = firstPoint
-    utils.masterPoint2 = secondPoint
-    utils.masterPoint3 = thirdPoint
-  elseif DataProcessing.checkEdgeLength(distance,2) then
-    utils.masterPoint2 = firstPoint
-    utils.masterPoint3 = secondPoint
-    utils.masterPoint1 = thirdPoint
-  elseif DataProcessing.checkEdgeLength(distance,3) then
-    utils.masterPoint3 = firstPoint
-    utils.masterPoint1 = secondPoint
-    utils.masterPoint2 = thirdPoint
+  if (utils.masterActive == true and utils.slaveActive == false) then
+    if DataProcessing.checkEdgeLength(distance,1) then
+      utils.masterPoint1 = firstPoint
+      utils.masterPoint2 = secondPoint
+      utils.masterPoint3 = thirdPoint
+    elseif DataProcessing.checkEdgeLength(distance,2) then
+      utils.masterPoint2 = firstPoint
+      utils.masterPoint3 = secondPoint
+      utils.masterPoint1 = thirdPoint
+    elseif DataProcessing.checkEdgeLength(distance,3) then
+      utils.masterPoint3 = firstPoint
+      utils.masterPoint1 = secondPoint
+      utils.masterPoint2 = thirdPoint
+    end
+  end
+
+  if (utils.masterActive == false and utils.slaveActive == true) then
+    if DataProcessing.checkEdgeLength(distance,1) then
+      utils.slavePoint1 = firstPoint
+      utils.slavePoint2 = secondPoint
+      utils.slavePoint3 = thirdPoint
+    elseif DataProcessing.checkEdgeLength(distance,2) then
+      utils.slavePoint2 = firstPoint
+      utils.slavePoint3 = secondPoint
+      utils.slavePoint1 = thirdPoint
+    elseif DataProcessing.checkEdgeLength(distance,3) then
+      utils.slavePoint3 = firstPoint
+      utils.slavePoint1 = secondPoint
+      utils.slavePoint2 = thirdPoint
+    end
   end
   
   print(

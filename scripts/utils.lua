@@ -15,5 +15,7 @@ utils.degreeSlaveMaster = {0}
 utils.originPoint = Point.create(0, 0, 0)
 utils.showMaster = false
 utils.cutOffDistance = 30
+utils.slaveActive = false
+utils.masterActive = false
 
 return utils
