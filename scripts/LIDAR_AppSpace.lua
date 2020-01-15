@@ -12,6 +12,7 @@ slaveScans = {}
 -- @removeScansAndShapes():void
 function removeScansAndShapes()
   provider:deregister("OnNewScan", Viewer.showScans)
+  provider:deregister("OnNewScan", Viewer.showMergedCloud)
   Communication.stopReceiving()
   Viewer.Viewer:remove("foundTriangleShape")
 end
@@ -113,18 +114,13 @@ function calibrate()
   Viewer.PointCloudViewer(cloud)
 end
 
---@mergeAndShowScans(masterData: Scan): void
-function mergeAndShowScans(masterScan)
-  --rename this
-  Viewer:showMergedCloud(masterScan, slaveScans)
-end
-
 --@showMergedScans(): void
 function showMergedScans()
   print("show merged scans called")
   removeScansAndShapes()
-  Communication.receiveScans(addSlaveScan)
-  provider:register("OnNewScan", mergeAndShowScans)
+  slaveScans = {}
+  Communication.receiveScans(Viewer.addSlaveScan)
+  provider:register("OnNewScan", Viewer.showMergedCloud)
 end
 
 --@setCutOffDistance(distance: int):void
@@ -135,11 +131,6 @@ function setCutOffDistance(distance)
   Viewer.Viewer:present()
 end
 
---@addSlaveScan(scan:slaveScan):void
-function addSlaveScan(slaveScan)
-    --rename this
-  table.insert(slaveScans, slaveScan)
-end
 
 
 local function main()

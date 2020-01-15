@@ -1,12 +1,15 @@
 local ViewerModule = {}
 -- luacheck: globals Viewer
 
--- luacheck: globals numScans scans pointCloudDecoration ViewerModule.transformer ViewerModule.lastScan
+-- luacheck: globals numScans scans pointCloudDecoration ViewerModule.transformer ViewerModule.lastScan numClouds clouds slaveScans
 numScans = 0
 scans = {}
 
 numClouds = 0
 clouds = {}
+
+slaveScans = {}
+
 pointCloudDecoration = View.PointCloudDecoration.create()
 pointCloudDecoration:setPointSize(3)
 pointCloudDecoration:setXColormap(0)
@@ -22,13 +25,12 @@ function ViewerModule.PointCloudViewer(cloud)
   ViewerModule.Viewer:present()
 end
 
---@showScans(scan:Scan):function
+--@showScans(scan:Scan):void
 function ViewerModule.showScans(scan)
   --add scans to collection and redraw every 4th scan
   scans[numScans] = scan
   numScans = numScans+1
   if numScans % 4 == 0 then
-    --Viewer:clear()
     local cloud = Scan.Transform.transformToPointCloud(ViewerModule.transformer, scans[0])
     for _, eachScan in ipairs(scans) do
       if Scan.getPointPhi(eachScan, 0) == 0 then
@@ -45,43 +47,42 @@ function ViewerModule.showScans(scan)
     numScans = 0
   end
 end
-
-function ViewerModule.showMergedCloud(scan, slaveScans)
+--luacheck: globals clouds numClouds
+function ViewerModule.showMergedCloud(scan)
   --add scans to collection and redraw every 4th scan
-  print("1", type(slaveScans))
-  tempSlaveScan = slaveScans
-  clouds[numClouds] = scan
-  numClouds = numClouds + 1
-  if numClouds % 4 == 0 then
-    --Viewer:clear()
-    --[[
-    local cloud = Scan.Transform.transformToPointCloud(ViewerModule.transformer, clouds[0])
-    local temp = Scan.Transform.transformToPointCloud(ViewerModule.transformer, clouds[1])
-    cloud = cloud:merge(temp)
+  table.insert(clouds, scan)
 
-    local temp = Scan.Transform.transformToPointCloud(ViewerModule.transformer, clouds[2])
-    cloud = cloud:merge(temp)
-    
-    local temp = Scan.Transform.transformToPointCloud(ViewerModule.transformer, clouds[3])
-    cloud = cloud:merge(temp)
-    cloud = cloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, utils.slaveScans:remove(1)))
-    cloud = cloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, utils.slaveScans:remove(1)))
-    cloud = cloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, utils.slaveScans:remove(1)))
-    --]]
-    print("2", type(slaveScans))
-    --[[
-    local i, object = next(slaveScans, i)
-    if not object == nil then
-      cloud = Scan.Transform.transformToPointCloud(ViewerModule.transformer, slaveScans:remove(1))
-      end
-      ViewerModule.Viewer:addPointCloud(cloud)
-    
-    ViewerModule.Viewer:present()
-    clouds = {}
-    numClouds = 0
-      --]]
+  if #clouds == 4 then
+    local mergedCloud = Scan.Transform.transformToPointCloud(ViewerModule.transformer, table.remove(clouds, 1))
+    mergedCloud = PointCloud.merge(mergedCloud, Scan.Transform.transformToPointCloud(ViewerModule.transformer, table.remove(clouds, 1)))
+    mergedCloud = PointCloud.merge(mergedCloud, Scan.Transform.transformToPointCloud(ViewerModule.transformer, table.remove(clouds, 1)))
+    mergedCloud = PointCloud.merge(mergedCloud, Scan.Transform.transformToPointCloud(ViewerModule.transformer, table.remove(clouds, 1)))
+    if (#slaveScans >= 4) then
+      local combinedSlaveCloud
+      combinedSlaveCloud = Scan.Transform.transformToPointCloud(ViewerModule.transformer, table.remove(slaveScans, 1))
+      combinedSlaveCloud =  combinedSlaveCloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, table.remove(slaveScans, 1)))
+      combinedSlaveCloud =  combinedSlaveCloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, table.remove(slaveScans, 1)))
+      combinedSlaveCloud =  combinedSlaveCloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, table.remove(slaveScans, 1)))
+      --Transform combinedSlaveCloud
+      mergedCloud = mergedCloud:merge(combinedSlaveCloud)
+      --print(#slaveScans)
+    end
+    --print(#clouds)
+    Viewer.Viewer:addPointCloud(mergedCloud)
+    Viewer.Viewer:present()
+  else if #clouds > 4 then
+     print("SOMETHING IS HORRIBLY WRONG. Cloud Size: ", #clouds)
+     end
   end
 end
+
+--@addSlaveScan(scan:slaveScan):void
+function ViewerModule.addSlaveScan(slaveScan)
+    --rename this
+  table.insert(slaveScans, slaveScan)
+end
+
+
 
 return ViewerModule
 

@@ -17,6 +17,5 @@ utils.showMaster = false
 utils.cutOffDistance = 30
 utils.slaveActive = false
 utils.masterActive = false
-utils.slaveScans = {}
 
 return utils
