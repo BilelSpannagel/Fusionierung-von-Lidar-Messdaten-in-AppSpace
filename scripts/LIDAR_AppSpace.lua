@@ -13,7 +13,7 @@ slaveScans = {}
 function removeScansAndShapes()
   provider:deregister("OnNewScan", Viewer.showScans)
   Communication.stopReceiving()
-  Viewer.Viewer:remove("foundTriangle")
+  Viewer.Viewer:remove("foundTriangleShape")
 end
 
 --@showMasterScans():void
@@ -47,28 +47,28 @@ function calibrate()
   
   cloud = DataProcessing.removePointsBeyond(cloud, utils.cutOffDistance)
   local firstPoint, firstPointIndex, secondPoint, secondPointIndex, distance, thirdPoint, thirdPointIndex, secondDistance
-  = DataProcessing.getTwoCornersAndEdgeLength(cloud)
-  
-  local firstX, firstY = firstPoint:getXY()
-  local secondX, secondY = secondPoint:getXY()
+  = DataProcessing.getCornersAndEdgeLengths(cloud)
   
   cloud:setIntensity({firstPointIndex, secondPointIndex, thirdPointIndex}, 0.3)
   
   if thirdPoint == nil then
     thirdPoint = DataProcessing.getThirdCorner(firstPoint, secondPoint)
   end
+  
+  local firstX, firstY = firstPoint:getXY()
+  local secondX, secondY = secondPoint:getXY()
+  local thirdX, thirdY = thirdPoint:getXY()
 
-  local d1 = Point.create(firstPoint:getX(),firstPoint:getY(),76.0)
-  local d2 = Point.create(secondPoint:getX(),secondPoint:getY(),76.0)
-  local d3 = Point.create(thirdPoint:getX(),thirdPoint:getY(),76.0)
-  local d4 = Point.create(firstPoint:getX(),firstPoint:getY(),0.0)
-  local d5 = Point.create(secondPoint:getX(),secondPoint:getY(),0.0)
-  local d6 = Point.create(thirdPoint:getX(),thirdPoint:getY(),0.0)
+  local d1 = Point.create(firstX, firstY, 76)
+  local d2 = Point.create(secondX, secondY, 76)
+  local d3 = Point.create(thirdX, thirdY, 76)
+  local d4 = Point.create(firstX,firstY, 0)
+  local d5 = Point.create(secondX, secondY, 0)
+  local d6 = Point.create(thirdX, thirdY, 0)
   local pp = {d1,d2,d3,d1,d4,d5,d6,d4,d5,d2,d3,d6}
   local line3d = Shape3D.createPolyline(pp)
-  Viewer.Viewer:addShape(line3d, nil, "foundTriangle")
+  Viewer.Viewer:addShape(line3d, nil, "foundTriangleShape")
 
-  local thirdX, thirdY = thirdPoint:getXY()
   --Save to global
 
   if (utils.masterActive == true and utils.slaveActive == false) then
