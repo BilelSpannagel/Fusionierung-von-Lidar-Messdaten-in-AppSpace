@@ -12,7 +12,6 @@ end
 --@receiveScans(_handleOnReceive: Handle):void
 function Communication.receiveScans(_handleOnReceive)
   -- luacheck: globals receiveHandle
-  
   receiveHandle = _handleOnReceive
   --@hndOnReceive(data, ipaddess, port): void
   UDPSocket.register(socket, "OnReceive", "handle")
@@ -23,7 +22,6 @@ end
 function Communication.stopReceiving()
   socket:deregister("OnReceive", "handle")
 end
-
 
 --@sendScans(_scanner: Scann.Provider.Scanner, masterIP: String):void
 function Communication.sendScans(_scanProvider, _masterIP)

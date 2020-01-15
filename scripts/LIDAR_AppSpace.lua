@@ -1,12 +1,13 @@
 print"start Script"
 
 --luacheck: globals Viewer Communication provider DataProcessing utils removeScansAndShapes showOwnScans showSlaveScans 
---luacheck: globals calibrate setCutOffDistance showMergedScans
+--luacheck: globals slaveScans calibrate setCutOffDistance showMergedScans
 DataProcessing = require("DataProcessing")
 Viewer = require("ViewerModule")
 Communication = require("Communication")
 provider = Scan.Provider.Scanner.create()
 utils = require("utils")
+slaveScans = {}
 
 -- @removeScansAndShapes():void
 function removeScansAndShapes()
@@ -112,12 +113,18 @@ function calibrate()
   Viewer.PointCloudViewer(cloud)
 end
 
+--@mergeAndShowScans(masterData: Scan): void
+function mergeAndShowScans(masterScan)
+  --rename this
+  Viewer:showMergedCloud(masterScan, slaveScans)
+end
+
 --@showMergedScans(): void
 function showMergedScans()
   print("show merged scans called")
   removeScansAndShapes()
-  Communication.receiveScans()
-  
+  Communication.receiveScans(addSlaveScan)
+  provider:register("OnNewScan", mergeAndShowScans)
 end
 
 --@setCutOffDistance(distance: int):void
@@ -126,6 +133,12 @@ function setCutOffDistance(distance)
   Viewer.Viewer:remove("cutOffDistanceShape")
   Viewer.Viewer:addShape(Shape.createCircle(Point.create(0,0), utils.cutOffDistance), nil, "cutOffDistanceShape")
   Viewer.Viewer:present()
+end
+
+--@addSlaveScan(scan:slaveScan):void
+function addSlaveScan(slaveScan)
+    --rename this
+  table.insert(slaveScans, slaveScan)
 end
 
 

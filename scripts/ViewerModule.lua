@@ -4,6 +4,9 @@ local ViewerModule = {}
 -- luacheck: globals numScans scans pointCloudDecoration ViewerModule.transformer ViewerModule.lastScan
 numScans = 0
 scans = {}
+
+numClouds = 0
+clouds = {}
 pointCloudDecoration = View.PointCloudDecoration.create()
 pointCloudDecoration:setPointSize(3)
 pointCloudDecoration:setXColormap(0)
@@ -15,14 +18,16 @@ ViewerModule.Viewer:addShape(Shape.createLineSegment(Point.create(0,0), Point.cr
 ViewerModule.Viewer:addShape(Shape.createCircle(Point.create(0,0), 65), nil, "LidarShape")
 
 function ViewerModule.PointCloudViewer(cloud)
-ViewerModule.Viewer:addPointCloud(cloud)
-ViewerModule.Viewer:present()
+  ViewerModule.Viewer:addPointCloud(cloud)
+  ViewerModule.Viewer:present()
 end
 
 --@showScans(scan:Scan):function
 function ViewerModule.showScans(scan)
-  --draw scans
-  function drawScans()
+  --add scans to collection and redraw every 4th scan
+  scans[numScans] = scan
+  numScans = numScans+1
+  if numScans % 4 == 0 then
     --Viewer:clear()
     local cloud = Scan.Transform.transformToPointCloud(ViewerModule.transformer, scans[0])
     for _, eachScan in ipairs(scans) do
@@ -30,22 +35,51 @@ function ViewerModule.showScans(scan)
         ViewerModule.lastScan = eachScan
       end
     end
-    
     cloud = cloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, scans[1]))
     cloud = cloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, scans[2]))
     cloud = cloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, scans[3]))
-    
     ViewerModule.Viewer:addPointCloud(cloud)
         
     ViewerModule.Viewer:present()
     scans = {}
     numScans = 0
   end
+end
+
+function ViewerModule.showMergedCloud(scan, slaveScans)
   --add scans to collection and redraw every 4th scan
-  scans[numScans] = scan
-  numScans = numScans+1
-  if numScans % 4 == 0 then
-    drawScans();
+  print("1", type(slaveScans))
+  tempSlaveScan = slaveScans
+  clouds[numClouds] = scan
+  numClouds = numClouds + 1
+  if numClouds % 4 == 0 then
+    --Viewer:clear()
+    --[[
+    local cloud = Scan.Transform.transformToPointCloud(ViewerModule.transformer, clouds[0])
+    local temp = Scan.Transform.transformToPointCloud(ViewerModule.transformer, clouds[1])
+    cloud = cloud:merge(temp)
+
+    local temp = Scan.Transform.transformToPointCloud(ViewerModule.transformer, clouds[2])
+    cloud = cloud:merge(temp)
+    
+    local temp = Scan.Transform.transformToPointCloud(ViewerModule.transformer, clouds[3])
+    cloud = cloud:merge(temp)
+    cloud = cloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, utils.slaveScans:remove(1)))
+    cloud = cloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, utils.slaveScans:remove(1)))
+    cloud = cloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, utils.slaveScans:remove(1)))
+    --]]
+    print("2", type(slaveScans))
+    --[[
+    local i, object = next(slaveScans, i)
+    if not object == nil then
+      cloud = Scan.Transform.transformToPointCloud(ViewerModule.transformer, slaveScans:remove(1))
+      end
+      ViewerModule.Viewer:addPointCloud(cloud)
+    
+    ViewerModule.Viewer:present()
+    clouds = {}
+    numClouds = 0
+      --]]
   end
 end
 
