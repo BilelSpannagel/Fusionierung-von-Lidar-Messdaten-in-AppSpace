@@ -129,20 +129,20 @@ end
 
 --translatePositivePoint(originPoint:Point,vec:Point) : Point
 function DataProcessing.translatePositivePoint(originpoint,vec)
-  originpoint = Point.add(originpoint, vec)
+  originpoint = originpoint:add(vec)
   return originpoint
 end
 
 --translateNegativePoint(originPoint:Point,vec:Point) : Point
 function DataProcessing.translateNegativePoint(originpoint,vec)
   Point.setXY(vec, Point.getX(vec) * (-1), Point.getY(vec) * (-1) )
-  originpoint = Point.add(originpoint, vec)
+  originpoint = originpoint:add(vec)
   return originpoint
 end
 
 --computeAngle(p1Scan1:Point, p1Scan2:Point, p2Scan1:Point, p2Scan2:Point) : number
 function DataProcessing.computeAngle(p1Scan1, p1Scan2, p2Scan1, p2Scan2)
-  local zero = Point.create(0, 0)
+  local zero = Point.create(0, 0, 0)
   p2Scan1 = DataProcessing.translateNegativePoint(p2Scan1, p1Scan1)
   p2Scan2 = DataProcessing.translateNegativePoint(p2Scan2, p1Scan2)
   local denominator = Point.getDistance(p2Scan1, zero) * Point.getDistance(p2Scan2, zero)
@@ -154,30 +154,30 @@ end
 function DataProcessing.computeMatrix(p1Scan1, p1Scan2, angle)
   local m1 = Matrix.create(3, 3)
   m1:setAll(0)
+  m1:setValue(0, 0, 1)
   m1:setValue(1, 1, 1)
   m1:setValue(2, 2, 1)
-  m1:setValue(3, 3, 1)
-  m1:setValue(1, 3, Point.getX(p1Scan1))
-  m1:setValue(2, 3, Point.getY(p1Scan1))
+  m1:setValue(0, 2, Point.getX(p1Scan1)+Point.getX(p1Scan2))
+  m1:setValue(1, 2, Point.getY(p1Scan1)+Point.getY(p1Scan2))
 
   local m2 = Matrix.create(3, 3)
   m2:setAll(0)
+  m2:setValue(0, 0, 1)
   m2:setValue(1, 1, 1)
   m2:setValue(2, 2, 1)
-  m2:setValue(3, 3, 1)
-  m2:setValue(1, 3, -Point.getX(p1Scan2))
-  m2:setValue(2, 3, -Point.getY(p1Scan2))
+  m2:setValue(0, 2, 0)--Point.getX(p1Scan2))
+  m2:setValue(1, 2, 0)--Point.getY(p1Scan2))
 
   local m3 = Matrix.create(3, 3)
   m3:setAll(0)
-  m3:setValue(1, 1, math.cos(angle))
-  m3:setValue(1, 2, -math.sin(angle))
-  m3:setValue(2, 1, math.sin(angle))
-  m3:setValue(2, 2, math.cos(angle))
-  m3:setValue(3, 3, 1)
+  m3:setValue(0, 0, math.cos(math.rad(-angle)))
+  m3:setValue(0, 1, -math.sin(math.rad(-angle)))
+  m3:setValue(1, 0, math.sin(math.rad(-angle)))
+  m3:setValue(1, 1, math.cos(math.rad(-angle)))
+  m3:setValue(2, 2, 1)
 
-  local m4 = Matrix.multiply(m1, m3)
-  local m5 = Matrix.multiply(m4, m2)
+  local m4 = Matrix.multiply(m2, m3)
+  local m5 = Matrix.multiply(m4, m1)
 
   return m5
 end

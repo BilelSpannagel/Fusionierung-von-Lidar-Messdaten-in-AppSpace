@@ -2,6 +2,11 @@ local ViewerModule = {}
 -- luacheck: globals Viewer
 
 -- luacheck: globals numScans scans pointCloudDecoration ViewerModule.transformer ViewerModule.lastScan numClouds clouds slaveScans
+
+utils = require("utils")
+DataProcessing = require("DataProcessing")
+
+
 numScans = 0
 scans = {}
 
@@ -49,7 +54,7 @@ function ViewerModule.showScans(scan)
 end
 --luacheck: globals clouds numClouds
 function ViewerModule.showMergedCloud(scan)
-  --add scans to collection and redraw every 4th scan
+   --add scans to collection and redraw every 4th scan
   table.insert(clouds, scan)
 
   if #clouds == 4 then
@@ -64,6 +69,21 @@ function ViewerModule.showMergedCloud(scan)
       combinedSlaveCloud =  combinedSlaveCloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, table.remove(slaveScans, 1)))
       combinedSlaveCloud =  combinedSlaveCloud:merge(Scan.Transform.transformToPointCloud(ViewerModule.transformer, table.remove(slaveScans, 1)))
       --Transform combinedSlaveCloud
+      if utils.transformation == false then
+      utils.transformation = true
+      local a
+      a = DataProcessing.computeAngle(utils.masterPoint1, utils.slavePoint1, utils.masterPoint2, utils.slavePoint2)
+      print(a)
+      local matr = DataProcessing.computeMatrix(utils.masterPoint1,utils.slavePoint1,a)
+      local transform = Transform.createFromMatrix2D(matr, "RIGID")
+      transform3d = Transform.to3D(transform)
+      local nullpt = Matrix.create(3, 1)
+      Matrix.setAll(nullpt, 0)
+      Matrix.setValue(nullpt, 2, 0, 1)
+      nullpt = Matrix.multiply(matr, nullpt)
+      Viewer.Viewer:addShape(Shape.createCircle(Point.create(nullpt:getValue(0, 0),nullpt:getValue(1, 0)), 150), nil, "slaveLidarShape")
+      end
+      PointCloud.transformInplace(combinedSlaveCloud, transform3d)
       mergedCloud = mergedCloud:merge(combinedSlaveCloud)
       --print(#slaveScans)
     end
