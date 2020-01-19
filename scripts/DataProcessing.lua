@@ -157,16 +157,16 @@ function DataProcessing.computeMatrix(p1Scan1, p1Scan2, angle)
   m1:setValue(0, 0, 1)
   m1:setValue(1, 1, 1)
   m1:setValue(2, 2, 1)
-  m1:setValue(0, 2, (Point.getX(p1Scan1)+Point.getX(p1Scan2)))
-  m1:setValue(1, 2, (Point.getY(p1Scan1)+Point.getY(p1Scan2)))
+  m1:setValue(0, 2, Point.getX(p1Scan1))
+  m1:setValue(1, 2, Point.getY(p1Scan1))
 
   local m2 = Matrix.create(3, 3)
   m2:setAll(0)
   m2:setValue(0, 0, 1)
   m2:setValue(1, 1, 1)
   m2:setValue(2, 2, 1)
-  m2:setValue(0, 2, 0)--Point.getX(p1Scan2))
-  m2:setValue(1, 2, 0)--Point.getY(p1Scan2))
+  m2:setValue(0, 2, -Point.getX(p1Scan2))
+  m2:setValue(1, 2, -Point.getY(p1Scan2))
 
   local m3 = Matrix.create(3, 3)
   m3:setAll(0)
@@ -180,6 +180,35 @@ function DataProcessing.computeMatrix(p1Scan1, p1Scan2, angle)
   local m5 = Matrix.multiply(m4, m1)
 
   return m5
+end
+
+function DataProcessing.getMatrix(p1Scan1, p1Scan2, angle)
+
+  local m1 = Matrix.create(3, 3)
+  m1:setAll(0)
+  m1:setValue(0, 0, 1)
+  m1:setValue(1, 1, 1)
+  m1:setValue(2, 2, 1)
+  m1:setValue(0, 2, Point.getX(p1Scan2))
+  m1:setValue(1, 2, Point.getY(p1Scan2))
+
+  local m2 = Matrix.create(3, 3)
+  m2:setAll(0)
+  m2:setValue(0, 0, math.cos(math.rad(-angle)))
+  m2:setValue(0, 1, -math.sin(math.rad(-angle)))
+  m2:setValue(1, 0, math.sin(math.rad(-angle)))
+  m2:setValue(1, 1, math.cos(math.rad(-angle)))
+  m2:setValue(2, 2, 1)
+
+  local m3 = Matrix.create(3, 3)
+  m3:setAll(0)
+  m3:setValue(0, 0, 1)
+  m3:setValue(1, 1, 1)
+  m3:setValue(2, 2, 1)
+  m3:setValue(0, 2, -Point.getX(p1Scan1))
+  m3:setValue(1, 2, -Point.getY(p1Scan1))
+
+  return m1,m2,m3
 end
 
 return DataProcessing
