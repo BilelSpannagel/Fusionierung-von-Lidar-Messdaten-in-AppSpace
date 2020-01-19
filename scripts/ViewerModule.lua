@@ -81,7 +81,7 @@ function ViewerModule.showMergedCloud(scan)
       Matrix.setAll(nullpt, 0)
       Matrix.setValue(nullpt, 2, 0, 1)
       nullpt = Matrix.multiply(matr, nullpt)
-      Viewer.Viewer:addShape(Shape.createCircle(Point.create(nullpt:getValue(0, 0),nullpt:getValue(1, 0)), 150), nil, "slaveLidarShape")
+      Viewer.Viewer:addShape(Shape.createCircle(Point.create(nullpt:getValue(0, 0),nullpt:getValue(1, 0)), 65), nil, "slaveLidarShape")
       end
       PointCloud.transformInplace(combinedSlaveCloud, transform3d)
       mergedCloud = mergedCloud:merge(combinedSlaveCloud)

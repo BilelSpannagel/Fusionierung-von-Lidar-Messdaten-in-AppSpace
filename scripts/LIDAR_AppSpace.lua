@@ -15,6 +15,7 @@ function removeScansAndShapes()
   provider:deregister("OnNewScan", Viewer.showMergedCloud)
   Communication.stopReceiving()
   Viewer.Viewer:remove("foundTriangleShape")
+  Viewer.Viewer:remove("slaveLidarShape")
 end
 
 --@showMasterScans():void
