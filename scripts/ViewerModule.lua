@@ -70,7 +70,7 @@ function ViewerModule.showMergedCloud(scan)
       utils.transformation = true
       local a
       a = DataProcessing.computeAngle(utils.masterPoint1, utils.slavePoint1, utils.masterPoint2, utils.slavePoint2)
-      print(a)
+      print("Winkel der Sensoren zueinander",a,"°")
     --[[
       local matr = DataProcessing.computeMatrix(utils.masterPoint1,utils.slavePoint1,a)
       local transform = Transform.createFromMatrix2D(matr, "RIGID")
@@ -101,6 +101,8 @@ function ViewerModule.showMergedCloud(scan)
       nullpt = Matrix.multiply(m1, nullpt)
       nullpt = Matrix.multiply(m2, nullpt)
       nullpt = Matrix.multiply(m3, nullpt)
+      local printnullpt = Point.create(nullpt:getValue(0, 0),nullpt:getValue(1,0))
+      print("Distanz der LIDAR-Sensoren",printnullpt:getDistance(Point.create(0, 0))/10,"cm")
       
       end
 
@@ -110,6 +112,7 @@ function ViewerModule.showMergedCloud(scan)
       PointCloud.transformInplace(combinedSlaveCloud, transform3d1)
       PointCloud.transformInplace(combinedSlaveCloud, transform3d2)
       PointCloud.transformInplace(combinedSlaveCloud, transform3d3)
+      
       mergedCloud = mergedCloud:merge(combinedSlaveCloud)
       --print(#slaveScans)
     end
