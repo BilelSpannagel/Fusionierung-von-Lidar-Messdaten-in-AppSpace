@@ -21,9 +21,6 @@ pointCloudDecoration:setXColormap(0)
 ViewerModule.transformer = Scan.Transform.create()
 ViewerModule.Viewer = View.create("scanViewer")
 ViewerModule.Viewer:setDefaultDecoration(pointCloudDecoration)
-ViewerModule.Viewer:addShape(Shape.createLineSegment(Point.create(0,0), Point.create(-8190, 5740)))
-ViewerModule.Viewer:addShape(Shape.createLineSegment(Point.create(0,0), Point.create(-8190, -5740)))
-ViewerModule.Viewer:addShape(Shape.createCircle(Point.create(0,0), 65), nil, "LidarShape")
 
 function ViewerModule.PointCloudViewer(cloud)
   ViewerModule.Viewer:addPointCloud(cloud)
@@ -98,8 +95,18 @@ function ViewerModule.showMergedCloud(scan)
       transform3d2 = Transform.to3D(transform2)
       local transform3 = Transform.createFromMatrix2D(m3, "RIGID")
       transform3d3 = Transform.to3D(transform3)
-
+      nullpt = Matrix.create(3, 1)
+      Matrix.setAll(nullpt, 0)
+      Matrix.setValue(nullpt, 2, 0, 1)
+      nullpt = Matrix.multiply(m1, nullpt)
+      nullpt = Matrix.multiply(m2, nullpt)
+      nullpt = Matrix.multiply(m3, nullpt)
+      
       end
+
+      Viewer.Viewer:addShape(
+        Shape.createCircle(Point.create(nullpt:getValue(0, 0),nullpt:getValue(1, 0)), 65), utils.greenShapeDecoration, "slaveLidarShape")
+
       PointCloud.transformInplace(combinedSlaveCloud, transform3d1)
       PointCloud.transformInplace(combinedSlaveCloud, transform3d2)
       PointCloud.transformInplace(combinedSlaveCloud, transform3d3)

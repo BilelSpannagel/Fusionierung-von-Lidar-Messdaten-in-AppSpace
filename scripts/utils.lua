@@ -14,9 +14,15 @@ utils.triangleSlave = {0,0,0}
 utils.degreeSlaveMaster = {0}
 utils.originPoint = Point.create(0, 0, 0)
 utils.showMaster = false
-utils.cutOffDistance = 30
+utils.cutOffDistance = 300
 utils.slaveActive = false
 utils.masterActive = false
 utils.transformation = false
+utils.blueShapeDecoration = View.ShapeDecoration.create()
+utils.blueShapeDecoration:setLineColor(0, 0, 255)
+utils.greenShapeDecoration = View.ShapeDecoration.create()
+utils.greenShapeDecoration:setLineColor(0, 255, 0)
+utils.redShapeDecoration = View.ShapeDecoration.create()
+utils.redShapeDecoration:setLineColor(255, 0, 0)
 
 return utils

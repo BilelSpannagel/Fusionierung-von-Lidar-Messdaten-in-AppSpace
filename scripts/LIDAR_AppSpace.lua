@@ -1,7 +1,7 @@
 print"start Script"
 
---luacheck: globals Viewer Communication provider DataProcessing utils removeScansAndShapes showOwnScans showSlaveScans 
---luacheck: globals slaveScans calibrate setCutOffDistance showMergedScans
+--luacheck: globals Viewer Communication provider DataProcessing utils removeScansAndShapes showOwnScans showSlaveScans
+--luacheck: globals slaveScans calibrate setCutOffDistance showMergedScans addShapes 
 DataProcessing = require("DataProcessing")
 Viewer = require("ViewerModule")
 Communication = require("Communication")
@@ -18,8 +18,17 @@ function removeScansAndShapes()
   Viewer.Viewer:remove("slaveLidarShape")
 end
 
+--@addShapes():void
+function addShapes()
+  Viewer.Viewer:addShape(Shape.createCircle(Point.create(0,0), 65), utils.blueShapeDecoration, "LidarShape")
+  Viewer.Viewer:addShape(Shape.createLineSegment(Point.create(0,0), Point.create(-8190, 5740)), utils.blueShapeDecoration, "FirstBlindShape")
+  Viewer.Viewer:addShape(Shape.createLineSegment(Point.create(0,0), Point.create(-8190, -5740)), utils.blueShapeDecoration, "SecondBlindShape")
+  Viewer.Viewer:addShape(Shape.createCircle(Point.create(0,0), utils.cutOffDistance), utils.redShapeDecoration, "cutOffDistanceShape")
+end
+
 --@showMasterScans():void
 function showOwnScans()
+  addShapes()
   utils.slaveActive = false
   utils.masterActive = true
   removeScansAndShapes()
@@ -29,6 +38,7 @@ end
 
 --@showSlaveScans():void
 function showSlaveScans()
+  addShapes()
   utils.slaveActive = true
   utils.masterActive = false
   removeScansAndShapes()
@@ -40,6 +50,8 @@ end
 function calibrate()
   Communication.stopReceiving()
   provider:deregister("OnNewScan", Viewer.showScans)
+
+  utils.transformation = false
 
   local edgeHitFilter = Scan.EchoFilter.create()
   edgeHitFilter:setType("Last")
@@ -127,13 +139,16 @@ function showMergedScans()
   slaveScans = {}
   Communication.receiveScans(Viewer.addSlaveScan)
   provider:register("OnNewScan", Viewer.showMergedCloud)
+  Viewer.Viewer:remove("FirstBlindShape")
+  Viewer.Viewer:remove("SecondBlindShape")
+  Viewer.Viewer:remove("cutOffDistanceShape")
 end
 
 --@setCutOffDistance(distance: int):void
 function setCutOffDistance(distance)
   utils.cutOffDistance = distance * 10
   Viewer.Viewer:remove("cutOffDistanceShape")
-  Viewer.Viewer:addShape(Shape.createCircle(Point.create(0,0), utils.cutOffDistance), nil, "cutOffDistanceShape")
+  Viewer.Viewer:addShape(Shape.createCircle(Point.create(0,0), utils.cutOffDistance), utils.redShapeDecoration, "cutOffDistanceShape")
   Viewer.Viewer:present()
 end
 
@@ -145,6 +160,5 @@ local function main()
   Script.serveFunction("LIDAR_AppSpace.calibrate", "calibrate")
   Script.serveFunction("LIDAR_AppSpace.setCutOffDistance", "setCutOffDistance", "int")
   Script.serveFunction("LIDAR_AppSpace.showMergedScans", "showMergedScans")
-  setCutOffDistance(utils.cutOffDistance)
 end
 Script.register("Engine.OnStarted", main)
