@@ -3,6 +3,9 @@ local Communication = {}
 socket = UDPSocket.create()
 UDPSocket.bind(socket, 2111)
 
+Communication.isMaster = false
+Communication.masterIP = "192.168.1.10" --default IP
+
 --@handle(data: String,ipaddress: String,port: int):void
 function handle(data,ipaddress,port)
   local scan = Object.deserialize(data, "MSGPACK")
@@ -24,13 +27,14 @@ function Communication.stopReceiving()
 end
 
 --@sendScans(_scanner: Scann.Provider.Scanner, masterIP: String):void
-function Communication.sendScans(_scanProvider, _masterIP)
+function Communication.sendScans(_scanProvider)
   function handleOnNewScan(scan)
     local counter = Scan.getNumber(scan)
     print("Sending Scan: " .. counter)
     local scanObj = Object.serialize(scan, "MSGPACK")
-    UDPSocket.transmit(socket, _masterIP, 2111, scanObj)
+    UDPSocket.transmit(socket, Communication.masterIP, 2111, scanObj)
   end
+  print("start sending scan to Master with IP: ", Communication.masterIP)
   _scanProvider:register("OnNewScan", handleOnNewScan)
   --_scanProvider:start()
 end

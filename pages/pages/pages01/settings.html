@@ -1,8 +1,16 @@
 <layout-row id="RowLayout1">
-	<davinci-checkbox id="slaveCheckBox">
-		<span>Slave</span>
+	<davinci-checkbox id="isMasterCheckbox" name="isMasterCheckbox">
+		<span>Master</span>
+		<crown-binding event="change" name="LIDAR_AppSpace/setTempIsMaster" path="param/args/isMaster" auto-commit></crown-binding>
 	</davinci-checkbox>
+	
 	<davinci-text-field id="masterIP" type="text" name="masterIPTextField" label="Master IP" placeholder="192.168.1.10">
+		<crown-binding event="change" name="LIDAR_AppSpace/setTempMasterIP" path="param/args/masterIP" auto-commit></crown-binding>
 	</davinci-text-field>
+	<davinci-button id="Button1" type="primary">
+		<span>Speichern</span>
+		<crown-binding event="submit" name="LIDAR_AppSpace/setSettings" auto-commit></crown-binding>
+	</davinci-button>
+	
   
 </layout-row>

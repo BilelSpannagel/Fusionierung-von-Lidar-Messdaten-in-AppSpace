@@ -20,6 +20,17 @@
                 <function name="showMergedScans">
                     <desc>Calibrate and Show merged scan.</desc>
                 </function>
+                <function name="setTempIsMaster">
+                    <desc></desc>
+                    <param name="isMaster" type="bool" desc=""/>
+                </function>
+                <function name="setSettings">
+                    <desc></desc>
+                </function>
+                <function name="setTempMasterIP">
+                    <desc></desc>
+                    <param name="masterIP" type="string" desc=""/>
+                </function>
             </serves>
         </crown>
         <crown name="Engine">

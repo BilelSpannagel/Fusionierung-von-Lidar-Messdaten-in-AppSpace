@@ -1,13 +1,18 @@
 print"start Script"
 
 --luacheck: globals Viewer Communication provider DataProcessing utils removeScansAndShapes showOwnScans showSlaveScans
---luacheck: globals slaveScans calibrate setCutOffDistance showMergedScans addShapes 
+--luacheck: globals slaveScans calibrate setCutOffDistance showMergedScans addShapes tempMasterIP tempIsMaster
 DataProcessing = require("DataProcessing")
 Viewer = require("ViewerModule")
 Communication = require("Communication")
 provider = Scan.Provider.Scanner.create()
 utils = require("utils")
 slaveScans = {}
+
+--Used to temporarily save the Settings set in the Page.
+--These values are transfered to the Communications script on Save click
+tempMasterIP = Communication.masterIp
+tempIsMaster = Communication.isMaster
 
 -- @removeScansAndShapes():void
 function removeScansAndShapes()
@@ -152,7 +157,29 @@ function setCutOffDistance(distance)
   Viewer.Viewer:present()
 end
 
+--@setTempIsMaster(isMaster: boolean): void
+function setTempIsMaster(isMaster)
+  tempIsMaster = isMaster
+  print(isMaster)
+end
+--@setTempMasterIP(masterIP: string): void
+function setTempMasterIP(masterIP)
+  tempMasterIP = masterIP
+  print(masterIP)
+end
 
+--@setSettings(isMaster: boolean, masterIP: string): void
+function setSettings()
+  print("set settings called")
+  if tempIsMaster then
+    Communication.isMaster = true
+    showSlaveScans()
+  else
+    Communication.isMaster = false
+    Communication.masterIP = tempMasterIP
+    Communication.sendScans(provider)
+  end
+end
 
 local function main()
   Script.serveFunction("LIDAR_AppSpace.showSlaveScans", "showSlaveScans")
@@ -160,5 +187,8 @@ local function main()
   Script.serveFunction("LIDAR_AppSpace.calibrate", "calibrate")
   Script.serveFunction("LIDAR_AppSpace.setCutOffDistance", "setCutOffDistance", "int")
   Script.serveFunction("LIDAR_AppSpace.showMergedScans", "showMergedScans")
+  Script.serveFunction("LIDAR_AppSpace.setTempIsMaster", "setTempIsMaster", "isMaster")
+  Script.serveFunction("LIDAR_AppSpace.setTempMasterIP", "setTempMasterIP", "masterIP")
+  Script.serveFunction("LIDAR_AppSpace.setSettings", "setSettings")
 end
 Script.register("Engine.OnStarted", main)
