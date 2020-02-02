@@ -76,7 +76,6 @@ darauf geachtet werden, dass das Dreieck richtig herum vor den Sensoren liegt, e
 und Unterseite.
 Es muss sich auch in dem gescannten 270 Grad Bereich befinden, also nicht direkt hinter einem der
 Sensoren.
-
 Dann muss einfach mehrfach der Kalibrierungs-Button gedrückt werden, bis das Dreieck logisch
 richtig auf der Anzeige dargestellt wird, leichtes verschieben vom Dreieck oder Sensoren kann bei der
 Kalibrierung helfen, da es zur Streuung des Infrarot Lights kommt wenn ein Scan genau auf eine Ecke
