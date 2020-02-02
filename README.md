@@ -1,5 +1,14 @@
 # Fusionierung von Lidar-Messdaten in AppSpace
 
+## Projektbeschreibung
+1.	Mithilfe der AppStudio-Entwicklungsumgebung soll eine einfache LIDAR-Anwendungentworfen, implementiert und getestet werden.
+2.	Die Bestimmung der geometrischen Lage der beiden Sensoren zueinander.
+3. Kommunikation zwischen zwei LIDAR-Sensoren
+4.	Kalibrieren durch gescanntes Prisma von beiden LIDAR-Sensoren.
+5.	Darstellung des 3-dimensionalen Raumes auf Webserver des Master-LIDARs
+6.	Master Scanner soll die Position des Slaves im Raum erkennen
+
+
 ## Einrichtung der Entwicklungsumgebung:
 1. Erstellung eines Kontos, Freischaltung erfolgt von Referenzpartner bei SICK:
 https://supportportal.sick.com/register/
