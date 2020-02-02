@@ -51,6 +51,7 @@ entfernt und es muss neu drauf geladen werden. So können auch Programmierfehler
 Endlosschleifen behoben werden.
 
 1. Appspace erkennt die Lidar Sensoren nicht
+
 Die Lidar Sensoren haben im Code feste IPs, damit mit diesen gearbeitet werden kann müssen sich
 die Sensoren und der verbundene Computer mit Appspace in einem eigenen privaten Netzwerk
 befinden.
@@ -61,6 +62,7 @@ Werden die Sensoren trotzdem nicht erkannt, sollten die Sensoren neu gestartet w
 Stromverbindung getrennt und neu hergestellt wird.
 
 2. Anzeigen der Weboberfläche
+
 Der Webserver, der auf dem Master-Sensor läuft, kann auf der Adresse „192.168.1.10“ mit
 beliebigen Computern im privaten Netzwerk mit beliebigen Browsern erreicht werden, wenn das
 Programm auf die Sensoren aufgespielt wurde und läuft.
@@ -71,6 +73,7 @@ anzeigen können, wenn sowohl das eigene Scannen, als auch das Senden und Empfan
 Daten funktioniert.
 
 3. Fehlerhafte Kalibrierung nach drücken des Kalibrierungs-Buttons auf der Website
+
 Damit das Dreieck richtig interpretiert und die Point Clouds übereinander gelegt werden, muss
 darauf geachtet werden, dass das Dreieck richtig herum vor den Sensoren liegt, es gibt eine Ober-
 und Unterseite.
@@ -85,26 +88,32 @@ anderes zu sehen ist außer das Dreieck, da alle in diesem Bereich gefundenen Pu
 Berechnung beachtet werden.
 
 4. Appspace wird langsam
+
 Wird die Entwicklungsumgebung immer langsamer gibt es irgendwo ein Memory Problem. Hier hilft
 Appspace neu zu starten.
 
 5. Keine Kommunikation zwischen den beiden Sensoren
+
 Sind beide Sensoren richtig angeschlossen und es kommt dennoch zu fehlerhafter/keiner
 Kommunikation zwischen beiden, muss die Stromversorgung der Sensoren unterbrochen werden,
 um diese neu zu starten.
 
 6. Programm kann nicht auf die Sensoren geladen werden
+
 Auch hier müssen die Sensoren neu gestartet werden in dem man die Stromverbindung unterbricht.
 
 7. Sensoren reagieren nicht mehr
+
 Auch hier müssen die Sensoren neu gestartet werden in dem man die Stromverbindung unterbricht.
 
 8. Web Interface ist nicht mehr responsiv
+
 Gibt es Probleme mit der Interaktion mit der Website, hängt der Apache Webserver der auf den
 Sensoren läuft. Auch hier müssen die Sensoren neu gestartet werden in dem man die
 Stromverbindung unterbricht.
 
 9. Werte ändern sich nicht mehr
+
 Kommt es zu Fehlern bei der Verarbeitung von Werten im Programm, muss das Programm erst von
 den Sensoren gelöscht werden, um es anschließend neu drauf zu spielen. Wird das Programm neu
 kompiliert sollten die Sensoren wieder Daten liefern, wenn es sich nicht um einen Programmierfehler
