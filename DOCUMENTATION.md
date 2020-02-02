@@ -54,7 +54,8 @@ Registriert die gegebene Funktion als OnReceive-Handle auf dem Socket. Empfangen
 	Nimmt eine PointCloud sowie eine Distanz und entfernt alle Punkte in der PointCloud, die weiter als die Distanz vom Ursprung entfernt sind.
 	Gibt die veränderte PointCloud zurück.
 
-*getCornersAndEdgeLengths(inputCloud:PointCloud):Point, Int, Point, Int, Float, Point, Int, Float*
+**getCornersAndEdgeLengths(inputCloud:PointCloud):Point, Int, Point, Int, Float, Point, Int, Float**
+
 	Überprüft in einer übergebenen PointCloud, ob der Sensor zwei oder drei Ecken eines Dreiecks anschaut. Ist der naheliegendste Punkt an einem Ende des Dreiecks, dann werden zwei Ecken angesehen, woraufhin der erste und der letzte Punkt in der PointCloud, deren Indexe, sowie die Distanz dazwischen zurückgegeben wird. Ist der naheliegendste Punkt nicht an einem Ende des Dreiecks und eine Ecke so wird der erste, der letzte und der naheliegendste Punkt zurückgegeben, sowie die Distanz zwischen dem letzten Punkt und dem naheliegendste Punkt. Ist der naheliegendste Punkt keine Ecke und an keinem Ende des Dreiecks, so werden der erste, der letzte Punkt der PointCloud, deren Indexe, sowie die Distanz dazwischen zurückgegeben.
 
 **getCorners(inputCloud:PointCloud):Point, Integer, Point, Point**
