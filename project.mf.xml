@@ -173,6 +173,6 @@
         <meta key="tags">Scan,PointCloud</meta>
         <meta key="read-protected">false</meta>
         <meta key="copy-protected">false</meta>
-        <entry path="scripts" default="LIDAR_AppSpace.lua"/>
+        <entry path="scripts" default="main.lua"/>
     </application>
 </manifest>

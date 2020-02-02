@@ -1,4 +1,5 @@
 local DataProcessing = {}
+
 local utils = require("utils")
 
 --@removePointsBeyond(inputCloud: PointCloud, maxDistance: double):PointCloud
@@ -28,7 +29,7 @@ function DataProcessing.getCornersAndEdgeLengths(inputCloud)
   if ((closestPointIndex == 0) or (closestPointIndex == pointCloudSize - 1)) then
     return firstPoint, firstPointIndex, lastPoint, lastPointIndex, distance
   else
-    if (distance * 1.1 < (Point.getDistance(firstPoint, closestPoint)+ Point.getDistance(lastPoint, closestPoint))) then
+    if (distance * 1.1 < (Point.getDistance(firstPoint, closestPoint) + Point.getDistance(lastPoint, closestPoint))) then
       return firstPoint, firstPointIndex, closestPoint, closestPointIndex, Point.getDistance(firstPoint, closestPoint),
         lastPoint, lastPointIndex, Point.getDistance(lastPoint, closestPoint)
     else
@@ -74,8 +75,8 @@ end
 
 --@DataProcessing.checkEdgeLength(length: double, index: int):Boolean
 function DataProcessing.checkEdgeLength(length, index)
-  local predifinedEdgeLength = utils.predifinedSideLengths[index]
-  return predifinedEdgeLength * 0.90 < length and length < predifinedEdgeLength * 1.1
+  local predefinedEdgeLength = utils.predefinedSideLengths[index]
+  return predefinedEdgeLength * 0.90 < length and length < predefinedEdgeLength * 1.1
 end
 
 
@@ -91,7 +92,6 @@ function DataProcessing.getThirdCorner(p1, p2)
   
   local A = secondPoint:getX() - (firstPoint:getX())
   local G = secondPoint:getY() - (firstPoint:getY())
-  --print(A,G)
   local alpha
   if (G ~= 0) then
     alpha = math.deg(math.atan(G/A))
@@ -107,18 +107,18 @@ function DataProcessing.getThirdCorner(p1, p2)
   local edgeLength = math.sqrt(math.pow(A, 2) + math.pow(G, 2))
 
   if DataProcessing.checkEdgeLength(edgeLength, 1) then
-    local deg = (alpha+utils.predifinedAngle[1])
-    local retPoint = Point.create(firstPoint:getX() + utils.predifinedSideLengths[2], firstPoint:getY())
+    local deg = (alpha+utils.predefinedAngle[1])
+    local retPoint = Point.create(firstPoint:getX() + utils.predefinedSideLengths[2], firstPoint:getY())
     retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, deg)
     return retPoint
   elseif DataProcessing.checkEdgeLength(edgeLength, 2) then
-    local deg = (alpha+utils.predifinedAngle[2])
-    local retPoint = Point.create(firstPoint:getX() + utils.predifinedSideLengths[3], firstPoint:getY())
+    local deg = (alpha+utils.predefinedAngle[2])
+    local retPoint = Point.create(firstPoint:getX() + utils.predefinedSideLengths[3], firstPoint:getY())
     retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, deg)
     return retPoint
   elseif DataProcessing.checkEdgeLength(edgeLength, 3) then
-    local deg = (alpha+utils.predifinedAngle[3])
-    local retPoint = Point.create(firstPoint:getX() + utils.predifinedSideLengths[1], firstPoint:getY())
+    local deg = (alpha+utils.predefinedAngle[3])
+    local retPoint = Point.create(firstPoint:getX() + utils.predefinedSideLengths[1], firstPoint:getY())
     retPoint = DataProcessing.rotateAroundPoint(firstPoint, retPoint, deg)
     return retPoint
   else
@@ -127,20 +127,20 @@ function DataProcessing.getThirdCorner(p1, p2)
   end
 end
 
---translatePositivePoint(originPoint:Point,vec:Point) : Point
+--@translatePositivePoint(originPoint:Point,vec:Point) : Point
 function DataProcessing.translatePositivePoint(originpoint,vec)
   originpoint = originpoint:add(vec)
   return originpoint
 end
 
---translateNegativePoint(originPoint:Point,vec:Point) : Point
+--@translateNegativePoint(originPoint:Point,vec:Point) : Point
 function DataProcessing.translateNegativePoint(originpoint,vec)
   Point.setXY(vec, Point.getX(vec) * (-1), Point.getY(vec) * (-1) )
   originpoint = originpoint:add(vec)
   return originpoint
 end
 
---computeAngle(p1Scan1:Point, p1Scan2:Point, p2Scan1:Point, p2Scan2:Point) : number
+--@computeAngle(p1Scan1:Point, p1Scan2:Point, p2Scan1:Point, p2Scan2:Point) : number
 function DataProcessing.computeAngle(p1Scan1, p1Scan2, p2Scan1, p2Scan2)
   local zero = Point.create(0, 0, 0)
   p2Scan1 = DataProcessing.translateNegativePoint(p2Scan1, p1Scan1)
@@ -182,8 +182,8 @@ function DataProcessing.computeMatrix(p1Scan1, p1Scan2, angle)
   return m5
 end
 
+--@getMatrix(p1Scan1: Point, p1Scan2: Point, angle: number): Matrix, Matrix, Matrix
 function DataProcessing.getMatrix(p1Scan1, p1Scan2, angle)
-
   local m1 = Matrix.create(3, 3)
   m1:setAll(0)
   m1:setValue(0, 0, 1)
@@ -209,6 +209,74 @@ function DataProcessing.getMatrix(p1Scan1, p1Scan2, angle)
   m3:setValue(1, 2, -Point.getY(p1Scan1))
 
   return m1,m2,m3
+end
+
+--@calculateCalibration(cloud: PointClouds):Array, PointCloud
+function DataProcessing.calculateCalibration(cloud)
+  
+  cloud = DataProcessing.removePointsBeyond(cloud, utils.cutOffDistance)
+  local firstPoint, firstPointIndex, secondPoint, secondPointIndex, distance, thirdPoint2D, thirdPointIndex, secondDistance
+    = DataProcessing.getCornersAndEdgeLengths(cloud)
+  
+  cloud:setIntensity({firstPointIndex, secondPointIndex, thirdPointIndex}, 0.3)
+  
+  if thirdPoint2D == nil then
+    thirdPoint2D = DataProcessing.getThirdCorner(firstPoint, secondPoint)
+  end
+
+  local thirdPoint = Point.create(thirdPoint2D:getX(), thirdPoint2D:getY(), 0)
+  local firstX, firstY = firstPoint:getXY()
+  local secondX, secondY = secondPoint:getXY()
+  local thirdX, thirdY = thirdPoint:getXY()
+  local d1 = Point.create(firstX, firstY, 76)
+  local d2 = Point.create(secondX, secondY, 76)
+  local d3 = Point.create(thirdX, thirdY, 76)
+  local d4 = Point.create(firstX,firstY, 0)
+  local d5 = Point.create(secondX, secondY, 0)
+  local d6 = Point.create(thirdX, thirdY, 0)
+  local points = {d1,d2,d3,d1,d4,d5,d6,d4,d5,d2,d3,d6}
+
+  --Save to global
+  if (utils.masterActive == true and utils.slaveActive == false) then
+    if DataProcessing.checkEdgeLength(distance,1) then
+      utils.masterPoint1 = firstPoint
+      utils.masterPoint2 = secondPoint
+      utils.masterPoint3 = thirdPoint
+    elseif DataProcessing.checkEdgeLength(distance,2) then
+      utils.masterPoint2 = firstPoint
+      utils.masterPoint3 = secondPoint
+      utils.masterPoint1 = thirdPoint
+    elseif DataProcessing.checkEdgeLength(distance,3) then
+      utils.masterPoint3 = firstPoint
+      utils.masterPoint1 = secondPoint
+      utils.masterPoint2 = thirdPoint
+    end
+  end
+
+  if (utils.masterActive == false and utils.slaveActive == true) then
+    if DataProcessing.checkEdgeLength(distance,1) then
+      utils.slavePoint1 = firstPoint
+      utils.slavePoint2 = secondPoint
+      utils.slavePoint3 = thirdPoint
+    elseif DataProcessing.checkEdgeLength(distance,2) then
+      utils.slavePoint2 = firstPoint
+      utils.slavePoint3 = secondPoint
+      utils.slavePoint1 = thirdPoint
+    elseif DataProcessing.checkEdgeLength(distance,3) then
+      utils.slavePoint3 = firstPoint
+      utils.slavePoint1 = secondPoint
+      utils.slavePoint2 = thirdPoint
+    end
+  end
+  
+  print(
+    "FirstPoint            X:", firstX, "Y:", firstY,
+    "\nSecondPoint           X:", secondX, "Y:", secondY,
+    "\nCalculated ThirdPoint X:", thirdX, "Y:", thirdY,
+    "\nEdge Lengths:", distance, secondDistance)
+  
+  cloud:setIntensity({firstPointIndex, secondPointIndex, thirdPointIndex}, 0.3)
+  return cloud, points
 end
 
 return DataProcessing
