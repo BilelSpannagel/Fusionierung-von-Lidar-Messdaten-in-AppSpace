@@ -1,7 +1,7 @@
 # Fusionierung von Lidar-Messdaten in AppSpace
 
 ## Projektbeschreibung
-1.	Mithilfe der AppStudio-Entwicklungsumgebung soll eine einfache LIDAR-Anwendungentworfen, implementiert und getestet werden.
+1.	Mithilfe der AppStudio-Entwicklungsumgebung soll eine einfache LIDAR-Anwendung entworfen, implementiert und getestet werden.
 2.	Die Bestimmung der geometrischen Lage der beiden Sensoren zueinander.
 3. Kommunikation zwischen zwei LIDAR-Sensoren
 4.	Kalibrieren durch gescanntes Prisma von beiden LIDAR-Sensoren.
