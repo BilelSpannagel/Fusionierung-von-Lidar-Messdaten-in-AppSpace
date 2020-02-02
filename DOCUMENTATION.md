@@ -1,4 +1,4 @@
-#Code Documentation
+# Code Documentation
 
 Lua ist keine objektorientierte Sprache. Man kann jedoch trotzdem mit Lua objektorientiert programmieren indem man Metatabellen als Klassen verwendet.
 
@@ -22,7 +22,7 @@ Ist das Skript in einem anderen Ordner, so muss der Pfad angegeben werden.
 
 
 
-##Communication
+## Communication
 
 Variablen:
 Socket: UDPSocket
@@ -43,7 +43,7 @@ Registriert die gegebene Funktion als OnReceive-Handle auf dem Socket. Empfangen
 	Registriert eine OnNewScan-Funkion auf dem gegebenen _scanProvider. Die Scans werden serialisiert und an die hinterlegte masterIP(Standard-IP: 192.168.1.10) gesendet. 
 
 
-##DataProcessing
+## DataProcessing
 
 **removePointsBeyond(inputCloud: PointCloud, maxDistance: double):PointCloud**
 	Nimmt eine PointCloud sowie eine Distanz und entfernt alle Punkte in der PointCloud, die weiter als die Distanz vom Ursprung entfernt sind.
@@ -83,7 +83,7 @@ Registriert die gegebene Funktion als OnReceive-Handle auf dem Socket. Empfangen
 	Berechnet drei Matrizen für zwei Translationen und eine Rotation aller Punkte von Scan2 zu Scan1 durch die Verwendung von identischen Punkten in  verschiedenen Koordinatensystemen sowie den Winkel zwischen diesen und gibt die Matrizen dann zurück.
 
 
-##Main
+## Main
 DataProcessing, Viewer, Communication, provider: Scan.Provider.Scanner, utils, slaveScans: Array, tempIsMaster: Boolean, tempMasterIP: String
 
 **removeScansAndShapes():void**
@@ -117,14 +117,14 @@ DataProcessing, Viewer, Communication, provider: Scan.Provider.Scanner, utils, s
 	Funktionen für die Pages werden zur Verfügung gestellt.
 
 
-##utils
+## utils
 
 Beinhaltet fest definierte Variablen die in verschiedenen Funktionen verwendet werden. Zur vereinfachten Refaktorisierung wurden diese ausgelagert um Änderungen zu vereinfachen.
 Beinhaltet die Dimensionen des Kalibrierungsobjektes sowie globale Flags und Koordinaten.
 
 Variablen: predefinedSideLengths, predefinedAngle, masterPoint1, masterPoint2, masterPoint3, slavePoint1, slavePoint2, slavePoint3, degreeSlaveMaster, triangleMaster, triangleSlave, degreeSlaveMaster, originPoint, showMaster, cutOffDistance, slaveActive, masterActive, transformation, blueShapeDecoration, greenShapeDecoration, redShapeDecoration
 
-##ViewerModule
+## ViewerModule
 
 **showScans(scan: Scan): void**
 	Zeigt nach jedem 4. Scan eine cloud mit den Letzten 4 Scans an. 
